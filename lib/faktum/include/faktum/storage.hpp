@@ -1,40 +1,100 @@
 #pragma once
 
 #include "core.hpp"
+#include "object.hpp"
 #include "archive.hpp"
+#include "string.hpp"
 
 
 class FObject;
 class FName;
 class FTextDevice;
 class FClass;
-class FString;
 class FMutex;
 
-class FAK_IMPORT FStorage { // TODO Members, static members, functions, size
+class FAK_IMPORT FStorage : public FObject { // TODO Members, static members, functions
 
 public:
 
-	class Archive : public FArchive { // TODO Contents
+	class Archive : public FArchive { // TODO Verify
+
+	public:
+
+		int Close() override;
+		unsigned int Read(void*, unsigned int) override;
+		unsigned int Write(const void*, unsigned int) override;
+		void Flush() override;
+		int Tell() override;
+		void ReadName(FName& name) override;
+		void WriteName(const FName& name) override;
+		FObject* ReadObject() override;
+		void WriteObject(const FObject* object) override;
 
 
+		FArchive* fileArchive;
+		FStorage* storagePtr;
+		FObject* objectPtr;
+		int unk14;
+		int unk18;
 
 	};
 
 	struct FAK_ASSUMED Name {
+
 		char* str;
 		unsigned int nameLength;
+
 	};
 
-	struct HeaderV3 { // TODO Contents
+	struct HeaderV3 { // TODO Verify offsets types
 
+		unsigned int magic;
+		unsigned int version;
+		unsigned int unk8;
+		unsigned int unkC;
+		unsigned int objectsCount;
+		BOOL zipObjects;
+		unsigned long long objectsOffset;
+		unsigned int objNamesCount;
+		BOOL zipNames;
+		unsigned long long objNamesOffset;
+		unsigned int classNamesCount;
+		unsigned int unk34;
+		unsigned long long classNamesOffset;
 
+	};
+
+	struct FAK_ASSUMED HeaderV2 { // TODO Contents
+
+		unsigned int magic;
+		unsigned int version;
+		unsigned int unk8;
+		unsigned int unkC;
+		unsigned int unk10;
+		unsigned int unk14;
+		unsigned long long unk18;
+		unsigned int unk20;
+		BOOL zip;
+		unsigned long long unk28;
+		unsigned int unk30;
+		unsigned int unk34;
+		unsigned long long unk38;
+		unsigned long long unk40;
 
 	};
 
 	struct FAK_ASSUMED ObjectInfoV3 { // TODO Contents
 
-
+		unsigned int nameIndex;
+		unsigned int classIndex;
+		unsigned int unk8;
+		unsigned int unkC;
+		unsigned int unk10;
+		unsigned int unused14;
+		unsigned long long unk18;
+		unsigned long long unk20;
+		FObject::LANGUAGE language;
+		unsigned int unused2C;
 
 	};
 
@@ -90,6 +150,44 @@ public:
 	static int __cdecl StaticNameTableCodecFromClass(FClass* fclass);
 	static void __cdecl StaticUnregisterClass();
 
+
+	int storageFlags;
+	FClass* objectCodec;
+	FClass* nameCodec;
+	Archive* archive;
+	FString filePath;
+	unsigned int storageVersion;
+	unsigned int unk40;
+	HeaderV2 headerV2;
+	int unk8C;
+	unsigned int unk90;
+	unsigned int unk94;
+	int* unk98;
+	int objectsCountV2;
+	int unkA0;
+	int unkA4;
+	unsigned int* unkA8;
+	int unkAC[0x16];
+	unsigned char unk104[0x48];
+	int unk14C[0x1E];
+	HeaderV3 headerV3;
+	int objectsCountV3;
+	int unk208;
+	int unk20C;
+	ObjectInfoV3* objectsV3;
+	int objNamesCount;
+	int unk218;
+	int unk21C;
+	Name* objNames;
+	int classNamesCount;
+	int unk228;
+	int unk22C;
+	Name* classNames;
+	unsigned char unk234[0x40];
+	unsigned char unk274[0x10];
+	unsigned char unk284[0x10];
+	unsigned char unk294[0x10];
+
 protected:
 
 	unsigned long long GetUniqueValueV2(FObject const*);
@@ -124,3 +222,4 @@ private:
 	static FClass* ms_pClass;
 
 };
+FAK_SIZE_GUARD(FStorage, 0x2A8);

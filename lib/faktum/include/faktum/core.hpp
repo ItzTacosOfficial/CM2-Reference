@@ -12,4 +12,5 @@
 
 // These macros only work as annotation and have no effect on the program's behaviour
 
-#define FAK_ASSUMED /* Type not existing in the exported symbols, assumed from decompilations */
+// FAK_ASSUMED marks a type which left no trace in the original binary and that was assumed from decompilations
+#define FAK_ASSUMED

@@ -1,9 +1,10 @@
 #pragma once
 
 #include "core.hpp"
+#include "archive.hpp"
 
+#include <cstdio>
 
-class FArchive;
 
 class FAK_IMPORT FFileSystem { // TODO Members, functions
 
@@ -33,6 +34,24 @@ FAK_SIZE_GUARD(FFileSystem, 0x4);
 class FAK_IMPORT FFileSystemANSI : public FFileSystem {
 
 public:
+
+	class FileArchive : public FArchive { // TODO Verify
+
+	public:
+
+		int Close() override;
+		unsigned int Read(void*, unsigned int) override;
+		unsigned int Write(const void*, unsigned int) override;
+		void Flush() override;
+		int Tell() override;
+		void Seek(int pos) override;
+		int Size() override;
+
+
+		FILE* file;
+
+	};
+
 
 	FFileSystemANSI();
 	FFileSystemANSI(const FFileSystemANSI& other);

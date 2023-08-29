@@ -1,0 +1,35 @@
+#pragma once
+
+#include "core.hpp"
+
+
+class NAME {
+
+public:
+
+	// Types
+
+
+	// Ctors
+
+	// Dtors
+
+	// Operator funcs
+
+	// Virtual funcs
+
+	// Member funcs
+
+	// Static funcs
+
+
+	// Static members
+
+	// Members
+
+protected:
+
+private:
+
+};
+FAK_SIZE_GUARD(NAME, 0x1);

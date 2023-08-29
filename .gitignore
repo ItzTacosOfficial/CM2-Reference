@@ -1,0 +1,23 @@
+# IDEs
+/.vs/
+/.vscode/
+/.idea/
+
+# Dummy Project
+/bin/
+/build/
+/CMakeLists.txt
+main.cpp
+
+# Libraries
+/lib/zlib/*
+/lib/vorbis/*
+/lib/openssl/*
+/lib/cm2/x86/*
+/lib/faktum/x86/*
+!/lib/cm2/x86/cm2.dll.sha256
+!/lib/faktum/x86/faktum.dll.sha256
+
+# Misc
+/assets/
+*.bak

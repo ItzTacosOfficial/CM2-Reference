@@ -5,6 +5,7 @@
 
 class FName;
 class FObject;
+class FString;
 
 class FAK_IMPORT FArchive {
 
@@ -50,3 +51,7 @@ protected:
 
 };
 FAK_SIZE_GUARD(FArchive, 0x8);
+
+
+FAK_IMPORT FArchive& __cdecl operator>>(FArchive& arc, FString& string);
+FAK_IMPORT FArchive& __cdecl operator<<(FArchive& arc, FString& string);

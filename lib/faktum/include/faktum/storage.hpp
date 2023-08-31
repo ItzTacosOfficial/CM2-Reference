@@ -99,54 +99,54 @@ public:
 	};
 
 
-	FStorage(FStorage const& other);
+	FStorage(const FStorage& other);
 	FStorage();
 
 	virtual ~FStorage();
 
-	static void* __cdecl operator new(unsigned int, FObject*, FName const&, FName const&, unsigned int);
+	static void* __cdecl operator new(unsigned int, FObject*, const FName&, const FName&, unsigned int);
 
-	FStorage& operator=(FStorage const& other);
+	FStorage& operator=(const FStorage& other);
 
 	virtual void Dump(FTextDevice* textDevice);
 
-	int DeleteObject(char const*, unsigned int);
+	int DeleteObject(const char*, unsigned int);
 	void Empty();
-	int FindObject(char const*, FClass*, unsigned int);
-	wchar_t const* GetFilePath() const;
-	FClass const* GetNameCodecClass() const;
-	char const* GetObjectClass(int id) const;
-	FClass const* GetObjectCodecClass() const;
+	int FindObject(const char*, FClass*, unsigned int);
+	const wchar_t* GetFilePath() const;
+	const FClass* GetNameCodecClass() const;
+	const char* GetObjectClass(int id) const;
+	const FClass* GetObjectCodecClass() const;
 	int GetObjectCount() const;
-	char const* GetObjectGroup(int id) const;
+	const char* GetObjectGroup(int id) const;
 	unsigned int GetObjectLanguage(int id) const;
 	FString GetObjectMD5(int id) const;
-	char const* GetObjectName(int id) const;
+	const char* GetObjectName(int id) const;
 	unsigned int GetStorageFlags() const;
-	int Load(wchar_t const* path);
-	FObject* LoadObject(char const*, FClass*, unsigned int);
+	int Load(const wchar_t* path);
+	FObject* LoadObject(const char*, FClass*, unsigned int);
 	int ReloadObject(FObject* object);
-	int RenameObject(int id, char const* name);
+	int RenameObject(int id, const char* name);
 	void Revert();
-	int Save(wchar_t const* path);
-	void SetFilePath(wchar_t const* path);
+	int Save(const wchar_t* path);
+	void SetFilePath(const wchar_t* path);
 	void SetNameCodec(FClass* fclass);
 	void SetObjectCodec(FClass* fclass);
-	void SetObjectGroup(int, FName const&);
+	void SetObjectGroup(int, const FName&);
 	void SetStorageFlags(unsigned int flags);
 
-	static int __cdecl StaticAddSearchPattern(wchar_t const*);
+	static int __cdecl StaticAddSearchPattern(const wchar_t*);
 	static FClass* __cdecl StaticClassFromNameTableCodec(int);
 	static void __cdecl StaticConstructor(void* data);
-	static FStorage* __cdecl StaticCreateStorage(FName const& name);
+	static FStorage* __cdecl StaticCreateStorage(const FName& name);
 	static void __cdecl StaticExit();
-	static FStorage* __cdecl StaticFindStorage(FName const& name);
+	static FStorage* __cdecl StaticFindStorage(const FName& name);
 	static FClass* __cdecl StaticGetClass();
-	static FString __cdecl StaticGetStorageName(wchar_t const*);
+	static FString __cdecl StaticGetStorageName(const wchar_t*);
 	static void __cdecl StaticInit();
-	static FObject* __cdecl StaticLoadObject(char const*, char const*, unsigned int);
-	static FStorage* __cdecl StaticLoadStorage(wchar_t const*, int);
-	//static int __cdecl StaticLoadStorageObjects(wchar_t const*, FTArray<FObject*>*, unsigned int);
+	static FObject* __cdecl StaticLoadObject(const char*, const char*, unsigned int);
+	static FStorage* __cdecl StaticLoadStorage(const wchar_t*, int);
+	//static int __cdecl StaticLoadStorageObjects(const wchar_t*, FTArray<FObject*>*, unsigned int);
 	static int __cdecl StaticNameTableCodecFromClass(FClass* fclass);
 	static void __cdecl StaticUnregisterClass();
 
@@ -190,7 +190,7 @@ public:
 
 protected:
 
-	unsigned long long GetUniqueValueV2(FObject const*);
+	unsigned long long GetUniqueValueV2(const FObject*);
 	FObject* LoadObject(int, unsigned int);
 	void ReadTablesV2();
 	void ReadTablesV3();
@@ -208,7 +208,7 @@ protected:
 	static void __cdecl StaticAddStorage(FStorage*);
 	static void __cdecl StaticReadName(FArchive* arc, char*);
 	static void __cdecl StaticRemoveStorage(FStorage*);
-	static void __cdecl StaticWriteName(FArchive* arc, char const*);
+	static void __cdecl StaticWriteName(FArchive* arc, const char*);
 
 	static FMutex ms_Mutex;
 	//static FTArray<FString> ms_aSearchPatterns;

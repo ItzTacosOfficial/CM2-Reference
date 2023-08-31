@@ -46,20 +46,20 @@ public:
 
 	void Dump(FTextDevice* device);
 
-	BOOL __thiscall Init() override;
-	void __thiscall Exit() override;
-	void __thiscall Flush(int, const wchar_t*) override;
-	BOOL __thiscall GetString(const wchar_t* section, const wchar_t* key, FString* value, const wchar_t* file) override;
-	BOOL __thiscall GetString(const wchar_t* section, const wchar_t* key, wchar_t* value, unsigned int, const wchar_t* file) override;
-	const wchar_t* __thiscall GetString(const wchar_t* section, const wchar_t* key, const wchar_t* file) override;
-	BOOL __thiscall GetBool(const wchar_t* section, const wchar_t* key, int* value, const wchar_t* file) override;
-	BOOL __thiscall GetInt(const wchar_t* section, const wchar_t* key, int* value, const wchar_t* file) override;
-	BOOL __thiscall GetFloat(const wchar_t* section, const wchar_t* key, float* value, const wchar_t* file) override;
-	void __thiscall SetString(const wchar_t* section, const wchar_t* key, const wchar_t* value, const wchar_t* file) override;
-	void __thiscall SetBool(const wchar_t* section, const wchar_t* key, int value, const wchar_t* file) override;
-	void __thiscall SetInt(const wchar_t* section, const wchar_t* key, int value, const wchar_t* file) override;
-	void __thiscall SetFloat(const wchar_t* section, const wchar_t* key, float value, const wchar_t* file) override;
-	void __thiscall EmptySection(const wchar_t*, const wchar_t*) override;
+	BOOL Init() override;
+	void Exit() override;
+	void Flush(int, const wchar_t*) override;
+	BOOL GetString(const wchar_t* section, const wchar_t* key, FString* value, const wchar_t* file) override;
+	BOOL GetString(const wchar_t* section, const wchar_t* key, wchar_t* value, unsigned int, const wchar_t* file) override;
+	const wchar_t* GetString(const wchar_t* section, const wchar_t* key, const wchar_t* file) override;
+	BOOL GetBool(const wchar_t* section, const wchar_t* key, int* value, const wchar_t* file) override;
+	BOOL GetInt(const wchar_t* section, const wchar_t* key, int* value, const wchar_t* file) override;
+	BOOL GetFloat(const wchar_t* section, const wchar_t* key, float* value, const wchar_t* file) override;
+	void SetString(const wchar_t* section, const wchar_t* key, const wchar_t* value, const wchar_t* file) override;
+	void SetBool(const wchar_t* section, const wchar_t* key, int value, const wchar_t* file) override;
+	void SetInt(const wchar_t* section, const wchar_t* key, int value, const wchar_t* file) override;
+	void SetFloat(const wchar_t* section, const wchar_t* key, float value, const wchar_t* file) override;
+	void EmptySection(const wchar_t*, const wchar_t*) override;
 
 
 	wchar_t* text;

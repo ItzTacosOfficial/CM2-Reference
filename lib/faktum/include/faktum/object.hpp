@@ -102,7 +102,6 @@ private:
 	static FClass* __cdecl StaticConstructClassFObject();
 	static void __cdecl StaticInitClassFObject();
 
-
 	static FObject** ms_apObjHash;
 	//static FTArray<FObject*> ms_apObjects;
 	static LANGUAGE ms_eLanguage;

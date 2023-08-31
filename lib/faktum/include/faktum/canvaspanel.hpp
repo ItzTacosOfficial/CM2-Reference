@@ -48,7 +48,6 @@ private:
 	static FClass* __cdecl StaticConstructClassFCanvasPanel();
 	static void __cdecl StaticInitClassFCanvasPanel();
 	
-	
 	static FClass* ms_pClass;
 
 };

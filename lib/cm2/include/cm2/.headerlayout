@@ -1,12 +1,14 @@
 #pragma once
 
 #include "core.hpp"
-// Includes
+// CM2 Includes
+// Faktum Includes
 
 
-// Forward declarations
+// CM2 Forward declarations
+// Faktum Forward declarations
 
-class FAK_IMPORT NAME {
+class CM2_IMPORT NAME {
 
 public:
 
@@ -41,4 +43,4 @@ private:
 	// *
 
 };
-FAK_SIZE_GUARD(NAME, 0x1);
+CM2_SIZE_GUARD(NAME, 0x1);

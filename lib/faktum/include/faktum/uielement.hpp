@@ -113,7 +113,6 @@ public:
 	static void __cdecl StaticInitClass();
 	static void __cdecl StaticUnregisterClass();
 
-
 	static int EventIDCapturedMouse;
 	static int EventIDContextMenuClosing;
 	static int EventIDContextMenuOpening;
@@ -144,6 +143,7 @@ public:
 	static int EventIDMouseWheel;
 	static int EventIDReleasedMouse;
 	static int EventIDSetVisibility;
+
 
 	unsigned char unk38[0x1FC];
 
@@ -187,7 +187,6 @@ private:
 
 	static FClass* __cdecl StaticConstructClassFUIElement();
 	static void __cdecl StaticInitClassFUIElement();
-
 
 	static FClass* ms_pClass;
 

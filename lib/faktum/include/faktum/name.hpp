@@ -36,8 +36,8 @@ public:
 	static int __cdecl StaticGetNameCount();
 	static void __cdecl StaticInit();
 
-
 	static const FName NONE;
+
 
 	int unk0;
 
@@ -50,7 +50,6 @@ protected:
 private:
 
 	FName(FObject* object);
-
 
 	static FMutex ms_Mutex;
 	//static FTArray<struct Name*> ms_aNames;

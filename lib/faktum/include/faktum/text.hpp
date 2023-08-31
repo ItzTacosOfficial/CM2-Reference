@@ -38,7 +38,6 @@ private:
 	static FClass* __cdecl StaticConstructClassFText();
 	static void __cdecl StaticInitClassFText();
 
-
 	static FClass* ms_pClass;
 
 };

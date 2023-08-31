@@ -66,8 +66,8 @@ public:
 	FMatrix4& Transpose();
 	FMatrix4& Zero();
 
-
 	static const FMatrix4 IDENTITY;
+
 
 	float m[4][4];
 

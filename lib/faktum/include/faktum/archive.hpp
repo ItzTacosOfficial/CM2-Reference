@@ -53,5 +53,5 @@ protected:
 FAK_SIZE_GUARD(FArchive, 0x8);
 
 
-FAK_IMPORT FArchive& __cdecl operator>>(FArchive& arc, FString& string);
-FAK_IMPORT FArchive& __cdecl operator<<(FArchive& arc, FString& string);
+FAK_IMPORT FArchive& __cdecl operator>>(FArchive& archive, FString& string);
+FAK_IMPORT FArchive& __cdecl operator<<(FArchive& archive, FString& string);

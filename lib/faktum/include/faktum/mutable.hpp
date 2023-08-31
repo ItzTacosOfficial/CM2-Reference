@@ -45,7 +45,6 @@ private:
 	static FClass* __cdecl StaticConstructClassFMutable();
 	static void __cdecl StaticInitClassFMutable();
 
-
 	static FClass* ms_pClass;
 
 };

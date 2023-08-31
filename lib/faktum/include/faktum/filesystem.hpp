@@ -18,7 +18,7 @@ public:
 	FFileSystem();
 	FFileSystem(const FFileSystem& other);
 
-	FFileSystem& __thiscall operator=(const FFileSystem& other);
+	FFileSystem& operator=(const FFileSystem& other);
 
 	virtual FArchive* CreateFileArchive(const wchar_t*, unsigned int, FTextDevice* textDevice) = 0;
 	virtual int GetFileSize(const wchar_t* path) = 0;

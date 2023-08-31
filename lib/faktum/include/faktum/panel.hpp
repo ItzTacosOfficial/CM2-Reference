@@ -40,7 +40,6 @@ private:
 	static FClass* __cdecl StaticConstructClassFPanel();
 	static void __cdecl StaticInitClassFPanel();
 
-
 	static FClass* ms_pClass;
 
 };

@@ -24,7 +24,7 @@ public:
 	int AddChild(FUIElement* child) override;
 	int RemoveChild(FUIElement* child) override;
 	void RemoveAllChildren() override;
-	FUIElement* GetChild(int);
+	virtual FUIElement* GetChild(int);
 
 	void SetBackgroundBrush(FBrush* brush);
 

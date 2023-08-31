@@ -22,7 +22,7 @@ public:
 	int AddChild(FUIElement* child) override;
 	int RemoveChild(FUIElement* child) override;
 	void RemoveAllChildren() override;
-	FUIElement* GetChild(int);
+	FUIElement* GetChild(int) override;
 
 	int AddChild(const FRect& rect, FUIElement* child);
 	int SetRect(FUIElement* child, const FRect& rect);

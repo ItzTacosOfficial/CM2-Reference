@@ -148,6 +148,7 @@ public:
 FAK_SIZE_GUARD(FVector4, 0x10);
 
 
+FAK_IMPORT float __cdecl FtDistanceTriPoint(const FVector3&, const FVector3&, const FVector3&, const FVector3&);
 FAK_IMPORT BOOL __cdecl FtIntersectTriTri(const FVector3&, const FVector3&, const FVector3&, const FVector3&, const FVector3&, const FVector3&);
 FAK_IMPORT FVector2* __stdcall FtVec2Normalize(FVector2*, const FVector2*);
 FAK_IMPORT FVector2* __stdcall FtVec2NormalizeUnsafe(FVector2*, const FVector2*);

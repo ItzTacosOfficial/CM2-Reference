@@ -31,3 +31,7 @@ public:
 
 };
 FAK_SIZE_GUARD(FLibrary, 0x14);
+
+
+FAK_IMPORT void __cdecl FtAttachLibrary(FLibrary*);
+FAK_IMPORT void __cdecl FtDetachLibrary(FLibrary*);

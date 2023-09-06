@@ -41,13 +41,17 @@ public:
 
 	struct VisibilityEventArgs {}; // TODO Contents
 
-	enum VISIBILITY {}; // TODO Contents
+	enum VISIBILITY { // TODO Contents
+		Unknown0,
+		Unknown1,
+		Unknown2
+	};
 
 
 	FUIElement(const FUIElement& other);
 	FUIElement(FUIContext* context);
 
-	virtual ~FUIElement() override;
+	~FUIElement() override;
 
 	FUIElement& operator=(const FUIElement& other);
 

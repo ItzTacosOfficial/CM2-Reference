@@ -89,3 +89,37 @@ private:
 
 };
 FAK_SIZE_GUARD(FString, 0x8);
+
+
+FAK_IMPORT char* __cdecl FtIToStrA(int, char*, int);
+FAK_IMPORT wchar_t* __cdecl FtIToStrW(int, wchar_t*, int);
+FAK_IMPORT unsigned int __cdecl FtStrAnsiToGeneric(wchar_t*, const char*, unsigned int);
+FAK_IMPORT unsigned int __cdecl FtStrAnsiToWide(wchar_t*, const char*, unsigned int);
+FAK_IMPORT unsigned int __cdecl FtStrGenericToAnsi(char*, const wchar_t*, unsigned int);
+FAK_IMPORT unsigned int __cdecl FtStrGenericToWide(wchar_t*, const wchar_t*, unsigned int);
+FAK_IMPORT unsigned int __cdecl FtStrHash(const char*);
+FAK_IMPORT unsigned int __cdecl FtStrHash(const wchar_t*);
+FAK_IMPORT BOOL __cdecl FtStrICmpA(const char*, const char*);
+FAK_IMPORT BOOL __cdecl FtStrICmpW(const wchar_t*, const wchar_t*);
+FAK_IMPORT BOOL __cdecl FtStrNICmpA(const char*, const char*, unsigned int);
+FAK_IMPORT BOOL __cdecl FtStrNICmpW(const wchar_t*, const wchar_t*, unsigned int);
+FAK_IMPORT unsigned int __cdecl FtStrPrintFCVA(const char*, char*);
+FAK_IMPORT unsigned int __cdecl FtStrPrintFCVW(const wchar_t*, char*);
+FAK_IMPORT const char* __cdecl FtStrRChrA(const char*, int, int);
+FAK_IMPORT const wchar_t* __cdecl FtStrRChrW(const wchar_t*, int, int);
+FAK_IMPORT const char* __cdecl FtStrRStrA(const char*, const char*, unsigned int);
+FAK_IMPORT const wchar_t* __cdecl FtStrRStrW(const wchar_t*, const wchar_t*, unsigned int);
+FAK_IMPORT float __cdecl FtStrToFA(const char*);
+FAK_IMPORT float __cdecl FtStrToFW(const wchar_t*);
+FAK_IMPORT BOOL __cdecl FtStrToIA(const char*);
+FAK_IMPORT BOOL __cdecl FtStrToIA(const char*, int);
+FAK_IMPORT BOOL __cdecl FtStrToIW(const wchar_t*);
+FAK_IMPORT BOOL __cdecl FtStrToIW(const wchar_t*, int);
+FAK_IMPORT unsigned int __cdecl FtStrToUIA(const char*, int);
+FAK_IMPORT unsigned int __cdecl FtStrToUIW(const wchar_t*, int);
+FAK_IMPORT unsigned int __cdecl FtStrWideToAnsi(char*, const wchar_t*, unsigned int);
+FAK_IMPORT unsigned int __cdecl FtStrWideToGeneric(wchar_t*, const wchar_t*, unsigned int);
+FAK_IMPORT char* __cdecl FtUIToStrA(unsigned int, char*, int);
+FAK_IMPORT wchar_t* __cdecl FtUIToStrW(unsigned int, wchar_t*, int);
+
+FAK_IMPORT void __cdecl _FtXToStr(unsigned int, char*, unsigned int, int);

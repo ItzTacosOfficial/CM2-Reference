@@ -3,7 +3,8 @@
 #include "core.hpp"
 
 
-struct HALF {}; // TODO Contents
+struct HALF;
+class FMatrix4;
 
 class FAK_IMPORT FVector2 {
 

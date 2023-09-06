@@ -146,3 +146,19 @@ public:
 
 };
 FAK_SIZE_GUARD(FVector4, 0x10);
+
+
+FAK_IMPORT BOOL __cdecl FtIntersectTriTri(const FVector3&, const FVector3&, const FVector3&, const FVector3&, const FVector3&, const FVector3&);
+FAK_IMPORT FVector2* __stdcall FtVec2Normalize(FVector2*, const FVector2*);
+FAK_IMPORT FVector2* __stdcall FtVec2NormalizeUnsafe(FVector2*, const FVector2*);
+FAK_IMPORT FVector4* __stdcall FtVec2Transform(FVector4*, const FVector2*, const FMatrix4*);
+FAK_IMPORT FVector2* __stdcall FtVec2TransformCoord(FVector2*, const FVector2*, const FMatrix4*);
+FAK_IMPORT FVector2* __stdcall FtVec2TransformNormal(FVector2*, const FVector2*, const FMatrix4*);
+FAK_IMPORT FVector3* __stdcall FtVec3Normalize(FVector3*, const FVector3*);
+FAK_IMPORT FVector3* __stdcall FtVec3NormalizeUnsafe(FVector3*, const FVector3*);
+FAK_IMPORT FVector4* __stdcall FtVec3Transform(FVector4*, const FVector3*, const FMatrix4*);
+FAK_IMPORT FVector3* __stdcall FtVec3TransformCoord(FVector3*, const FVector3*, const FMatrix4*);
+FAK_IMPORT FVector3* __stdcall FtVec3TransformNormal(FVector3*, const FVector3*, const FMatrix4*);
+FAK_IMPORT FVector4* __stdcall FtVec4Normalize(FVector4*, const FVector4*);
+FAK_IMPORT FVector4* __stdcall FtVec4NormalizeUnsafe(FVector4*, const FVector4*);
+FAK_IMPORT FVector4* __stdcall FtVec4Transform(FVector4*, const FVector4*, const FMatrix4*);

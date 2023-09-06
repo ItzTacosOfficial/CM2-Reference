@@ -73,3 +73,18 @@ public:
 
 };
 FAK_SIZE_GUARD(FMatrix4, 0x40);
+
+
+FAK_IMPORT float __stdcall FtMatrixDeterminant(const FMatrix4*);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixInverse(FMatrix4*, float*, const FMatrix4*);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixMultiply(FMatrix4*, const FMatrix4*, const FMatrix4*);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixMultiplyTranspose(FMatrix4*, const FMatrix4*, const FMatrix4*);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixRotationAxis(FMatrix4*, const FVector3*, float);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixRotationQuaternion(FMatrix4*, const FQuaternion*);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixRotationX(FMatrix4*, float);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixRotationY(FMatrix4*, float);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixRotationYawPitchRoll(FMatrix4*, float, float, float);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixRotationZ(FMatrix4*, float);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixScaling(FMatrix4*, float, float, float);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixTranslation(FMatrix4*, float, float, float);
+FAK_IMPORT FMatrix4* __stdcall FtMatrixTranspose(FMatrix4*, const FMatrix4*);

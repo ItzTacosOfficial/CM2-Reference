@@ -27,6 +27,8 @@
 #include "object.hpp"
 #include "panel.hpp"
 #include "plane.hpp"
+#include "profiledevice.hpp"
+#include "profilesample.hpp"
 #include "quaternion.hpp"
 #include "ray.hpp"
 #include "rect.hpp"
@@ -46,7 +48,6 @@
 
 class FCpuInfo;
 class FTimer;
-class FProfileDevice;
 
 BOOL __cdecl FtAssertBreak(BOOL condition, const wchar_t* mainText, const wchar_t* subText, BOOL* abort);
 void __cdecl FtClipboardCopy(const wchar_t*);
@@ -64,7 +65,5 @@ FTextDevice* __cdecl FtGetTextDeviceNull();
 FTimer* __cdecl FtGetTimer();
 void __cdecl FtInit(const wchar_t* args, FMemManager* memManager, FTextDevice* textDevice, FFileSystem* fileSystem, FConfig* config);
 void __cdecl FtQuickSort(void*, unsigned int, unsigned int, int (__cdecl*)(const void*, const void*, void*), void*);
-void __cdecl FtResetProfile();
-void __cdecl FtSetProfileDevice(FProfileDevice*);
 
 long __stdcall _FtHandleException(EXCEPTION_POINTERS);

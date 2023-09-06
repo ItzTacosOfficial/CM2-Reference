@@ -44,3 +44,6 @@ private:
 
 };
 FAK_SIZE_GUARD(FStruct, 0x3C);
+
+
+FStruct* __cdecl FtRegisterStruct(const char*, unsigned int);

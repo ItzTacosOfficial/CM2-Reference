@@ -163,3 +163,5 @@ FAK_IMPORT FVector3* __stdcall FtVec3TransformNormal(FVector3*, const FVector3*,
 FAK_IMPORT FVector4* __stdcall FtVec4Normalize(FVector4*, const FVector4*);
 FAK_IMPORT FVector4* __stdcall FtVec4NormalizeUnsafe(FVector4*, const FVector4*);
 FAK_IMPORT FVector4* __stdcall FtVec4Transform(FVector4*, const FVector4*, const FMatrix4*);
+
+FAK_IMPORT float __cdecl _FtVectorLineSegDist(const FVector3&, const FVector3&, const FVector3&, float);

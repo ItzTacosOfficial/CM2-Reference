@@ -15,7 +15,7 @@ public:
 
 	FField& operator=(const FField& other);
 
-	static void* __cdecl operator new(unsigned int, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
 
 	static void __cdecl StaticConstructor(void* data);
 	static FClass* __cdecl StaticGetClass();

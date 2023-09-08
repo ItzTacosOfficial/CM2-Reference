@@ -15,7 +15,7 @@ public:
 
 	CM2MenuPanel& operator=(const CM2MenuPanel& other);
 
-	static void* __cdecl operator new(unsigned int, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
 
 	void Tick(float) override;
 	void Render(FCanvas*) override;

@@ -18,7 +18,7 @@ public:
 
 	FMutable& operator=(const FMutable& other);
 
-	static void* __cdecl operator new(unsigned int, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
 
 	FObject* Clone(const FName&, const FName&, FObject*, int) override;
 	void Serialize(FArchive& archive) override;

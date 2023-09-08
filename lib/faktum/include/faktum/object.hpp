@@ -30,7 +30,7 @@ public:
 
 	FObject& operator=(const FObject& other);
 
-	static void* __cdecl operator new(unsigned int, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
 	static void __cdecl operator delete(void* ptr);
 	static void __cdecl operator delete(void*, FObject*, const FName&, const FName&, unsigned int);
 

@@ -15,7 +15,7 @@ public:
 
 	FCanvasPanel& operator=(const FCanvasPanel& other);
 
-	static void* __cdecl operator new(unsigned int, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
 
 	void Render(FCanvas* canvas) override;
 	void Serialize(FArchive&) override;

@@ -32,8 +32,8 @@ public:
 
 
 		FArchive* fileArchive;
-		FStorage* storagePtr;
-		FObject* objectPtr;
+		FStorage* storage;
+		FCodec* codec;
 		int unk14;
 		int unk18;
 
@@ -42,7 +42,7 @@ public:
 	struct FAK_ASSUMED Name {
 
 		char* str;
-		unsigned int nameLength;
+		unsigned int length;
 
 	};
 
@@ -91,8 +91,8 @@ public:
 		unsigned int unkC;
 		unsigned int unk10;
 		unsigned int unused14;
-		unsigned long long unk18;
-		unsigned long long unk20;
+		unsigned long long dataOffset;
+		unsigned long long dataSize;
 		FObject::LANGUAGE language;
 		unsigned int unused2C;
 

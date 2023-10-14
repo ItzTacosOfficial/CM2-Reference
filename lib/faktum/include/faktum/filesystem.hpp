@@ -14,13 +14,18 @@ public:
 
 	enum STATUS {}; // TODO Contents
 
+	enum FAK_ASSUMED MODE {
+		Read		= 0x1,
+		Write		= 0x2,
+	};
+
 
 	FFileSystem();
 	FFileSystem(const FFileSystem& other);
 
 	FFileSystem& operator=(const FFileSystem& other);
 
-	virtual FArchive* CreateFileArchive(const wchar_t*, unsigned int, FTextDevice* textDevice) = 0;
+	virtual FArchive* CreateFileArchive(const wchar_t* path, unsigned int mode, FTextDevice* textDevice) = 0;
 	virtual int GetFileSize(const wchar_t* path) = 0;
 	virtual int Delete(const wchar_t* path) = 0;
 	virtual int Copy(const wchar_t*, const wchar_t*, int, unsigned int (__cdecl*)(__int64, __int64, STATUS, void*), void*, int*) = 0;
@@ -58,13 +63,13 @@ public:
 
 	FFileSystemANSI& operator=(const FFileSystemANSI& other);
 
-	FArchive* CreateFileArchive(const wchar_t*, unsigned int, FTextDevice*) override;
-	int GetFileSize(const wchar_t*) override;
-	int Delete(const wchar_t*) override;
-	int Copy(const wchar_t*, const wchar_t*, int, unsigned int (__cdecl*)(__int64, __int64, STATUS, void*), void*, int*) override;
+	FArchive* CreateFileArchive(const wchar_t* path, unsigned int mode, FTextDevice*) override;
+	int GetFileSize(const wchar_t* path) override;
+	BOOL Delete(const wchar_t* path) override;
+	BOOL Copy(const wchar_t*, const wchar_t*, int, unsigned int (__cdecl*)(__int64, __int64, STATUS, void*), void*, int*) override;
 	//FTArray<FFileSystem::FindData> FindFiles(const wchar_t*) override;
-	int CreateDirectoryW(const wchar_t*) override;
-	int RemoveDirectoryW(const wchar_t*) override;
+	BOOL CreateDirectoryW(const wchar_t* path) override;
+	BOOL RemoveDirectoryW(const wchar_t* path) override;
 
 };
 FAK_SIZE_GUARD(FFileSystemANSI, 0x4);

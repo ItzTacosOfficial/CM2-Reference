@@ -21,7 +21,7 @@ public:
 
 	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
 
-	virtual void Register();
+	void Register() override;
 
 	FClass* GetSuperClass();
 	int IsDerivedFrom(FClass*);

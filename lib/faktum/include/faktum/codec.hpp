@@ -10,8 +10,8 @@ class FAK_IMPORT FCodec : public FObject {
 public:
 
 	enum TYPE {
-		Decode = 1,
-		Encode,
+		Encode = 1,
+		Decode,
 	};
 
 
@@ -40,8 +40,8 @@ public:
 
 	TYPE type;
 	unsigned char* buffer;
-	int bufferLength;
-	unsigned int size;
+	unsigned int bufferLength;
+	unsigned int bufferSize;
 
 private:
 

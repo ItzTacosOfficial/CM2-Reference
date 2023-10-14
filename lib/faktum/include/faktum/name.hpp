@@ -13,7 +13,9 @@ public:
 
 	struct Name {}; // TODO Contents
 
-	enum NAME {}; // TODO Contents
+	enum NAME { // TODO Contents
+		Invalid = -1
+	};
 
 
 	FName(const FName& other);

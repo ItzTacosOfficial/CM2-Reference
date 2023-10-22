@@ -6,6 +6,7 @@
 #include "string.hpp"
 
 
+class FCodec;
 class FObject;
 class FName;
 class FTextDevice;

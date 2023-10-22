@@ -3,6 +3,9 @@
 #include "core.hpp"
 
 
+class FString;
+class FTextDevice;
+
 class FAK_IMPORT FConfig {
 
 public:

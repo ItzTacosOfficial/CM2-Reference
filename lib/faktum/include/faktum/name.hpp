@@ -14,7 +14,7 @@ public:
 	struct Name {}; // TODO Contents
 
 	enum NAME { // TODO Contents
-		Invalid = -1
+		Unnamed = -1
 	};
 
 

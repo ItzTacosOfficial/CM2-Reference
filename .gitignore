@@ -21,3 +21,8 @@ main.cpp
 # Misc
 /assets/
 *.bak
+
+# Tools
+*.py
+*.exe
+*.cmd

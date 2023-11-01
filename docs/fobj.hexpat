@@ -1,3 +1,9 @@
+#include <std/sys.pat>
+#include <type/magic.pat>
+#include <std/array.pat>
+#include <std/string.pat>
+
+
 enum BOOL : u32 {
     FALSE = 0,
     TRUE = 1,
@@ -8,68 +14,103 @@ fn fmtBOOL(auto n) {
 };
 
 
-
 struct FVector3 {
     float x;
     float y;
     float z;
-};
+} [[single_color]];
+
 
 struct FObject {
-    u32 language;
-    u32 flags;
+    u32 objLanguage;
+    u32 objFlags;
 };
 
 
-struct FMeshNormal {
-    padding[4 * 4];
+struct FMeshNormalEntry {
+    u32 a;
+    u32 b;
+    u32 c;
+    u32 d;
 };
 
-u32 _vertexIdx;
-u32 _vertexCount;
+struct FMeshWeightEntry {
+    u32 nameIndex;
+    u32 a;
+    u32 b;
+};
 
-struct FMeshVertex<auto Vertices, auto Normals, auto Tangents, auto PointSizes, auto Weights> {
-    if (Vertices) {
-        FVector3 pos;
+struct FMeshVertex<auto Vertex, auto Normal, auto PointSize, auto Weight> {
+    if (bool(Vertex)) {
+        FVector3 vertex;
     }
-    if (Normals) {
+    if (bool(Normal)) {
+        u32 x10;
+        FVector3 normal;
         u32 normalsCount;
-        u32;
-        u32;
-        u32;
-        u32;
-        std::print("count: {} [{}/{}]", normalsCount, _vertexIdx, _vertexCount);
-        _vertexIdx = _vertexIdx + 1;
-        if (normalsCount > 1) {
-            FMeshNormal normal[normalsCount];
-        }
+        FMeshNormalEntry normals[normalsCount];
     }
-    if (Tangents) {
-        
+    if (bool(PointSize)) {
+        float pointSize;
     }
-    if (PointSizes) {
-    
+    if (bool(Weight)) {
+        u32 weightsCount;
+        FMeshWeightEntry weights[weightsCount];
     }
-    if (Weights) {
-    
+};
+
+struct FMeshChannelEntry1 {
+    u32 a;
+    u32 b;
+    u32 c;
+    u32 d;
+};
+
+struct FMeshChannelEntry2 {
+    u32 a;
+    u32 b;
+    u32 c;
+};
+
+struct FMeshChannel {
+    u32 x0;
+    u32 entriesCount_1;
+    FMeshChannelEntry1 entries_1[entriesCount_1];
+    u32 entriesCount_2;
+    FMeshChannelEntry2 entries_2[entriesCount_2];
+};
+
+struct FMeshFace<auto Flag> {
+    u32 a;
+    u32 b;
+    u32 c;
+    u32 d;
+    u32 e;
+    if (bool(Flag)) {
+        u32 a_e;
+        u32 b_e;
+        u32 c_e;
     }
 };
 
 struct FMesh : FObject {
 
-    u32;
-    BOOL supportVertices;
-    BOOL supportNormals;
-    BOOL supportTangentSpace;
-    BOOL supportPointSizes;
-    BOOL supportWeights;
+    u32 flags;
+    BOOL sVertices;
+    BOOL sNormals;
+    BOOL sTangentSpace;
+    BOOL sPointSizes;
+    BOOL sWeights;
+    
     u32 vertexCount;
+    FMeshVertex<sVertices, sNormals, sPointSizes, sWeights> vertices[vertexCount];
     
-    _vertexCount = vertexCount;
+    u32 channelsCount;
+    FMeshChannel channels[channelsCount];
     
-    FMeshVertex<
-        supportVertices, supportNormals, supportTangentSpace, supportPointSizes, supportWeights
-    > vertices[vertexCount];
+    u32 facesCount;
+    BOOL someBool;
+    FMeshFace<someBool> faces[facesCount];
     
 };
 
@@ -102,4 +143,4 @@ struct FBlob : FObject {
 };
 
 
-FBlob data @ 0x8 [[inline]];
+FMesh data @ 0x8 [[inline]];

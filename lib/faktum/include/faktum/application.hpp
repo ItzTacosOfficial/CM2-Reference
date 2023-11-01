@@ -12,10 +12,10 @@ class FAK_IMPORT FApplication : public FObject { // TODO Members
 public:
 
 	enum FAK_ASSUMED FLAG {
-		Initialized	= 0x1,
-		Ticking		= 0x2,
-		Drawing		= 0x4,
-		Unk8		= 0x8,
+		INITIALIZED	= 0x1,
+		TICKING		= 0x2,
+		DRAWING		= 0x4,
+		UNK8		= 0x8,
 	};
 
 

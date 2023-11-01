@@ -11,9 +11,9 @@ class CM2_IMPORT CM2Automate : public FObject {
 public:
 
 	enum CM2_ASSUMED FLAG {
-		Enabled		= 0x1,
-		Benchmark	= 0x2,
-		RunGame		= 0x4
+		ENABLED	= 0x1,
+		BENCHMARK	= 0x2,
+		RUNGAME	= 0x4
 	};
 
 

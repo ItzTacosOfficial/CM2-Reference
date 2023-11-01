@@ -24,7 +24,7 @@ public:
 	FAK_SIZE_GUARD(Name, 0x50);
 
 	enum NAME {
-		Unnamed = -1
+		UNNAMED = -1
 	};
 
 

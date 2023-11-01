@@ -16,13 +16,13 @@ public:
 	struct FindData {}; // TODO Contents
 
 	enum STATUS {
-		PreCopy,
-
+		FILEOPENED = 1,
+		COPYING
 	};
 
 	enum FAK_ASSUMED MODE {
-		Read	= 0x1,
-		Write	= 0x2,
+		READ	= 0x1,
+		WRITE	= 0x2,
 	};
 
 	using CopyCallbackT = unsigned int (__cdecl*)(long long sourceSize, long long unk, STATUS status, void* userData);

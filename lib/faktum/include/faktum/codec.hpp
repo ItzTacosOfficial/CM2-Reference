@@ -10,8 +10,8 @@ class FAK_IMPORT FCodec : public FObject {
 public:
 
 	enum TYPE {
-		Encode = 1,
-		Decode,
+		ENCODE = 1,
+		DECODE,
 	};
 
 

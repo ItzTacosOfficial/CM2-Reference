@@ -5,20 +5,22 @@
 
 #include <cstdio>
 
+#undef ERROR
+
 
 class FAK_IMPORT FTextDevice { // TODO Critical section
 
 public:
 
 	enum FORMAT { // TODO Contents
-		Critical = 1,
-		Error,
-		Warning,
-		AboveWarning,
-		Init,
-		Exit,
-		AboveExit,
-		Dev,
+		CRITICAL = 1,
+		ERROR,
+		WARNING,
+		ABOVE_WARNING,
+		INIT,
+		EXIT,
+		ABOVE_EXIT,
+		DEV,
 	};
 
 

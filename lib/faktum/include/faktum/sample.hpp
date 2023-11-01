@@ -9,9 +9,9 @@ class FAK_IMPORT FSample : public FResource {
 public:
 
 	enum FORMAT {
-		None = 1,
-		Raw = 2,
-		Ogg = 3
+		NONE = 1,
+		RAW,
+		OGG
 	};
 
 

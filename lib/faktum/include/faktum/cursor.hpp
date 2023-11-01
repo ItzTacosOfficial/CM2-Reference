@@ -8,8 +8,8 @@ class FAK_IMPORT FCursor {
 public:
 
 	enum TYPE {
-		Standard = 1,
-		Animated,
+		STANDARD = 1,
+		ANIMATED,
 	};
 
 

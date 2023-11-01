@@ -12,10 +12,10 @@ class FAK_IMPORT FArchive {
 public:
 
 	enum FAK_ASSUMED FLAG {
-		Loading		= 0x1,
-		Storing		= 0x2,
-		Persistent	= 0x4,
-		Unknown8	= 0x8,
+		LOADING		= 0x1,
+		STORING		= 0x2,
+		PERSISTENT	= 0x4,
+		UNK8		= 0x8,
 	};
 
 

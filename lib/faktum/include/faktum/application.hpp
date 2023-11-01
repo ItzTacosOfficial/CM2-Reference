@@ -26,7 +26,7 @@ public:
 
 	FApplication& operator=(const FApplication& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void ClearApplicationFlags(unsigned int mask);
 	float GetFrameRateAverage() const;
@@ -37,8 +37,8 @@ public:
 	int Run();
 	void SetFrameRateMaximum(float frameRate);
 
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	FLAG applicationFlags;
@@ -59,8 +59,8 @@ protected:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFApplication();
-	static void __cdecl StaticInitClassFApplication();
+	static FClass* StaticConstructClassFApplication();
+	static void StaticInitClassFApplication();
 
 	static FClass* ms_pClass;
 

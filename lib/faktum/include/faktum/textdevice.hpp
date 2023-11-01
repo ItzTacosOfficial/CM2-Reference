@@ -32,8 +32,8 @@ public:
 	unsigned int GetLevel() const;
 	void Log(const wchar_t* text);
 	void Log(FORMAT format, const wchar_t* text);
-	void __cdecl Logf(const wchar_t* text, ...);
-	void __cdecl Logf(FORMAT format, const wchar_t* text, ...);
+	void Logf(const wchar_t* text, ...);
+	void Logf(FORMAT format, const wchar_t* text, ...);
 	void SetLevel(FORMAT format);
 
 
@@ -118,7 +118,7 @@ protected:
 
 private:
 
-	static int __cdecl StaticTrayMessage(HWND hwnd, unsigned long, unsigned int, HICON icon, wchar_t*);
+	static int StaticTrayMessage(HWND hwnd, unsigned long, unsigned int, HICON icon, wchar_t*);
 	static long __stdcall StaticWndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp);
 	static void* __stdcall StaticWndThread(FTextDeviceWindow* self);
 

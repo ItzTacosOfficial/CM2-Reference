@@ -22,7 +22,7 @@ public:
 
 	FCodec& operator=(const FCodec& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	virtual BOOL Begin(TYPE type, unsigned int bufferSize);
 	virtual void End();
@@ -34,8 +34,8 @@ public:
 	TYPE GetType() const;
 	void ResetBuffer();
 
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	TYPE type;
@@ -45,8 +45,8 @@ public:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFCodec();
-	static void __cdecl StaticInitClassFCodec();
+	static FClass* StaticConstructClassFCodec();
+	static void StaticInitClassFCodec();
 
 	static FClass* ms_pClass;
 
@@ -64,18 +64,18 @@ public:
 
 	FCodecRaw& operator=(const FCodecRaw& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	unsigned int ProcessBuffer(void* data, unsigned int size) override;
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFCodecRaw();
-	static void __cdecl StaticInitClassFCodecRaw();
+	static FClass* StaticConstructClassFCodecRaw();
+	static void StaticInitClassFCodecRaw();
 
 	static FClass* ms_pClass;
 
@@ -93,15 +93,15 @@ public:
 
 	FCodecZip& operator=(const FCodecZip& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	BOOL Begin(TYPE type, unsigned int bufferSize) override;
 	void End() override;
 	unsigned int ProcessBuffer(void* data, unsigned int size) override;
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	z_streamp stream;
@@ -109,8 +109,8 @@ public:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFCodecZip();
-	static void __cdecl StaticInitClassFCodecZip();
+	static FClass* StaticConstructClassFCodecZip();
+	static void StaticInitClassFCodecZip();
 
 	static FClass* ms_pClass;
 

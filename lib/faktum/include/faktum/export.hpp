@@ -15,7 +15,7 @@ public:
 
 	~FExport() override;
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FExport& operator=(const FExport& other);
 
@@ -24,13 +24,13 @@ public:
 	virtual unsigned int GetExtensionCount() = 0;
 	virtual BOOL ExportObject(FObject* object, const wchar_t* path, FObject* unk) = 0;
 
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFExport();
-	static void __cdecl StaticInitClassFExport();
+	static FClass* StaticConstructClassFExport();
+	static void StaticInitClassFExport();
 
 	static FClass* ms_pClass;
 
@@ -46,7 +46,7 @@ public:
 
 	~FExportCode() override;
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FExportCode& operator=(const FExportCode& other);
 
@@ -55,14 +55,14 @@ public:
 	unsigned int GetExtensionCount() override;
 	BOOL ExportObject(FObject* object, const wchar_t* path, FObject* unk) override;
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFExportCode();
-	static void __cdecl StaticInitClassFExportCode();
+	static FClass* StaticConstructClassFExportCode();
+	static void StaticInitClassFExportCode();
 
 	static FClass* ms_pClass;
 
@@ -78,7 +78,7 @@ public:
 
 	~FExportFontF3F() override;
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FExportFontF3F& operator=(const FExportFontF3F& other);
 
@@ -87,14 +87,14 @@ public:
 	unsigned int GetExtensionCount() override;
 	BOOL ExportObject(FObject* object, const wchar_t* path, FObject* unk) override;
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFExportFontF3F();
-	static void __cdecl StaticInitClassFExportFontF3F();
+	static FClass* StaticConstructClassFExportFontF3F();
+	static void StaticInitClassFExportFontF3F();
 
 	static FClass* ms_pClass;
 
@@ -115,7 +115,7 @@ public:
 
 	~FExportTextureDDS() override;
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FExportTextureDDS& operator=(const FExportTextureDDS& other);
 
@@ -124,17 +124,17 @@ public:
 	unsigned int GetExtensionCount() override;
 	BOOL ExportObject(FObject* object, const wchar_t* path, FObject* unk) override;
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 private:
 
 	int BuildHeaderFromImage(FTexture* texture, DDSFILEHEADER* ddsHeader);
 	//unsigned int GetDDSFormatFromImage(enum FBitmap::FORMAT format);
 
-	static FClass* __cdecl StaticConstructClassFExportTextureDDS();
-	static void __cdecl StaticInitClassFExportTextureDDS();
+	static FClass* StaticConstructClassFExportTextureDDS();
+	static void StaticInitClassFExportTextureDDS();
 
 	static FClass* ms_pClass;
 
@@ -150,7 +150,7 @@ public:
 
 	~FExportTextureTGA() override;
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FExportTextureTGA& operator=(const FExportTextureTGA& other);
 
@@ -159,14 +159,14 @@ public:
 	unsigned int GetExtensionCount() override;
 	BOOL ExportObject(FObject* object, const wchar_t* path, FObject* unk) override;
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFExportTextureTGA();
-	static void __cdecl StaticInitClassFExportTextureTGA();
+	static FClass* StaticConstructClassFExportTextureTGA();
+	static void StaticInitClassFExportTextureTGA();
 
 	static FClass* ms_pClass;
 

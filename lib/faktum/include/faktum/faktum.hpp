@@ -55,9 +55,9 @@
 class FCpuInfo;
 class FTimer;
 
-void __cdecl FtClipboardCopy(const wchar_t*);
-FString __cdecl FtClipboardPaste();
-float __cdecl FtFRand();
-void __cdecl FtQuickSort(void*, unsigned int, unsigned int, int (__cdecl*)(const void*, const void*, void*), void*);
+void FtClipboardCopy(const wchar_t*);
+FString FtClipboardPaste();
+float FtFRand();
+void FtQuickSort(void*, unsigned int, unsigned int, int (__cdecl*)(const void*, const void*, void*), void*);
 
 long __stdcall _FtHandleException(PEXCEPTION_POINTERS info);

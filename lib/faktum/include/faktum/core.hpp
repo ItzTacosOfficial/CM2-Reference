@@ -25,7 +25,7 @@ class FTimer;
 
 
 FAK_IMPORT void FtInit(const wchar_t* args, FMemManager* memManager, FTextDevice* textDevice, FFileSystem* fileSystem, FConfig* config);
-FAK_IMPORT void __cdecl FtExit();
+FAK_IMPORT void FtExit();
 
 FAK_IMPORT const wchar_t* FtGetCommandLine();
 FAK_IMPORT FConfig* FtGetConfig();

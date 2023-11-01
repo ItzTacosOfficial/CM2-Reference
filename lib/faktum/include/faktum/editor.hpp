@@ -22,7 +22,7 @@ public:
 
 	FEditor& operator=(const FEditor& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void CloseInformationDlg();
 	void Exit();
@@ -35,9 +35,9 @@ public:
 	void ShowInformationDlg(const wchar_t*, unsigned int, FObject*, void (FObject::*)(FObject*, void*));
 	void Tick(float, unsigned int);
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	int unk24[0x42];
@@ -92,8 +92,8 @@ private:
 	void ViewMouseMove(FObject*, FUIElement::MouseEventArgs*);
 	//void ViewRender(FObject*, F3DView::RenderEventArgs*);
 
-	static FClass* __cdecl StaticConstructClassFEditor();
-	static void __cdecl StaticInitClassFEditor();
+	static FClass* StaticConstructClassFEditor();
+	static void StaticInitClassFEditor();
 
 	static FClass* ms_pClass;
 

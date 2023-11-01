@@ -21,7 +21,7 @@ public:
 
 	FGame& operator=(const FGame& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void DrawLevel(FLevel* level, FCanvas* canvas, FScene::TYPE sceneType);
 	FEditor* GetEditor() const;
@@ -32,8 +32,8 @@ public:
 	void PreCacheLevel(FLevel* level);
 	void SetLevel(FLevel* level);
 
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	int unk4C;
@@ -54,8 +54,8 @@ protected:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFGame();
-	static void __cdecl StaticInitClassFGame();
+	static FClass* StaticConstructClassFGame();
+	static void StaticInitClassFGame();
 
 	static FClass* ms_pClass;
 

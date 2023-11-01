@@ -15,11 +15,11 @@ public:
 
 	FField& operator=(const FField& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	int unk24;
@@ -30,8 +30,8 @@ protected:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFField();
-	static void __cdecl StaticInitClassFField();
+	static FClass* StaticConstructClassFField();
+	static void StaticInitClassFField();
 
 	static FClass* ms_pClass;
 

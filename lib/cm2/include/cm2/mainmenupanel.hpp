@@ -15,15 +15,15 @@ public:
 
 	CM2MainMenuPanel& operator=(const CM2MainMenuPanel& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Render(FCanvas*) override;
 	void Enter() override;
 	void Leave() override;
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 protected:
 
@@ -37,8 +37,8 @@ private:
 	void PlayButtonClick(FObject*, EventArgs*);
 	void QuitButtonClick(FObject*, EventArgs*);
 
-	static FClass* __cdecl StaticConstructClassCM2MainMenuPanel();
-	static void __cdecl StaticInitClassCM2MainMenuPanel();
+	static FClass* StaticConstructClassCM2MainMenuPanel();
+	static void StaticInitClassCM2MainMenuPanel();
 
 	static FClass* ms_pClass;
 

@@ -22,7 +22,7 @@ public:
 
 	~CM2Automate() override;
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	CM2Automate& operator=(const CM2Automate& other);
 
@@ -36,10 +36,10 @@ public:
 	virtual void Tick(float);
 	virtual void DisplayFrame();
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticInitClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticInitClass();
+	static void StaticUnregisterClass();
 
 
 	FLAG automateFlags;
@@ -47,8 +47,8 @@ public:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassCM2Automate();
-	static void __cdecl StaticInitClassCM2Automate();
+	static FClass* StaticConstructClassCM2Automate();
+	static void StaticInitClassCM2Automate();
 
 	static FClass* ms_pClass;
 

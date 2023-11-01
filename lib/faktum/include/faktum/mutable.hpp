@@ -18,7 +18,7 @@ public:
 
 	FMutable& operator=(const FMutable& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FObject* Clone(const FName&, const FName&, FObject*, int) override;
 	void Serialize(FArchive& archive) override;
@@ -31,9 +31,9 @@ public:
 	void RemoveAllMutators();
 	BOOL SetMutator(FProperty* property, FMutator* mutator);
 
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticInitClass();
-	static void __cdecl StaticUnregisterClass();
+	static FClass* StaticGetClass();
+	static void StaticInitClass();
+	static void StaticUnregisterClass();
 
 
 	unsigned char unk28[0x10];
@@ -42,8 +42,8 @@ private:
 
 	int FindMutation(FProperty* property);
 
-	static FClass* __cdecl StaticConstructClassFMutable();
-	static void __cdecl StaticInitClassFMutable();
+	static FClass* StaticConstructClassFMutable();
+	static void StaticInitClassFMutable();
 
 	static FClass* ms_pClass;
 

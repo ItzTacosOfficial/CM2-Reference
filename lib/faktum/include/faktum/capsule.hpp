@@ -43,5 +43,5 @@ public:
 FAK_SIZE_GUARD(FCapsuleNEW, 0x1C);
 
 
-FAK_IMPORT BOOL __cdecl FtCapsuleCapsuleOverlap(const FCapsule*, const FCapsule*, float);
-FAK_IMPORT BOOL __cdecl FtCapsuleCapsuleOverlap(const FCapsule*, const FMatrix4*, const FCapsule*, const FMatrix4*, float);
+FAK_IMPORT BOOL FtCapsuleCapsuleOverlap(const FCapsule*, const FCapsule*, float);
+FAK_IMPORT BOOL FtCapsuleCapsuleOverlap(const FCapsule*, const FMatrix4*, const FCapsule*, const FMatrix4*, float);

@@ -15,7 +15,7 @@ public:
 
 	CM2MenuPanel& operator=(const CM2MenuPanel& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Tick(float) override;
 	void Render(FCanvas*) override;
@@ -27,9 +27,9 @@ public:
 	//void SetNewsTickerText(FTArray<struct CM2HTTPClient::MsgFeed> const&);
 	void UpdateNewsTicker();
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	int unk264;
@@ -53,8 +53,8 @@ private:
 	//void MessageBoxLabDownload(FObject*, CM2Dialog::ClickEventArgs*);
 	//void TickerClick(FObject*, FTicker::TickerClickEventArgs*);
 
-	static FClass* __cdecl StaticConstructClassCM2MenuPanel();
-	static void __cdecl StaticInitClassCM2MenuPanel();
+	static FClass* StaticConstructClassCM2MenuPanel();
+	static void StaticInitClassCM2MenuPanel();
 
 	static FClass* ms_pClass;
 

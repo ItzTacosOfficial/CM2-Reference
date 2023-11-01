@@ -26,7 +26,7 @@ public:
 
 	~CM2Lab() override;
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	CM2Lab& operator=(const CM2Lab& other);
 
@@ -90,14 +90,14 @@ public:
 	void SetTitle(const wchar_t* title);
 	void SetVersion(unsigned int version);
 	
-	static void __cdecl StaticAppendWT(void*);
-	static void __cdecl StaticConstructor(void* data);
-	static void __cdecl StaticExportWT(void*);
-	static FClass* __cdecl StaticGetClass();
-	static int __cdecl StaticImport(CM2Lab*, const wchar_t*, const wchar_t*);
-	static void __cdecl StaticImportWT(void*);
-	static CM2Lab* __cdecl StaticLoad(const wchar_t*);
-	static void __cdecl StaticUnregisterClass();
+	static void StaticAppendWT(void*);
+	static void StaticConstructor(void* data);
+	static void StaticExportWT(void*);
+	static FClass* StaticGetClass();
+	static int StaticImport(CM2Lab*, const wchar_t*, const wchar_t*);
+	static void StaticImportWT(void*);
+	static CM2Lab* StaticLoad(const wchar_t*);
+	static void StaticUnregisterClass();
 
 	static int EventIDWorkProgress;
 
@@ -106,8 +106,8 @@ public:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassCM2Lab();
-	static void __cdecl StaticInitClassCM2Lab();
+	static FClass* StaticConstructClassCM2Lab();
+	static void StaticInitClassCM2Lab();
 
 	static FClass* ms_pClass;
 

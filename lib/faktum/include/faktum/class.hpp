@@ -19,7 +19,7 @@ public:
 
 	FClass& operator=(const FClass& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Register() override;
 
@@ -27,9 +27,9 @@ public:
 	BOOL IsDerivedFrom(FClass* fclass);
 	void SetSuperClass(FClass* fclass);
 
-	static void __cdecl StaticDumpClasses(FTextDevice* textDevice);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticDumpClasses(FTextDevice* textDevice);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	StaticConstructorT staticConstructorFunction;
@@ -45,8 +45,8 @@ private:
 
 	void Dump(FTextDevice* textDevice, unsigned int& count, unsigned int spacing);
 
-	static FClass* __cdecl StaticConstructClassFClass();
-	static void __cdecl StaticInitClassFClass();
+	static FClass* StaticConstructClassFClass();
+	static void StaticInitClassFClass();
 
 	static FClass* ms_pClass;
 

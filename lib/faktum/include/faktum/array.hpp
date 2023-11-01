@@ -111,9 +111,9 @@ private:
 		}
 
 		if (buffer) {
-			buffer = FtGetMemManager()->TRealloc<T>(buffer, size * TypeSize, L"FTArray::buffer");
+			buffer = static_cast<T*>(FtGetMemManager()->Realloc(buffer, size * TypeSize, L"FTArray::buffer"));
 		} else {
-			buffer = FtGetMemManager()->TAlloc<T>(size * TypeSize, L"FTArray::buffer");
+			buffer = static_cast<T*>(FtGetMemManager()->Alloc(size * TypeSize, L"FTArray::buffer"));
 		}
 
 		bufferLength = size;

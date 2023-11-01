@@ -15,15 +15,15 @@ public:
 
 	FStruct& operator=(const FStruct& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FProperty* GetFirstProperty();
 	unsigned int GetObjectSize() const;
 	FStruct* GetSuperStruct();
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	int objectSize;
@@ -37,8 +37,8 @@ protected:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFStruct();
-	static void __cdecl StaticInitClassFStruct();
+	static FClass* StaticConstructClassFStruct();
+	static void StaticInitClassFStruct();
 
 	static FClass* ms_pClass;
 
@@ -46,4 +46,4 @@ private:
 FAK_SIZE_GUARD(FStruct, 0x3C);
 
 
-FAK_IMPORT FStruct* __cdecl FtRegisterStruct(const char* name, unsigned int size);
+FAK_IMPORT FStruct* FtRegisterStruct(const char* name, unsigned int size);

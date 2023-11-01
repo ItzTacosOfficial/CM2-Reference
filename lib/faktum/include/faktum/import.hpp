@@ -13,7 +13,7 @@ public:
 
 	~FImport() override;
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FImport& operator=(const FImport& other);
 
@@ -23,13 +23,13 @@ public:
 	virtual unsigned int GetExtensionCount() = 0;
 	virtual FObject* ImportObject(const wchar_t*, FObject*, const FName&, const FName&, FObject*, FObject*) = 0;
 
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFImport();
-	static void __cdecl StaticInitClassFImport();
+	static FClass* StaticConstructClassFImport();
+	static void StaticInitClassFImport();
 
 	static FClass* ms_pClass;
 

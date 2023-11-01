@@ -43,10 +43,10 @@ public:
 	int GetIndex() const;
 	FString GetString() const;
 
-	static void __cdecl StaticExit();
-	static FName __cdecl StaticFindName(const char* name);
-	static int __cdecl StaticGetNameCount();
-	static void __cdecl StaticInit();
+	static void StaticExit();
+	static FName StaticFindName(const char* name);
+	static int StaticGetNameCount();
+	static void StaticInit();
 
 	static const FName NONE;
 
@@ -55,9 +55,9 @@ public:
 
 protected:
 
-	static int __cdecl StaticRelease(int index);
-	static int __cdecl StaticAddName(const char* name);
-	static int __cdecl StaticAddRef(int index);
+	static int StaticRelease(int index);
+	static int StaticAddName(const char* name);
+	static int StaticAddRef(int index);
 
 private:
 

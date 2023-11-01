@@ -30,11 +30,11 @@ public:
 FAK_SIZE_GUARD(FSphere, 0x10);
 
 
-BOOL __cdecl FtSphereCapsuleOverlap(const FSphere*, const FCapsule*, float);
-BOOL __cdecl FtSphereCapsuleOverlap(const FSphere*, const FMatrix4*, const FCapsule*, const FMatrix4*, float);
+BOOL FtSphereCapsuleOverlap(const FSphere*, const FCapsule*, float);
+BOOL FtSphereCapsuleOverlap(const FSphere*, const FMatrix4*, const FCapsule*, const FMatrix4*, float);
 FSphere* __stdcall FtSphereFromPoints(FSphere*, const FVector3*, const FVector3*, const FVector3*, const FVector3*, int);
 FSphere* __stdcall FtSphereFromPoints(FSphere*, const FVector3*, const FVector3*, const FVector3*, int);
 FSphere* __stdcall FtSphereFromPoints(FSphere*, const FVector3*, const FVector3*, int);
 FSphere* __stdcall FtSphereMinimum(FSphere*, const FVector3*, int);
-BOOL __cdecl FtSphereSphereOverlap(const FSphere*, const FSphere*, float);
-BOOL __cdecl FtSphereSphereOverlap(const FSphere*, const FMatrix4*, const FSphere*, const FMatrix4*, float);
+BOOL FtSphereSphereOverlap(const FSphere*, const FSphere*, float);
+BOOL FtSphereSphereOverlap(const FSphere*, const FMatrix4*, const FSphere*, const FMatrix4*, float);

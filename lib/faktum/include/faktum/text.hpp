@@ -23,20 +23,20 @@ public:
 	const FString& operator=(const wchar_t* str);
 	const FString& operator=(wchar_t c);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Serialize(FArchive& archive) override;
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticInitClass();
-	static FText* __cdecl StaticLoadSafe(const char* storageName, const char* object, LANGUAGE language);
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticInitClass();
+	static FText* StaticLoadSafe(const char* storageName, const char* object, LANGUAGE language);
+	static void StaticUnregisterClass();
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFText();
-	static void __cdecl StaticInitClassFText();
+	static FClass* StaticConstructClassFText();
+	static void StaticInitClassFText();
 
 	static FClass* ms_pClass;
 

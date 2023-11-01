@@ -51,7 +51,7 @@ public:
 
 	FUIElement& operator=(const FUIElement& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Serialize(FArchive& archive) override;
 	//virtual FTList<FUIElement*>::Iterator BeginChildren();
@@ -109,9 +109,9 @@ public:
 	void SetWidth(const FLength& width);
 	void UpdateLayout();
 
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticInitClass();
-	static void __cdecl StaticUnregisterClass();
+	static FClass* StaticGetClass();
+	static void StaticInitClass();
+	static void StaticUnregisterClass();
 
 	static int EventIDCapturedMouse;
 	static int EventIDContextMenuClosing;
@@ -185,8 +185,8 @@ private:
 
 	void RaiseEventInternal(FEvent* event, EventArgs* args);
 
-	static FClass* __cdecl StaticConstructClassFUIElement();
-	static void __cdecl StaticInitClassFUIElement();
+	static FClass* StaticConstructClassFUIElement();
+	static void StaticInitClassFUIElement();
 
 	static FClass* ms_pClass;
 

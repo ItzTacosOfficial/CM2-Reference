@@ -40,7 +40,7 @@ public:
 
 	CM2Game& operator=(const CM2Game& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	int Init() override;
 	void Exit() override;
@@ -138,9 +138,9 @@ public:
 	void UnregisterPlugIns();
 	long ValidCD();
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	unsigned char unk[0x19C];
@@ -155,12 +155,12 @@ private:
 	void Screenshot();
 	void UnloadForInstall();
 
-	static int __cdecl StaticCompareFiles(FFileSystem::FindData*, FFileSystem::FindData*, void*);
-	static int __cdecl StaticCompareLabs(CM2Lab**, CM2Lab**, void*);
-	static int __cdecl StaticCompareProfiles(CM2Profile**, CM2Profile**, void*);
-	static int __cdecl StaticCompareStoryLabs(CM2Lab**, CM2Lab**, void*);
-	static FClass* __cdecl StaticConstructClassCM2Game();
-	static void __cdecl StaticInitClassCM2Game();
+	static int StaticCompareFiles(FFileSystem::FindData*, FFileSystem::FindData*, void*);
+	static int StaticCompareLabs(CM2Lab**, CM2Lab**, void*);
+	static int StaticCompareProfiles(CM2Profile**, CM2Profile**, void*);
+	static int StaticCompareStoryLabs(CM2Lab**, CM2Lab**, void*);
+	static FClass* StaticConstructClassCM2Game();
+	static void StaticInitClassCM2Game();
 
 	static FClass* ms_pClass;
 

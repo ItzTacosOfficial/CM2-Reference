@@ -17,15 +17,15 @@ public:
 
 	CM2CanvasPanel& operator=(const CM2CanvasPanel& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	virtual void Enter();
 	virtual void Leave();
 	virtual void ResolutionChanged(const FMatrix4&, int);
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	unsigned char unk25C[0x8];
@@ -40,8 +40,8 @@ private:
 
 	void InitButtonMenuStyle();
 
-	static FClass* __cdecl StaticConstructClassCM2CanvasPanel();
-	static void __cdecl StaticInitClassCM2CanvasPanel();
+	static FClass* StaticConstructClassCM2CanvasPanel();
+	static void StaticInitClassCM2CanvasPanel();
 
 	static FClass* ms_pClass;
 

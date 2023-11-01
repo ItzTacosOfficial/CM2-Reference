@@ -15,7 +15,7 @@ public:
 
 	FCanvasPanel& operator=(const FCanvasPanel& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Render(FCanvas* canvas) override;
 	void Serialize(FArchive&) override;
@@ -27,10 +27,10 @@ public:
 	int AddChild(const FRect& rect, FUIElement* child);
 	int SetRect(FUIElement* child, const FRect& rect);
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticInitClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticInitClass();
+	static void StaticUnregisterClass();
 
 
 	unsigned char unk23C[0x20];
@@ -45,8 +45,8 @@ protected:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFCanvasPanel();
-	static void __cdecl StaticInitClassFCanvasPanel();
+	static FClass* StaticConstructClassFCanvasPanel();
+	static void StaticInitClassFCanvasPanel();
 	
 	static FClass* ms_pClass;
 

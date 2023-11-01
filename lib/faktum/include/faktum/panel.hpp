@@ -17,7 +17,7 @@ public:
 
 	FPanel& operator=(const FPanel& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Serialize(FArchive& archive) override;
 	void Render(FCanvas* canvas) override;
@@ -28,17 +28,17 @@ public:
 
 	void SetBackgroundBrush(FBrush* brush);
 
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticInitClass();
-	static void __cdecl StaticUnregisterClass();
+	static FClass* StaticGetClass();
+	static void StaticInitClass();
+	static void StaticUnregisterClass();
 
 
 	unsigned char unk234[0x8];
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFPanel();
-	static void __cdecl StaticInitClassFPanel();
+	static FClass* StaticConstructClassFPanel();
+	static void StaticInitClassFPanel();
 
 	static FClass* ms_pClass;
 

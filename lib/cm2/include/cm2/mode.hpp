@@ -30,7 +30,7 @@ public:
 	
 	~CM2Mode() override;
 	
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 	
 	CM2Mode& operator=(const CM2Mode& other);
 
@@ -109,10 +109,10 @@ public:
 	void StartTimer();
 	void SynchronizeLabs();
 
-	static FClass* __cdecl StaticGetClass();
-	static int __cdecl StaticIsPhysicsFluidHardwarePresent();
-	static int __cdecl StaticIsPhysicsHardwarePresent();
-	static void __cdecl StaticUnregisterClass();
+	static FClass* StaticGetClass();
+	static int StaticIsPhysicsFluidHardwarePresent();
+	static int StaticIsPhysicsHardwarePresent();
+	static void StaticUnregisterClass();
 
 
 	unsigned char unk28[0xD0];
@@ -123,8 +123,8 @@ private:
 	FGraphicsProgram* InitCubeVertexProgram();
 	FMesh* InitQuad(int, int);
 
-	static FClass* __cdecl StaticConstructClassCM2Mode();
-	static void __cdecl StaticInitClassCM2Mode();
+	static FClass* StaticConstructClassCM2Mode();
+	static void StaticInitClassCM2Mode();
 
 	static FClass* ms_pClass;
 

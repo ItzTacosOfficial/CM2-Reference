@@ -122,7 +122,7 @@ public:
 
 	~FStorage() override;
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FStorage& operator=(const FStorage& other);
 
@@ -153,20 +153,20 @@ public:
 	void SetObjectGroup(int id, const FName& name);
 	void SetStorageFlags(unsigned int flags);
 
-	static int __cdecl StaticAddSearchPattern(const wchar_t* pattern);
-	static FClass* __cdecl StaticClassFromNameTableCodec(BOOL zip);
-	static void __cdecl StaticConstructor(void* data);
-	static FStorage* __cdecl StaticCreateStorage(const FName& name);
-	static void __cdecl StaticExit();
-	static FStorage* __cdecl StaticFindStorage(const FName& name);
-	static FClass* __cdecl StaticGetClass();
-	static FString __cdecl StaticGetStorageName(const wchar_t* path);
-	static void __cdecl StaticInit();
-	static FObject* __cdecl StaticLoadObject(const char* storageName, const char* object, unsigned int language);
-	static FStorage* __cdecl StaticLoadStorage(const wchar_t* path, BOOL);
-	static BOOL __cdecl StaticLoadStorageObjects(const wchar_t* path, FTArray<FObject*>* objects, unsigned int language);
-	static BOOL __cdecl StaticNameTableCodecFromClass(FClass* codec);
-	static void __cdecl StaticUnregisterClass();
+	static int StaticAddSearchPattern(const wchar_t* pattern);
+	static FClass* StaticClassFromNameTableCodec(BOOL zip);
+	static void StaticConstructor(void* data);
+	static FStorage* StaticCreateStorage(const FName& name);
+	static void StaticExit();
+	static FStorage* StaticFindStorage(const FName& name);
+	static FClass* StaticGetClass();
+	static FString StaticGetStorageName(const wchar_t* path);
+	static void StaticInit();
+	static FObject* StaticLoadObject(const char* storageName, const char* object, unsigned int language);
+	static FStorage* StaticLoadStorage(const wchar_t* path, BOOL);
+	static BOOL StaticLoadStorageObjects(const wchar_t* path, FTArray<FObject*>* objects, unsigned int language);
+	static BOOL StaticNameTableCodecFromClass(FClass* codec);
+	static void StaticUnregisterClass();
 
 
 	int storageFlags;
@@ -208,10 +208,10 @@ protected:
 	BOOL WriteObjectInfoV3(Archive* archive, FTArray<ObjectInfoV3>& infos);
 	BOOL WriteObjectsV3(Archive* archive, FTArray<FObject*>& objects, FTArray<ObjectInfoV3>& infos);
 
-	static void __cdecl StaticAddStorage(FStorage* storage);
-	static void __cdecl StaticReadName(FArchive* archive, char* out);
-	static void __cdecl StaticRemoveStorage(FStorage* storage);
-	static void __cdecl StaticWriteName(FArchive* archive, const char* name);
+	static void StaticAddStorage(FStorage* storage);
+	static void StaticReadName(FArchive* archive, char* out);
+	static void StaticRemoveStorage(FStorage* storage);
+	static void StaticWriteName(FArchive* archive, const char* name);
 
 	static FMutex ms_Mutex;
 	static FTArray<FString> ms_aSearchPatterns;
@@ -219,8 +219,8 @@ protected:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFStorage();
-	static void __cdecl StaticInitClassFStorage();
+	static FClass* StaticConstructClassFStorage();
+	static void StaticInitClassFStorage();
 
 	static FClass* ms_pClass;
 

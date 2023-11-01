@@ -30,9 +30,9 @@ public:
 FAK_SIZE_GUARD(FBox, 0x18);
 
 
-FAK_IMPORT BOOL __cdecl FtBoxBoxOverlap(const FBox*, const FBox*, float);
-FAK_IMPORT BOOL __cdecl FtBoxBoxOverlap(const FBox*, const FMatrix4*, const FBox*, const FMatrix4*, float);
-FAK_IMPORT BOOL __cdecl FtBoxCapsuleOverlap(const FBox*, const FCapsule*, float);
-FAK_IMPORT BOOL __cdecl FtBoxCapsuleOverlap(const FBox*, const FMatrix4*, const FCapsule*, const FMatrix4*, float);
-FAK_IMPORT BOOL __cdecl FtBoxSphereOverlap(const FBox*, const FMatrix4*, const FSphere*, const FMatrix4*, float);
-FAK_IMPORT BOOL __cdecl FtBoxSphereOverlap(const FBox*, const FSphere*, float);
+FAK_IMPORT BOOL FtBoxBoxOverlap(const FBox*, const FBox*, float);
+FAK_IMPORT BOOL FtBoxBoxOverlap(const FBox*, const FMatrix4*, const FBox*, const FMatrix4*, float);
+FAK_IMPORT BOOL FtBoxCapsuleOverlap(const FBox*, const FCapsule*, float);
+FAK_IMPORT BOOL FtBoxCapsuleOverlap(const FBox*, const FMatrix4*, const FCapsule*, const FMatrix4*, float);
+FAK_IMPORT BOOL FtBoxSphereOverlap(const FBox*, const FMatrix4*, const FSphere*, const FMatrix4*, float);
+FAK_IMPORT BOOL FtBoxSphereOverlap(const FBox*, const FSphere*, float);

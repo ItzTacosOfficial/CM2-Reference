@@ -22,7 +22,7 @@ public:
 
 	FSample& operator=(const FSample& other);
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Serialize(FArchive& archive) override;
 
@@ -36,9 +36,9 @@ public:
 	unsigned int GetPCMSize();
 	BOOL Init(FORMAT format, unsigned int channels, unsigned int bitsPerSample, unsigned int frequency, unsigned int pcmSize, unsigned int dataSize, const void* data);
 
-	static void __cdecl StaticConstructor(void* data);
-	static FClass* __cdecl StaticGetClass();
-	static void __cdecl StaticUnregisterClass();
+	static void StaticConstructor(void* data);
+	static FClass* StaticGetClass();
+	static void StaticUnregisterClass();
 
 
 	unsigned int channelsCount;
@@ -51,8 +51,8 @@ public:
 
 private:
 
-	static FClass* __cdecl StaticConstructClassFSample();
-	static void __cdecl StaticInitClassFSample();
+	static FClass* StaticConstructClassFSample();
+	static void StaticInitClassFSample();
 
 	static FClass* ms_pClass;
 

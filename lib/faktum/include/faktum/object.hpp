@@ -35,9 +35,9 @@ public:
 		return FtGetMemManager()->Alloc(size, L"new");
 	}
 
-	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
-	static void __cdecl operator delete(void* ptr);
-	static void __cdecl operator delete(void* ptr, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void operator delete(void* ptr);
+	static void operator delete(void* ptr, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	virtual FObject* Clone(const FName&, const FName&, FObject*, int);
 	virtual void Register();
@@ -69,22 +69,22 @@ public:
 	void SetOuter(FObject* outer);
 	int SetProperty(const FName&, const wchar_t*);
 
-	static FObject* __cdecl StaticAllocateObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
-	static FObject* __cdecl StaticConstructObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
-	static void __cdecl StaticConstructor(void* data);
-	static void __cdecl StaticDumpObjects(FTextDevice* textDevice);
-	static void __cdecl StaticExit();
-	static void __cdecl StaticExitClass();
-	static int __cdecl StaticExportObject(FObject*, const wchar_t*, FClass*, FObject*);
-	static FObject* __cdecl StaticFindObject(FClass*, FObject*, const FName&, const FName&, int, unsigned int);
-	static FClass* __cdecl StaticGetClass();
-	static LANGUAGE __cdecl StaticGetLanguage();
-	static FObject* __cdecl StaticGetObject(int index);
-	static FObject* __cdecl StaticImportObject(const wchar_t* path, FClass*, FObject*, const FName&, const FName&, FObject*, FObject*);
-	static void __cdecl StaticInit();
-	static void __cdecl StaticInitClass();
-	static void __cdecl StaticSetLanguage(LANGUAGE language);
-	static void __cdecl StaticUnregisterClass();
+	static FObject* StaticAllocateObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static FObject* StaticConstructObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void StaticConstructor(void* data);
+	static void StaticDumpObjects(FTextDevice* textDevice);
+	static void StaticExit();
+	static void StaticExitClass();
+	static int StaticExportObject(FObject*, const wchar_t*, FClass*, FObject*);
+	static FObject* StaticFindObject(FClass*, FObject*, const FName&, const FName&, int, unsigned int);
+	static FClass* StaticGetClass();
+	static LANGUAGE StaticGetLanguage();
+	static FObject* StaticGetObject(int index);
+	static FObject* StaticImportObject(const wchar_t* path, FClass*, FObject*, const FName&, const FName&, FObject*, FObject*);
+	static void StaticInit();
+	static void StaticInitClass();
+	static void StaticSetLanguage(LANGUAGE language);
+	static void StaticUnregisterClass();
 
 
 	FClass* objectClass;
@@ -104,8 +104,8 @@ private:
 
 	FObject(const char* name);
 
-	static FClass* __cdecl StaticConstructClassFObject();
-	static void __cdecl StaticInitClassFObject();
+	static FClass* StaticConstructClassFObject();
+	static void StaticInitClassFObject();
 
 	static FObject* ms_apObjHash[4096];
 	//static FTArray<FObject*> ms_apObjects;

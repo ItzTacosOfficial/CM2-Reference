@@ -40,12 +40,12 @@ protected:
 
 private:
 
-	static int __cdecl StaticTrayMessage(HWND hwnd, unsigned long, unsigned int, HICON icon, wchar_t*);
+	static int StaticTrayMessage(HWND hwnd, unsigned long, unsigned int, HICON icon, wchar_t*);
 	static long __stdcall StaticWndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp);
 
 };
 FAK_SIZE_GUARD(FProfileDeviceWindow, 0x20);
 
 
-FAK_IMPORT void __cdecl FtResetProfile();
-FAK_IMPORT void __cdecl FtSetProfileDevice(FProfileDevice* device);
+FAK_IMPORT void FtResetProfile();
+FAK_IMPORT void FtSetProfileDevice(FProfileDevice* device);

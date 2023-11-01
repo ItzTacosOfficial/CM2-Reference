@@ -42,8 +42,8 @@ public:
 	FVector2& Normalize();
 	FVector2& NormalizeUnsafe();
 
-	static FVector2 __cdecl StaticRand(float);
-	static FVector2 __cdecl StaticRand();
+	static FVector2 StaticRand(float);
+	static FVector2 StaticRand();
 
 
 	float x;
@@ -92,8 +92,8 @@ public:
 	FVector3& Normalize();
 	FVector3& NormalizeUnsafe();
 
-	static FVector3 __cdecl StaticRand(float);
-	static FVector3 __cdecl StaticRand();
+	static FVector3 StaticRand(float);
+	static FVector3 StaticRand();
 
 
 	float x;
@@ -150,8 +150,8 @@ public:
 FAK_SIZE_GUARD(FVector4, 0x10);
 
 
-FAK_IMPORT float __cdecl FtDistanceTriPoint(const FVector3& a, const FVector3& b, const FVector3& c, const FVector3& point);
-FAK_IMPORT BOOL __cdecl FtIntersectTriTri(const FVector3& a0, const FVector3& b0, const FVector3& c0, const FVector3& a1, const FVector3& b1, const FVector3& c1);
+FAK_IMPORT float FtDistanceTriPoint(const FVector3& a, const FVector3& b, const FVector3& c, const FVector3& point);
+FAK_IMPORT BOOL FtIntersectTriTri(const FVector3& a0, const FVector3& b0, const FVector3& c0, const FVector3& a1, const FVector3& b1, const FVector3& c1);
 FAK_IMPORT FVector2* __stdcall FtVec2Normalize(FVector2* out, const FVector2* in);
 FAK_IMPORT FVector2* __stdcall FtVec2NormalizeUnsafe(FVector2* out, const FVector2* in);
 FAK_IMPORT FVector4* __stdcall FtVec2Transform(FVector4* out, const FVector2* in, const FMatrix4* mat);
@@ -166,4 +166,4 @@ FAK_IMPORT FVector4* __stdcall FtVec4Normalize(FVector4* out, const FVector4* in
 FAK_IMPORT FVector4* __stdcall FtVec4NormalizeUnsafe(FVector4* out, const FVector4* in);
 FAK_IMPORT FVector4* __stdcall FtVec4Transform(FVector4* out, const FVector4* in, const FMatrix4* mat);
 
-FAK_IMPORT float __cdecl _FtVectorLineSegDist(const FVector3&, const FVector3&, const FVector3&, float);
+FAK_IMPORT float _FtVectorLineSegDist(const FVector3&, const FVector3&, const FVector3&, float);

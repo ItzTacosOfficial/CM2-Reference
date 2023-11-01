@@ -17,7 +17,7 @@ public:
 
 	CM2CanvasPanel& operator=(const CM2CanvasPanel& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	virtual void Enter();
 	virtual void Leave();

@@ -22,7 +22,7 @@ public:
 
 	~CM2Automate() override;
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	CM2Automate& operator=(const CM2Automate& other);
 

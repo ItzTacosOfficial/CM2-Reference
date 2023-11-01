@@ -16,21 +16,21 @@ public:
 	FText(const wchar_t* str);
 	FText(wchar_t c, unsigned int count);
 
-	virtual ~FText();
+	~FText() override;
 
 	FText& operator=(const FText& other);
 	const FString& operator=(const FString& str);
 	const FString& operator=(const wchar_t* str);
 	const FString& operator=(wchar_t c);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
-	virtual void Serialize(FArchive& arc) override;
+	void Serialize(FArchive& archive) override;
 
 	static void __cdecl StaticConstructor(void* data);
 	static FClass* __cdecl StaticGetClass();
 	static void __cdecl StaticInitClass();
-	static FText* __cdecl StaticLoadSafe(const char*, const char*, LANGUAGE);
+	static FText* __cdecl StaticLoadSafe(const char* storageName, const char* object, LANGUAGE language);
 	static void __cdecl StaticUnregisterClass();
 
 private:

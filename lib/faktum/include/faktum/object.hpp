@@ -2,6 +2,7 @@
 
 #include "core.hpp"
 #include "refcount.hpp"
+#include "memmanager.hpp"
 #include "name.hpp"
 
 
@@ -12,7 +13,7 @@ class FTextDevice;
 class FEvent;
 class FMutex;
 
-class FAK_IMPORT FObject : public FRefCount { // TODO Members, static members
+class /*FAK_IMPORT*/ FObject : public FRefCount { // TODO Members, static members
 
 public:
 
@@ -30,9 +31,13 @@ public:
 
 	FObject& operator=(const FObject& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	FAK_ASSUMED static inline void* operator new(size_t size) {
+		return FtGetMemManager()->Alloc(size, L"new");
+	}
+
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 	static void __cdecl operator delete(void* ptr);
-	static void __cdecl operator delete(void*, FObject*, const FName&, const FName&, unsigned int);
+	static void __cdecl operator delete(void* ptr, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	virtual FObject* Clone(const FName&, const FName&, FObject*, int);
 	virtual void Register();
@@ -43,9 +48,9 @@ public:
 	virtual void Dump(FTextDevice* textDevice);
 	virtual void SetStorage(const FName& name);
 
-	FProperty* FindProperty(const FName&) const;
+	FProperty* FindProperty(const FName& name) const;
 	FClass* GetClass() const;
-	int GetEventHandler(int, FObject**, EventHandlerT*);
+	BOOL GetEventHandler(int, FObject**, EventHandlerT*);
 	int GetIndex() const;
 	LANGUAGE GetLanguage() const;
 	FName GetName() const;
@@ -61,11 +66,11 @@ public:
 	int SetEventHandler(int, FObject*, EventHandlerT);
 	void SetLanguage(LANGUAGE language);
 	void SetName(const FName& name);
-	void SetOuter(FObject*);
+	void SetOuter(FObject* outer);
 	int SetProperty(const FName&, const wchar_t*);
 
-	static FObject* __cdecl StaticAllocateObject(FClass*, FObject*, const FName&, const FName&, unsigned int);
-	static FObject* __cdecl StaticConstructObject(FClass*, FObject*, const FName&, const FName&, unsigned int);
+	static FObject* __cdecl StaticAllocateObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static FObject* __cdecl StaticConstructObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 	static void __cdecl StaticConstructor(void* data);
 	static void __cdecl StaticDumpObjects(FTextDevice* textDevice);
 	static void __cdecl StaticExit();
@@ -74,22 +79,22 @@ public:
 	static FObject* __cdecl StaticFindObject(FClass*, FObject*, const FName&, const FName&, int, unsigned int);
 	static FClass* __cdecl StaticGetClass();
 	static LANGUAGE __cdecl StaticGetLanguage();
-	static FObject* __cdecl StaticGetObject(int);
-	static FObject* __cdecl StaticImportObject(const wchar_t*, FClass*, FObject*, const FName&, const FName&, FObject*, FObject*);
+	static FObject* __cdecl StaticGetObject(int index);
+	static FObject* __cdecl StaticImportObject(const wchar_t* path, FClass*, FObject*, const FName&, const FName&, FObject*, FObject*);
 	static void __cdecl StaticInit();
 	static void __cdecl StaticInitClass();
 	static void __cdecl StaticSetLanguage(LANGUAGE language);
 	static void __cdecl StaticUnregisterClass();
 
 
-	FClass* objClass;
-	int unkC;
-	FObject* unk10;
-	int unk14;
-	FName objName;
-	FName className;
-	unsigned int objFlags;
-	LANGUAGE language;
+	FClass* objectClass;
+	int objectIndex;
+	FObject* outerObject;
+	FObject* lookupNextObject;
+	FName objectName;
+	FName storageName;
+	unsigned int objectFlags;
+	LANGUAGE objectLanguage;
 
 protected:
 
@@ -97,12 +102,12 @@ protected:
 
 private:
 
-	FObject(const char*);
+	FObject(const char* name);
 
 	static FClass* __cdecl StaticConstructClassFObject();
 	static void __cdecl StaticInitClassFObject();
 
-	static FObject** ms_apObjHash;
+	static FObject* ms_apObjHash[4096];
 	//static FTArray<FObject*> ms_apObjects;
 	static LANGUAGE ms_eLanguage;
 	//static FTList<int> ms_lnObjIndices;

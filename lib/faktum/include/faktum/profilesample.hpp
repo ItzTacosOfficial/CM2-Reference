@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core.hpp"
+#include "time.hpp"
 
 
 class FTime;
@@ -27,12 +28,12 @@ public:
 	char* name;
 	char* function;
 	FProfileSample* next;
-	int unkC;
+	unsigned int callCount;
 	int unk10;
-	unsigned int unk14;
+	unsigned int parentCount;
 	int unk18;
 	int unk1C;
-	LARGE_INTEGER time;
+	FTime time;
 	int unk28;
 	int unk2C;
 

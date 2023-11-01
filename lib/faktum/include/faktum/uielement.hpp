@@ -41,11 +41,7 @@ public:
 
 	struct VisibilityEventArgs {}; // TODO Contents
 
-	enum VISIBILITY { // TODO Contents
-		Unknown0,
-		Unknown1,
-		Unknown2
-	};
+	enum VISIBILITY {}; // TODO Contents
 
 
 	FUIElement(const FUIElement& other);
@@ -55,22 +51,22 @@ public:
 
 	FUIElement& operator=(const FUIElement& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
-	void Serialize(FArchive&) override;
+	void Serialize(FArchive& archive) override;
 	//virtual FTList<FUIElement*>::Iterator BeginChildren();
 	virtual FRect GetClipRect() const;
 	virtual void Tick(float);
 	virtual void Render(FCanvas* canvas);
 
-	void Arrange(const FRect&);
-	int BringToTop();
-	int CaptureMouse();
+	void Arrange(const FRect& rect);
+	BOOL BringToTop();
+	BOOL CaptureMouse();
 	void ClipToParent(int);
 	void Disable();
 	void Enable(int);
 	void EnableDesign(int);
-	int Focus();
+	BOOL Focus();
 	FSize GetActualSize() const;
 	int GetChildCount() const;
 	FUIContext* GetContext() const;
@@ -88,21 +84,21 @@ public:
 	VISIBILITY GetVisibility() const;
 	FMatrix4 GetVisualTransform() const;
 	FLength GetWidth() const;
-	BOOL HasChild(FUIElement*);
-	FUIElement* HitTest(const FVector2&);
+	BOOL HasChild(FUIElement* element);
+	FUIElement* HitTest(const FVector2& pos);
 	void InvalidateArrange();
 	void InvalidateMeasure();
 	BOOL IsDesigning() const;
 	BOOL IsEnabled() const;
 	BOOL IsFocused() const;
 	BOOL IsVisible() const;
-	void Measure(const FSize&);
-	void RaiseEvent(int, EventArgs*);
+	void Measure(const FSize& size);
+	void RaiseEvent(int, EventArgs* args);
 	void ReleaseMouse();
 	void SetContext(FUIContext*);
 	void SetContextMenu(FContextMenu*);
 	void SetHeight(const FLength& height);
-	int SetModal(int);
+	BOOL SetModal(int);
 	void SetParent(FUIElement* parent);
 	void SetRenderTransform(const FMatrix4& transform);
 	void SetStyle(FStyle* style);
@@ -153,41 +149,41 @@ public:
 
 protected:
 
-	virtual FSize MeasureCore(const FSize&);
-	virtual void ArrangeCore(const FRect&);
-	virtual void OnEndComposition(EndCompositionEventArgs*);
-	virtual void OnKeyDown(KeyEventArgs*);
-	virtual void OnKeyUp(KeyEventArgs*);
-	virtual void OnMouseButtonDownPreview(MouseButtonEventArgs*);
-	virtual void OnMouseButtonDown(MouseButtonEventArgs*);
-	virtual void OnMouseButtonUpPreview(MouseButtonEventArgs*);
-	virtual void OnMouseButtonUp(MouseButtonEventArgs*);
-	virtual void OnMouseEnter(MouseEventArgs*);
-	virtual void OnMouseLeave(MouseEventArgs*);
-	virtual void OnMouseMovePreview(MouseEventArgs*);
-	virtual void OnMouseMove(MouseEventArgs*);
-	virtual void OnControllerButtonDown(ControllerButtonEventArgs*);
-	virtual void OnControllerButtonUp(ControllerButtonEventArgs*);
-	virtual void OnControllerMove(ControllerMoveEventArgs*);
-	virtual void OnLostFocusPreview(FocusEventArgs*);
-	virtual void OnLostFocus(FocusEventArgs*);
-	virtual void OnGotFocusPreview(FocusEventArgs*);
-	virtual void OnGotFocus(FocusEventArgs*);
-	virtual void OnContextMenuOpening(ContextMenuEventArgs*);
-	virtual void OnContextMenuClosing(ContextMenuEventArgs*);
-	virtual void OnDragBegin(DragEventArgs*);
-	virtual void OnDragEnter(DragEventArgs*);
-	virtual void OnDragLeave(DragEventArgs*);
-	virtual void OnDragOver(DragEventArgs*);
-	virtual void OnDrop(DragEventArgs*);
-	virtual void OnSetVisibility(VisibilityEventArgs*);
-	virtual int AddChild(FUIElement*);
-	virtual int RemoveChild(FUIElement*);
+	virtual FSize MeasureCore(const FSize& size);
+	virtual void ArrangeCore(const FRect& rect);
+	virtual void OnEndComposition(EndCompositionEventArgs* args);
+	virtual void OnKeyDown(KeyEventArgs* args);
+	virtual void OnKeyUp(KeyEventArgs* args);
+	virtual void OnMouseButtonDownPreview(MouseButtonEventArgs* args);
+	virtual void OnMouseButtonDown(MouseButtonEventArgs* args);
+	virtual void OnMouseButtonUpPreview(MouseButtonEventArgs* args);
+	virtual void OnMouseButtonUp(MouseButtonEventArgs* args);
+	virtual void OnMouseEnter(MouseEventArgs* args);
+	virtual void OnMouseLeave(MouseEventArgs* args);
+	virtual void OnMouseMovePreview(MouseEventArgs* args);
+	virtual void OnMouseMove(MouseEventArgs* args);
+	virtual void OnControllerButtonDown(ControllerButtonEventArgs* args);
+	virtual void OnControllerButtonUp(ControllerButtonEventArgs* args);
+	virtual void OnControllerMove(ControllerMoveEventArgs* args);
+	virtual void OnLostFocusPreview(FocusEventArgs* args);
+	virtual void OnLostFocus(FocusEventArgs* args);
+	virtual void OnGotFocusPreview(FocusEventArgs* args);
+	virtual void OnGotFocus(FocusEventArgs* args);
+	virtual void OnContextMenuOpening(ContextMenuEventArgs* args);
+	virtual void OnContextMenuClosing(ContextMenuEventArgs* args);
+	virtual void OnDragBegin(DragEventArgs* args);
+	virtual void OnDragEnter(DragEventArgs* args);
+	virtual void OnDragLeave(DragEventArgs* args);
+	virtual void OnDragOver(DragEventArgs* args);
+	virtual void OnDrop(DragEventArgs* args);
+	virtual void OnSetVisibility(VisibilityEventArgs* args);
+	virtual int AddChild(FUIElement* element);
+	virtual int RemoveChild(FUIElement* element);
 	virtual void RemoveAllChildren();
 
 private:
 
-	void RaiseEventInternal(FEvent*, EventArgs*);
+	void RaiseEventInternal(FEvent* event, EventArgs* args);
 
 	static FClass* __cdecl StaticConstructClassFUIElement();
 	static void __cdecl StaticInitClassFUIElement();

@@ -17,14 +17,14 @@ public:
 
 	FPanel& operator=(const FPanel& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
-	void Serialize(FArchive&) override;
+	void Serialize(FArchive& archive) override;
 	void Render(FCanvas* canvas) override;
-	int AddChild(FUIElement* child) override;
-	int RemoveChild(FUIElement* child) override;
+	BOOL AddChild(FUIElement* child) override;
+	BOOL RemoveChild(FUIElement* child) override;
 	void RemoveAllChildren() override;
-	virtual FUIElement* GetChild(int);
+	virtual FUIElement* GetChild(int id);
 
 	void SetBackgroundBrush(FBrush* brush);
 

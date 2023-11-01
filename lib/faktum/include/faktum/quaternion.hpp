@@ -56,11 +56,11 @@ public:
 FAK_SIZE_GUARD(FQuaternion, 0x10);
 
 
-FAK_IMPORT FQuaternion* __stdcall FtQuaternionInverse(FQuaternion*, const FQuaternion*);
-FAK_IMPORT FQuaternion* __stdcall FtQuaternionMultiply(FQuaternion*, const FQuaternion*, const FQuaternion*);
-FAK_IMPORT FQuaternion* __stdcall FtQuaternionNormalize(FQuaternion*, const FQuaternion*);
-FAK_IMPORT FQuaternion* __stdcall FtQuaternionRotationAxis(FQuaternion*, const FVector3*, float);
-FAK_IMPORT FQuaternion* __stdcall FtQuaternionRotationMatrix(FQuaternion*, const FMatrix4*);
-FAK_IMPORT FQuaternion* __stdcall FtQuaternionRotationYawPitchRoll(FQuaternion*, float, float, float);
+FAK_IMPORT FQuaternion* __stdcall FtQuaternionInverse(FQuaternion* out, const FQuaternion* in);
+FAK_IMPORT FQuaternion* __stdcall FtQuaternionMultiply(FQuaternion* out, const FQuaternion* a, const FQuaternion* b);
+FAK_IMPORT FQuaternion* __stdcall FtQuaternionNormalize(FQuaternion* out, const FQuaternion* in);
+FAK_IMPORT FQuaternion* __stdcall FtQuaternionRotationAxis(FQuaternion* out, const FVector3* axis, float angle);
+FAK_IMPORT FQuaternion* __stdcall FtQuaternionRotationMatrix(FQuaternion* out, const FMatrix4* mat);
+FAK_IMPORT FQuaternion* __stdcall FtQuaternionRotationYawPitchRoll(FQuaternion* out, float yaw, float pitch, float roll);
 FAK_IMPORT FQuaternion* __stdcall FtQuaternionSlerp(FQuaternion*, FQuaternion*, FQuaternion*, float);
-FAK_IMPORT void __stdcall FtQuaternionToAxisAngle(const FQuaternion*, FVector3*, float*);
+FAK_IMPORT void __stdcall FtQuaternionToAxisAngle(const FQuaternion* in, FVector3* axis, float* angle);

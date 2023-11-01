@@ -22,7 +22,7 @@ public:
 
 	FSample& operator=(const FSample& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Serialize(FArchive& archive) override;
 

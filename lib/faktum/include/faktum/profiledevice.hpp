@@ -1,9 +1,9 @@
 #pragma once
 
 #include "core.hpp"
+#include "time.hpp"
 
 
-class FTime;
 class FProfileSample;
 
 class FAK_IMPORT FProfileDevice { // TODO Verify dummy
@@ -28,12 +28,11 @@ public:
 	void SetUpdateInterval(const FTime& time);
 
 
-	int unk4;
-	LARGE_INTEGER updateInterval;
+	FTime updateInterval;
 	int unk10;
 	int unk14;
-	HWND unk18;
-	HWND unk1C;
+	HWND windowHandle;
+	HWND listViewHandle;
 
 protected:
 
@@ -45,8 +44,8 @@ private:
 	static long __stdcall StaticWndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp);
 
 };
-//FAK_SIZE_GUARD(FProfileDeviceWindow, );
+FAK_SIZE_GUARD(FProfileDeviceWindow, 0x20);
 
 
 FAK_IMPORT void __cdecl FtResetProfile();
-FAK_IMPORT void __cdecl FtSetProfileDevice(FProfileDevice*);
+FAK_IMPORT void __cdecl FtSetProfileDevice(FProfileDevice* device);

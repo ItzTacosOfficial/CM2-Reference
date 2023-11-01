@@ -22,9 +22,9 @@ public:
 
 	FCodec& operator=(const FCodec& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
-	virtual int Begin(TYPE type, unsigned int bufferSize);
+	virtual BOOL Begin(TYPE type, unsigned int bufferSize);
 	virtual void End();
 	virtual unsigned int ProcessBuffer(void* data, unsigned int size) = 0;
 
@@ -64,7 +64,7 @@ public:
 
 	FCodecRaw& operator=(const FCodecRaw& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	unsigned int ProcessBuffer(void* data, unsigned int size) override;
 
@@ -93,9 +93,9 @@ public:
 
 	FCodecZip& operator=(const FCodecZip& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
-	int Begin(TYPE type, unsigned int bufferSize) override;
+	BOOL Begin(TYPE type, unsigned int bufferSize) override;
 	void End() override;
 	unsigned int ProcessBuffer(void* data, unsigned int size) override;
 

@@ -15,14 +15,14 @@ public:
 
 	FCanvasPanel& operator=(const FCanvasPanel& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Render(FCanvas* canvas) override;
 	void Serialize(FArchive&) override;
 	int AddChild(FUIElement* child) override;
 	int RemoveChild(FUIElement* child) override;
 	void RemoveAllChildren() override;
-	FUIElement* GetChild(int) override;
+	FUIElement* GetChild(int id) override;
 
 	int AddChild(const FRect& rect, FUIElement* child);
 	int SetRect(FUIElement* child, const FRect& rect);
@@ -37,7 +37,7 @@ public:
 
 protected:
 	
-	void ArrangeCore(const FRect&) override;
+	void ArrangeCore(const FRect& rect) override;
 
 	void MouseButtonDown(FObject*, MouseButtonEventArgs* args);
 	void MouseButtonUp(FObject*, MouseButtonEventArgs* args);

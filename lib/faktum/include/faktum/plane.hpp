@@ -15,7 +15,7 @@ public:
 
 	FPlane();
 	FPlane(const FPlane& other);
-	FPlane(const FVector3&, const FVector3&, const FVector3&);
+	FPlane(const FVector3& a, const FVector3& b, const FVector3& c);
 	FPlane(const FVector3&, const FVector3&);
 	FPlane(const FVector3&);
 	FPlane(const FVector3&, float);
@@ -38,16 +38,16 @@ public:
 	BOOL CullBox(const FBox& box, const FMatrix4&) const;
 	float Distance(const FVector3& vec) const;
 	FPlane Flip() const;
-	BOOL Intersect(const FPlane&, const FPlane&, FVector3*) const;
-	BOOL Intersect(const FPlane&, FLine*) const;
-	BOOL Intersect(const FLine&, float*) const;
-	BOOL Intersect(const FLine&, FVector3*) const;
+	BOOL Intersect(const FPlane& a, const FPlane& b, FVector3* out) const;
+	BOOL Intersect(const FPlane& plane, FLine* out) const;
+	BOOL Intersect(const FLine& line, float* out) const;
+	BOOL Intersect(const FLine& line, FVector3* out) const;
 	float IntersectionDistance(const FLine&);
 	FVector3 IntersectionPoint(const FPlane&, const FPlane&);
-	FVector3 IntersectionPoint(const FLine&);
+	FVector3 IntersectionPoint(const FLine& line);
 	FPlane& Normalize();
-	FVector3 ProjectPoint(const FVector3&) const;
-	FPlane Transform(const FMatrix4&) const;
+	FVector3 ProjectPoint(const FVector3& vec) const;
+	FPlane Transform(const FMatrix4& mat) const;
 
 
 	float a;
@@ -60,9 +60,9 @@ FAK_SIZE_GUARD(FPlane, 0x10);
 
 
 FAK_IMPORT FPlane* __stdcall FtPlaneFromPointNormal(FPlane*, const FVector3*, const FVector3*);
-FAK_IMPORT FPlane* __stdcall FtPlaneFromPoints(FPlane*, const FVector3*, const FVector3*, const FVector3*);
-FAK_IMPORT FVector3* __stdcall FtPlaneIntersectLine(FVector3*, const FPlane*, const FVector3*, const FVector3*);
-FAK_IMPORT FLine* __stdcall FtPlaneIntersectPlane(FLine*, const FPlane*, const FPlane*);
-FAK_IMPORT FVector3* __stdcall FtPlaneIntersectPlanes(FVector3*, const FPlane*, const FPlane*, const FPlane*);
-FAK_IMPORT FPlane* __stdcall FtPlaneNormalize(FPlane*, const FPlane*);
-FAK_IMPORT FPlane* __stdcall FtPlaneTransform(FPlane*, const FPlane*, const FMatrix4*);
+FAK_IMPORT FPlane* __stdcall FtPlaneFromPoints(FPlane* out, const FVector3* a, const FVector3* b, const FVector3* c);
+FAK_IMPORT FVector3* __stdcall FtPlaneIntersectLine(FVector3* out, const FPlane* in, const FVector3* a, const FVector3* b);
+FAK_IMPORT FLine* __stdcall FtPlaneIntersectPlane(FLine* out, const FPlane* a, const FPlane* b);
+FAK_IMPORT FVector3* __stdcall FtPlaneIntersectPlanes(FVector3* out, const FPlane* a, const FPlane* b, const FPlane* c);
+FAK_IMPORT FPlane* __stdcall FtPlaneNormalize(FPlane* out, const FPlane* in);
+FAK_IMPORT FPlane* __stdcall FtPlaneTransform(FPlane* out, const FPlane* in, const FMatrix4* mat);

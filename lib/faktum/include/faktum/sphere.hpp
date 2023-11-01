@@ -20,7 +20,7 @@ public:
 
 	BOOL Contains(const FSphere& sphere) const;
 	BOOL Contains(const FVector3& vec) const;
-	//unsigned int PushLines(FTArray<FVector3>&, unsigned int) const;
+	unsigned int PushLines(FTArray<FVector3>&, unsigned int) const;
 
 
 	FVector3 pos;

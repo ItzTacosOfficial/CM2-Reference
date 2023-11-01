@@ -12,10 +12,10 @@ class FAK_IMPORT FApplication : public FObject { // TODO Members
 public:
 
 	enum FAK_ASSUMED FLAG {
-		Initialized		= 0x1,
-		Ticking			= 0x2,
-		Drawing			= 0x4,
-		Unk8			= 0x8,
+		Initialized	= 0x1,
+		Ticking		= 0x2,
+		Drawing		= 0x4,
+		Unk8		= 0x8,
 	};
 
 
@@ -26,13 +26,13 @@ public:
 
 	FApplication& operator=(const FApplication& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
-	void ClearApplicationFlags(unsigned int);
+	void ClearApplicationFlags(unsigned int mask);
 	float GetFrameRateAverage() const;
-	int IsDrawing() const;
-	int IsRunning() const;
-	int IsTicking() const;
+	BOOL IsDrawing() const;
+	BOOL IsRunning() const;
+	BOOL IsTicking() const;
 	void Quit(int exitCode);
 	int Run();
 	void SetFrameRateMaximum(float frameRate);
@@ -41,7 +41,7 @@ public:
 	static void __cdecl StaticUnregisterClass();
 
 
-	FLAG appFlags;
+	FLAG applicationFlags;
 	FViewportManager* viewportManager;
 	int unk2C;
 	float maxFrameRate;
@@ -50,7 +50,7 @@ public:
 
 protected:
 
-	virtual int Init();
+	virtual BOOL Init();
 	virtual void Exit();
 	virtual void PreTick(float);
 	virtual void PostTick(float);

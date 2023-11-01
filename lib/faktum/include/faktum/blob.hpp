@@ -15,7 +15,7 @@ public:
 
 	~FBlob() override;
 
-	static void* operator new(size_t size, FObject*, const FName&, const FName&, unsigned int);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FBlob& operator=(const FBlob& other);
 

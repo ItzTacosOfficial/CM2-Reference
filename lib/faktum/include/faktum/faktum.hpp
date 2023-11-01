@@ -4,6 +4,7 @@
 
 #include "application.hpp"
 #include "archive.hpp"
+#include "array.hpp"
 #include "blob.hpp"
 #include "box.hpp"
 #include "canvas.hpp"
@@ -38,6 +39,7 @@
 #include "refcount.hpp"
 #include "sample.hpp"
 #include "scene.hpp"
+#include "size.hpp"
 #include "sphere.hpp"
 #include "storage.hpp"
 #include "string.hpp"
@@ -45,6 +47,7 @@
 #include "text.hpp"
 #include "textdevice.hpp"
 #include "thread.hpp"
+#include "time.hpp"
 #include "uielement.hpp"
 #include "vector.hpp"
 
@@ -57,4 +60,4 @@ FString __cdecl FtClipboardPaste();
 float __cdecl FtFRand();
 void __cdecl FtQuickSort(void*, unsigned int, unsigned int, int (__cdecl*)(const void*, const void*, void*), void*);
 
-long __stdcall _FtHandleException(EXCEPTION_POINTERS);
+long __stdcall _FtHandleException(PEXCEPTION_POINTERS info);

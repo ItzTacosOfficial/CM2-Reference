@@ -6,18 +6,26 @@
 #include <cstdio>
 
 
+template<class T>
+class FTArray;
+
 class FAK_IMPORT FFileSystem { // TODO Members, functions
 
 public:
 
 	struct FindData {}; // TODO Contents
 
-	enum STATUS {}; // TODO Contents
+	enum STATUS {
+		PreCopy,
+
+	};
 
 	enum FAK_ASSUMED MODE {
-		Read		= 0x1,
-		Write		= 0x2,
+		Read	= 0x1,
+		Write	= 0x2,
 	};
+
+	using CopyCallbackT = unsigned int (__cdecl*)(long long sourceSize, long long unk, STATUS status, void* userData);
 
 
 	FFileSystem();
@@ -28,8 +36,8 @@ public:
 	virtual FArchive* CreateFileArchive(const wchar_t* path, unsigned int mode, FTextDevice* textDevice) = 0;
 	virtual int GetFileSize(const wchar_t* path) = 0;
 	virtual int Delete(const wchar_t* path) = 0;
-	virtual int Copy(const wchar_t*, const wchar_t*, int, unsigned int (__cdecl*)(__int64, __int64, STATUS, void*), void*, int*) = 0;
-	//virtual FTArray<FindData> FindFiles(const wchar_t*) = 0;
+	virtual int Copy(const wchar_t* dest, const wchar_t* src, BOOL overwrite, CopyCallbackT callback, void* userData, int* unk) = 0;
+	virtual FTArray<FindData> FindFiles(const wchar_t*) = 0;
 	virtual int CreateDirectoryW(const wchar_t* path) = 0;
 	virtual int RemoveDirectoryW(const wchar_t* path) = 0;
 
@@ -44,9 +52,9 @@ public:
 
 	public:
 
-		int Close() override;
-		unsigned int Read(void*, unsigned int) override;
-		unsigned int Write(const void*, unsigned int) override;
+		BOOL Close() override;
+		unsigned int Read(void* dest, unsigned int size) override;
+		unsigned int Write(const void* src, unsigned int size) override;
 		void Flush() override;
 		int Tell() override;
 		void Seek(int pos) override;
@@ -56,6 +64,7 @@ public:
 		FILE* file;
 
 	};
+	FAK_SIZE_GUARD(FileArchive, 0xC);
 
 
 	FFileSystemANSI();
@@ -66,8 +75,8 @@ public:
 	FArchive* CreateFileArchive(const wchar_t* path, unsigned int mode, FTextDevice*) override;
 	int GetFileSize(const wchar_t* path) override;
 	BOOL Delete(const wchar_t* path) override;
-	BOOL Copy(const wchar_t*, const wchar_t*, int, unsigned int (__cdecl*)(__int64, __int64, STATUS, void*), void*, int*) override;
-	//FTArray<FFileSystem::FindData> FindFiles(const wchar_t*) override;
+	BOOL Copy(const wchar_t* dest, const wchar_t* src, BOOL overwrite, CopyCallbackT callback, void* userData, int* unk) override;
+	FTArray<FindData> FindFiles(const wchar_t*) override;
 	BOOL CreateDirectoryW(const wchar_t* path) override;
 	BOOL RemoveDirectoryW(const wchar_t* path) override;
 

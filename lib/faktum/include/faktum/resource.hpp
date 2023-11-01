@@ -15,7 +15,7 @@ public:
 
 	FResource& operator=(const FResource& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void PropertyChanged(FProperty* property) override;
 
@@ -27,7 +27,7 @@ public:
 	static void __cdecl StaticUnregisterClass();
 
 
-	long long resourceID;
+	unsigned long long resourceID;
 
 private:
 

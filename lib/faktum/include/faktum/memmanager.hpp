@@ -18,14 +18,14 @@ public:
 
 	virtual void Init() = 0;
 	virtual void Exit() = 0;
-	virtual void* Alloc(unsigned int size, const wchar_t* reason) = 0;
-	virtual void* Realloc(void* ptr, unsigned int size, const wchar_t* reason) = 0;
+	virtual void* Alloc(unsigned int size, const wchar_t* tag) = 0;
+	virtual void* Realloc(void* ptr, unsigned int size, const wchar_t* tag) = 0;
 	virtual void Free(void* ptr) = 0;
 	virtual void Copy(void* dest, const void* src, unsigned int size) = 0;
 	virtual void Move(void* dest, const void* src, unsigned int size) = 0;
 	virtual void Fill(void* dest, unsigned char value, unsigned int size) = 0;
 	virtual BOOL Compare(const void* a, const void* b, unsigned int size) = 0;
-	virtual void Dump(FTextDevice* textDevice, int) = 0;
+	virtual void Dump(FTextDevice* textDevice, BOOL dumpData) = 0;
 	virtual unsigned long long GetAvailableOverallMemory() = 0;
 	virtual unsigned long long GetAvailablePhysicalMemory() = 0;
 	virtual unsigned long long GetAvailableVirtualMemory() = 0;
@@ -57,14 +57,14 @@ public:
 
 	void Init() override;
 	void Exit() override;
-	void* Alloc(unsigned int size, const wchar_t* reason) override;
-	void* Realloc(void* ptr, unsigned int size, const wchar_t* reason) override;
+	void* Alloc(unsigned int size, const wchar_t* tag) override;
+	void* Realloc(void* ptr, unsigned int size, const wchar_t* tag) override;
 	void Free(void* ptr) override;
 	void Copy(void* dest, const void* src, unsigned int size) override;
 	void Move(void* dest, const void* src, unsigned int size) override;
 	void Fill(void* dest, unsigned char value, unsigned int size) override;
 	BOOL Compare(const void* a, const void* b, unsigned int size) override;
-	void Dump(FTextDevice* textDevice, int) override;
+	void Dump(FTextDevice* textDevice, BOOL dumpData) override;
 	unsigned long long GetAvailableOverallMemory() override;
 	unsigned long long GetAvailablePhysicalMemory() override;
 	unsigned long long GetAvailableVirtualMemory() override;
@@ -98,14 +98,14 @@ public:
 
 	void Init() override;
 	void Exit() override;
-	void* Alloc(unsigned int size, const wchar_t* reason) override;
-	void* Realloc(void* ptr, unsigned int size, const wchar_t* reason) override;
+	void* Alloc(unsigned int size, const wchar_t* tag) override;
+	void* Realloc(void* ptr, unsigned int size, const wchar_t* tag) override;
 	void Free(void* ptr) override;
 	void Copy(void* dest, const void* src, unsigned int size) override;
 	void Move(void* dest, const void* src, unsigned int size) override;
 	void Fill(void* dest, unsigned char value, unsigned int size) override;
 	BOOL Compare(const void* a, const void* b, unsigned int size) override;
-	void Dump(FTextDevice* textDevice, int) override;
+	void Dump(FTextDevice* textDevice, BOOL dumpData) override;
 	unsigned long long GetAvailableOverallMemory() override;
 	unsigned long long GetAvailablePhysicalMemory() override;
 	unsigned long long GetAvailableVirtualMemory() override;
@@ -137,14 +137,14 @@ public:
 
 	void Init() override;
 	void Exit() override;
-	void* Alloc(unsigned int size, const wchar_t* reason) override;
-	void* Realloc(void* ptr, unsigned int size, const wchar_t* reason) override;
+	void* Alloc(unsigned int size, const wchar_t* tag) override;
+	void* Realloc(void* ptr, unsigned int size, const wchar_t* tag) override;
 	void Free(void* ptr) override;
 	void Copy(void* dest, const void* src, unsigned int size) override;
 	void Move(void* dest, const void* src, unsigned int size) override;
 	void Fill(void* dest, unsigned char value, unsigned int size) override;
 	BOOL Compare(const void* a, const void* b, unsigned int size) override;
-	void Dump(FTextDevice* textDevice, int) override;
+	void Dump(FTextDevice* textDevice, BOOL dumpData) override;
 	unsigned long long GetAvailableOverallMemory() override;
 	unsigned long long GetAvailablePhysicalMemory() override;
 	unsigned long long GetAvailableVirtualMemory() override;

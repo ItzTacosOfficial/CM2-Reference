@@ -21,7 +21,7 @@ public:
 
 	FGame& operator=(const FGame& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void DrawLevel(FLevel* level, FCanvas* canvas, FScene::TYPE sceneType);
 	FEditor* GetEditor() const;
@@ -37,14 +37,14 @@ public:
 
 
 	int unk4C;
-	FLevel* unk50;
+	FLevel* level;
 	int unk54;
 	FEditor* editor;
 	int unk5C;
 
 protected:
 
-	int Init() override;
+	BOOL Init() override;
 	void Exit() override;
 	void PreTick(float) override;
 	void PostTick(float) override;

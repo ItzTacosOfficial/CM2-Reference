@@ -14,7 +14,7 @@ public:
 
 	FCapsule& operator=(const FCapsule& other);
 
-	//unsigned int PushLines(class FTArray<class FVector3> &,unsigned int) const;
+	unsigned int PushLines(FTArray<FVector3>& array, unsigned int) const;
 
 
 	FVector3 unk0;

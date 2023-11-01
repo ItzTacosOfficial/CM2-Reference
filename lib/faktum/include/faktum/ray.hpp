@@ -18,8 +18,8 @@ public:
 	FVector3 GetOrigin() const;
 
 
-	FVector3 a;
-	FVector3 b;
+	FVector3 origin;
+	FVector3 target;
 
 };
 FAK_SIZE_GUARD(FRay, 0x18);

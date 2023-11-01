@@ -18,18 +18,18 @@ public:
 
 	FMutable& operator=(const FMutable& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FObject* Clone(const FName&, const FName&, FObject*, int) override;
 	void Serialize(FArchive& archive) override;
 	virtual void Mutate(float);
 
 	int GetMutationCount() const;
-	FMutator* GetMutator(FProperty*);
+	FMutator* GetMutator(FProperty* property);
 	FMutator* GetMutator(int) const;
 	FProperty* GetProperty(int) const;
 	void RemoveAllMutators();
-	int SetMutator(FProperty*, FMutator*);
+	BOOL SetMutator(FProperty* property, FMutator* mutator);
 
 	static FClass* __cdecl StaticGetClass();
 	static void __cdecl StaticInitClass();
@@ -40,7 +40,7 @@ public:
 
 private:
 
-	int FindMutation(FProperty*);
+	int FindMutation(FProperty* property);
 
 	static FClass* __cdecl StaticConstructClassFMutable();
 	static void __cdecl StaticInitClassFMutable();

@@ -3,11 +3,20 @@
 #include "core.hpp"
 
 
-class FAK_IMPORT FThread { // TODO Members
+class FAK_IMPORT FThread {
 
 public:
 
 	using FunctionT = void* (__stdcall*)(void*);
+
+	struct FAK_ASSUMED Work { // Internal
+
+		FThread* self;
+		int flags;
+		HANDLE startedEvent;
+		HANDLE executeEvent;
+
+	};
 
 	enum PRIORITY {
 		Idle			= THREAD_PRIORITY_IDLE,
@@ -30,16 +39,16 @@ public:
 	void Exit();
 	PRIORITY GetPriority();
 	unsigned long GetThreadID();
-	BOOL Init(FunctionT function, unsigned int, unsigned int stackSize, void*);
+	BOOL Init(FunctionT function, unsigned int flags, unsigned int stackSize, void* userData);
 	unsigned int Resume();
 	BOOL SetPriority(PRIORITY priority);
 	unsigned int Suspend();
 
 
-	int unk0;
-	HANDLE unk1;
+	unsigned long threadID;
+	HANDLE handle;
 	FunctionT function;
-	HANDLE unk2;
+	void* userData;
 
 };
 FAK_SIZE_GUARD(FThread, 0x10);

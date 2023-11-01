@@ -9,13 +9,13 @@ class FAK_IMPORT FStruct : public FField { // TODO Members
 public:
 
 	FStruct(const FStruct& other);
-	FStruct(const char*, unsigned int);
+	FStruct(const char* name, unsigned int size);
 
 	~FStruct() override;
 
 	FStruct& operator=(const FStruct& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FProperty* GetFirstProperty();
 	unsigned int GetObjectSize() const;
@@ -26,9 +26,9 @@ public:
 	static void __cdecl StaticUnregisterClass();
 
 
-	int unk28;
-	FClass* baseClass;
-	int unk30;
+	int objectSize;
+	FStruct* superStruct;
+	int unk30; // Constructed to 0
 	FProperty* property;
 
 protected:
@@ -46,4 +46,4 @@ private:
 FAK_SIZE_GUARD(FStruct, 0x3C);
 
 
-FStruct* __cdecl FtRegisterStruct(const char*, unsigned int);
+FAK_IMPORT FStruct* __cdecl FtRegisterStruct(const char* name, unsigned int size);

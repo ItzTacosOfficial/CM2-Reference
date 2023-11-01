@@ -3,31 +3,41 @@
 #include "core.hpp"
 
 
-class FObject;
+template<class T>
+class FTArray;
 class FString;
+class FObject;
 class FMutex;
 
-class FAK_IMPORT FName { // TODO Members, static members
+class FAK_IMPORT FName { // static members
 
 public:
 
-	struct Name {}; // TODO Contents
+	struct Name { // Internal
 
-	enum NAME { // TODO Contents
+		int index;
+		int refCount;
+		char name[0x41];
+		Name* lookupNext;
+
+	};
+	FAK_SIZE_GUARD(Name, 0x50);
+
+	enum NAME {
 		Unnamed = -1
 	};
 
 
+	FName();
 	FName(const FName& other);
 	FName(const char* name);
 	FName(NAME name);
-	FName();
 
 	~FName();
 
 	FName& operator=(const FName& other);
-	int operator==(const FName& other) const;
-	int operator!=(const FName& other) const;
+	BOOL operator==(const FName& other) const;
+	BOOL operator!=(const FName& other) const;
 	operator const char*() const;
 
 	int GetIndex() const;
@@ -41,7 +51,7 @@ public:
 	static const FName NONE;
 
 
-	int unk0;
+	int index;
 
 protected:
 
@@ -54,8 +64,8 @@ private:
 	FName(FObject* object);
 
 	static FMutex ms_Mutex;
-	//static FTArray<struct Name*> ms_aNames;
-	static struct Name** ms_apNameHash;
+	static FTArray<Name*> ms_aNames;
+	static Name* ms_apNameHash[0xFFF];
 	//static FTList<int> ms_lnFreeNames;
 
 };

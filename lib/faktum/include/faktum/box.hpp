@@ -4,6 +4,8 @@
 #include "vector.hpp"
 
 
+template<class T>
+class FTArray;
 class FCapsule;
 class FSphere;
 
@@ -18,7 +20,7 @@ public:
 	FBox& operator=(const FBox& other);
 
 	BOOL Overlap(const FBox& box) const;
-	//unsigned int PushLines(FTArray<FVector3>&) const;
+	unsigned int PushLines(FTArray<FVector3>& array) const;
 
 
 	FVector3 a;

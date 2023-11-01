@@ -22,7 +22,7 @@ public:
 
 	FEditor& operator=(const FEditor& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void CloseInformationDlg();
 	void Exit();
@@ -35,7 +35,7 @@ public:
 	void ShowInformationDlg(const wchar_t*, unsigned int, FObject*, void (FObject::*)(FObject*, void*));
 	void Tick(float, unsigned int);
 
-	static void __cdecl StaticConstructor(void*);
+	static void __cdecl StaticConstructor(void* data);
 	static FClass* __cdecl StaticGetClass();
 	static void __cdecl StaticUnregisterClass();
 
@@ -56,30 +56,30 @@ private:
 	FLevel* GetLevel() const;
 	FMatrix4 GetTransformGizmoMatrix(FCamera*, const FVector3&);
 	//void GridSnapUpdate(FObject*, FGridSnapControl::UpdateEventArgs*);
-	int InitConvertToMeshDlg();
-	int InitDialogs();
-	int InitImportObjectDlg();
-	int InitInformationDlg();
-	int InitLevelHandlingDlg();
-	int InitMenus();
-	int InitNewObjectDlg();
-	int InitOpenStorageDlg();
-	int InitSplitNodeMenu();
-	int InitSplitterMenu();
+	BOOL InitConvertToMeshDlg();
+	BOOL InitDialogs();
+	BOOL InitImportObjectDlg();
+	BOOL InitInformationDlg();
+	BOOL InitLevelHandlingDlg();
+	BOOL InitMenus();
+	BOOL InitNewObjectDlg();
+	BOOL InitOpenStorageDlg();
+	BOOL InitSplitNodeMenu();
+	BOOL InitSplitterMenu();
 	void LayoutContextMenu(FObject*, FUIElement::ContextMenuEventArgs*);
 	void LayoutDeleteControl(FObject*, FUIElement::EventArgs*);
 	void LayoutInsertControl(FObject*, FUIElement::EventArgs*);
 	void LayoutRemoveSplit(FObject*, FUIElement::EventArgs*);
 	void LayoutSplitHorizontal(FObject*, FUIElement::EventArgs*);
 	void LayoutSplitVertical(FObject*, FUIElement::EventArgs*);
-	int LoadLevel(const wchar_t* path);
-	int LoadStorageObjects(const wchar_t* path);
-	int NewLevel(const wchar_t*, FString);
+	BOOL LoadLevel(const wchar_t* path);
+	BOOL LoadStorageObjects(const wchar_t* path);
+	BOOL NewLevel(const wchar_t*, FString);
 	//void OnInformationDlgClick(FObject*, FInformationDlg::ClickEventArgs*);
 	unsigned int PickTransformGizmo(const FMatrix4&, const FRay&, float*);
 	void RefreshBrowserControls();
 	void RefreshPropertyControls();
-	int SaveLevel(const wchar_t* path);
+	BOOL SaveLevel(const wchar_t* path);
 	void SetEventHandlers(FUIElement*);
 	void SetPropertyControlObject(FObject*);
 	void SurfaceEditChanged(FObject*, void*);

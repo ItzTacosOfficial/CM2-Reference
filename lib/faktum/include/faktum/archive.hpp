@@ -23,14 +23,14 @@ public:
 	
 	FArchive& operator=(const FArchive& other);
 
-	virtual int Close() = 0;
-	virtual unsigned int Read(void*, unsigned int) = 0;
-	virtual unsigned int Write(const void*, unsigned int) = 0;
+	virtual BOOL Close() = 0;
+	virtual unsigned int Read(void* dest, unsigned int size) = 0;
+	virtual unsigned int Write(const void* src, unsigned int size) = 0;
 	virtual void Flush() = 0;
 	virtual int Tell();
 	virtual void Seek(int pos);
 	virtual int Size();
-	virtual int End();
+	virtual BOOL End();
 	virtual void ReadName(FName& name);
 	virtual void WriteName(const FName& name);
 	virtual FObject* ReadObject();
@@ -39,15 +39,15 @@ public:
 	BOOL IsLoading() const;
 	BOOL IsPersistent() const;
 	BOOL IsStoring() const;
-	void ReadByteOrder(void*, unsigned int);
-	void WriteByteOrder(const void*, unsigned int);
+	void ReadByteOrder(void* dest, unsigned int size);
+	void WriteByteOrder(const void* src, unsigned int size);
 
 
-	FLAG arcFlags;
+	unsigned int archiveFlags;
 
 protected:
 
-	FArchive(unsigned int);
+	FArchive(unsigned int flags);
 
 };
 FAK_SIZE_GUARD(FArchive, 0x8);

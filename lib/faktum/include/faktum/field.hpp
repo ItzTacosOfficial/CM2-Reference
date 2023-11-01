@@ -9,13 +9,13 @@ class FAK_IMPORT FField : public FObject { // TODO Members
 public:
 
 	FField(const FField& other);
-	FField(const char*);
+	FField(const char* name);
 
 	~FField() override;
 
 	FField& operator=(const FField& other);
 
-	static void* __cdecl operator new(size_t, FObject*, const FName&, const FName&, unsigned int);
+	static void* __cdecl operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	static void __cdecl StaticConstructor(void* data);
 	static FClass* __cdecl StaticGetClass();

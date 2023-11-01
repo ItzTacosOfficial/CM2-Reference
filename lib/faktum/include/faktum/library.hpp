@@ -24,7 +24,7 @@ public:
 
 
 	void* moduleHandle;
-	int unk4;
+	int unk4; // Constructed to 0
 	FunctionT initFunction;
 	FunctionT exitFunction;
 	FLibrary* next;

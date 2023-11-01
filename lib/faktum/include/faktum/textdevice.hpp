@@ -14,10 +14,10 @@ public:
 		Critical = 1,
 		Error,
 		Warning,
-		Raw,
+		AboveWarning,
 		Init,
 		Exit,
-		Unknown7,
+		AboveExit,
 		Dev,
 	};
 
@@ -62,7 +62,7 @@ public:
 
 protected:
 
-	virtual void Serialize(FORMAT format, const wchar_t* text) override;
+	void Serialize(FORMAT format, const wchar_t* text) override;
 
 };
 FAK_SIZE_GUARD(FTextDeviceNull, 0x28);
@@ -86,7 +86,7 @@ public:
 
 protected:
 
-	virtual void Serialize(FORMAT format, const wchar_t* text) override;
+	void Serialize(FORMAT format, const wchar_t* text) override;
 
 };
 FAK_SIZE_GUARD(FTextDeviceFile, 0x4C);
@@ -114,7 +114,7 @@ public:
 
 protected:
 
-	virtual void Serialize(FORMAT format, const wchar_t* text) override;
+	void Serialize(FORMAT format, const wchar_t* text) override;
 
 private:
 

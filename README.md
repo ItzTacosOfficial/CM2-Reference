@@ -27,7 +27,7 @@ Make sure to compile with the standard set to C++20 to avoid any issues, a CMake
 ## But why
 
 - Building [Anfora](https://github.com/ItzTacosOfficial/Anfora) mods (and the modloader itself as well)
-- Replacing the game's main executable `cm2.exe` (Which is how Anfora works)
+- Replacing the game's main executable `cm2.exe` (which is how Anfora works)
 - Hopefully writing useful modding tools (for the `.fst` format)
 
 [^1]: The version of both libraries can be checked through the `cm2.log` file written upon game launch

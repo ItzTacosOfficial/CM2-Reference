@@ -68,6 +68,6 @@ FAK_ASSUMED inline void _FtAssert(BOOL condition, const wchar_t* location, const
 	#define FAK_ASSERT(cond, msg) FAK_ASSUMED do { _FtAssert(cond, _FAK_ASSERT_LOCATION(), msg); } while (false)
 	#define FAK_FORCE_ASSERT(msg) FAK_ASSUMED FAK_ASSERT(FALSE, msg)
 #else
-	#define FAK_ASSERT(cond, location, msg) FAK_ASSUMED do {} while (false)
-	#define FAK_FORCE_ASSERT(location, msg) FAK_ASSUMED do {} while (false)
+	#define FAK_ASSERT(cond, msg) FAK_ASSUMED do {} while (false)
+	#define FAK_FORCE_ASSERT(msg) FAK_ASSUMED do {} while (false)
 #endif

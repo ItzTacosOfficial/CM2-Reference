@@ -21,6 +21,8 @@ public:
 
 	FGame& operator=(const FGame& other);
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void DrawLevel(FLevel* level, FCanvas* canvas, FScene::TYPE sceneType);

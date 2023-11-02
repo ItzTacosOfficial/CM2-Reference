@@ -29,7 +29,9 @@ public:
 	CM2Mode();
 	
 	~CM2Mode() override;
-	
+
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 	
 	CM2Mode& operator=(const CM2Mode& other);

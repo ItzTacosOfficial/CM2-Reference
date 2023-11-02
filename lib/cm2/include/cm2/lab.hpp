@@ -26,6 +26,8 @@ public:
 
 	~CM2Lab() override;
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	CM2Lab& operator=(const CM2Lab& other);

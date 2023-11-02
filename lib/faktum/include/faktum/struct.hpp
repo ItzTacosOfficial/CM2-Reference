@@ -15,6 +15,8 @@ public:
 
 	FStruct& operator=(const FStruct& other);
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FProperty* GetFirstProperty();

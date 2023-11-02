@@ -22,6 +22,8 @@ public:
 
 	~CM2Automate() override;
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	CM2Automate& operator=(const CM2Automate& other);

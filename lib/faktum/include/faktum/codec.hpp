@@ -22,6 +22,8 @@ public:
 
 	FCodec& operator=(const FCodec& other);
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	virtual BOOL Begin(TYPE type, unsigned int bufferSize);
@@ -64,6 +66,8 @@ public:
 
 	FCodecRaw& operator=(const FCodecRaw& other);
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	unsigned int ProcessBuffer(void* data, unsigned int size) override;
@@ -93,6 +97,8 @@ public:
 
 	FCodecZip& operator=(const FCodecZip& other);
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	BOOL Begin(TYPE type, unsigned int bufferSize) override;

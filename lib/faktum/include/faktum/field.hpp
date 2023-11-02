@@ -15,6 +15,8 @@ public:
 
 	FField& operator=(const FField& other);
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	static void StaticConstructor(void* data);

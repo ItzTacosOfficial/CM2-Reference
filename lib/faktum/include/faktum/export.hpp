@@ -15,6 +15,8 @@ public:
 
 	~FExport() override;
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FExport& operator=(const FExport& other);
@@ -46,6 +48,8 @@ public:
 
 	~FExportCode() override;
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FExportCode& operator=(const FExportCode& other);
@@ -78,6 +82,8 @@ public:
 
 	~FExportFontF3F() override;
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FExportFontF3F& operator=(const FExportFontF3F& other);
@@ -115,6 +121,8 @@ public:
 
 	~FExportTextureDDS() override;
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FExportTextureDDS& operator=(const FExportTextureDDS& other);
@@ -150,6 +158,8 @@ public:
 
 	~FExportTextureTGA() override;
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	FExportTextureTGA& operator=(const FExportTextureTGA& other);

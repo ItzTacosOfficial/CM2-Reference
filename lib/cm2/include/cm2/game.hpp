@@ -40,6 +40,8 @@ public:
 
 	CM2Game& operator=(const CM2Game& other);
 
+	using FObject::operator new;
+	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	int Init() override;

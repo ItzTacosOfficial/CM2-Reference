@@ -2,9 +2,9 @@
 
 #include "core.hpp"
 #include "lab.hpp"
-#include "faktum/game.hpp"
-#include "faktum/cursor.hpp"
-#include "faktum/filesystem.hpp"
+#include "faktum/application/game.hpp"
+#include "faktum/util/cursor.hpp"
+#include "faktum/core/filesystem.hpp"
 
 
 class CM2CameraShaker;
@@ -22,7 +22,7 @@ class FFrustum;
 class FRect;
 class FWorkingThread;
 
-class CM2_IMPORT CM2Game : public FGame { // TODO Members, functions
+class CM2_API CM2Game : public FGame { // TODO Members, functions
 
 public:
 

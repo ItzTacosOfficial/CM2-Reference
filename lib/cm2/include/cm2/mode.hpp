@@ -18,7 +18,7 @@ class FLevel;
 class FGraphicsProgram;
 class FMesh;
 
-class CM2_IMPORT CM2Mode : public FObject { // TODO Members, virtuals, functions
+class CM2_API CM2Mode : public FObject { // TODO Members, virtuals, functions
 
 public:
 

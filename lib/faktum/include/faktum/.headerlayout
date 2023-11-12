@@ -1,12 +1,12 @@
 #pragma once
 
-#include "core.hpp"
+#include "faktum/api.hpp"
 // Includes
 
 
 // Forward declarations
 
-class FAK_IMPORT NAME {
+class FAK_API NAME {
 
 public:
 

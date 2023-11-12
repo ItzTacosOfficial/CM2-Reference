@@ -9,7 +9,7 @@ class FRect;
 class FSample;
 class FName;
 
-class CM2_IMPORT CM2Character { // TODO Members
+class CM2_API CM2Character { // TODO Members
 
 public:
 

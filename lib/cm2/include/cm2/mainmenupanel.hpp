@@ -4,7 +4,7 @@
 #include "menupanel.hpp"
 
 
-class CM2_IMPORT CM2MainMenuPanel : public CM2MenuPanel {
+class CM2_API CM2MainMenuPanel : public CM2MenuPanel {
 
 public:
 

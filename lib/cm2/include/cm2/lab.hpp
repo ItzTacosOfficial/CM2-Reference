@@ -12,7 +12,7 @@ class FText;
 class FGuid;
 class FLevel;
 
-class CM2_IMPORT CM2Lab : public FObject { // TODO Members
+class CM2_API CM2Lab : public FObject { // TODO Members
 
 public:
 

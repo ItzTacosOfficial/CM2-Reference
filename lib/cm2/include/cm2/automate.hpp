@@ -6,7 +6,7 @@
 
 class CM2Game;
 
-class CM2_IMPORT CM2Automate : public FObject {
+class CM2_API CM2Automate : public FObject {
 
 public:
 

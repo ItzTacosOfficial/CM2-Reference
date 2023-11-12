@@ -1,9 +1,9 @@
 #pragma once
 
-#include "faktum/core.hpp"
+#include "faktum/api.hpp"
 
 
-#define CM2_IMPORT FAK_IMPORT
+#define CM2_API FAK_API
 
 #define CM2_SIZE_GUARD FAK_SIZE_GUARD
 

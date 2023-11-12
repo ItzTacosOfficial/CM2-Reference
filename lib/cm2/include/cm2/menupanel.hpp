@@ -4,7 +4,7 @@
 #include "canvaspanel.hpp"
 
 
-class CM2_IMPORT CM2MenuPanel : public CM2CanvasPanel { // TODO Members, functions
+class CM2_API CM2MenuPanel : public CM2CanvasPanel { // TODO Members, functions
 
 public:
 

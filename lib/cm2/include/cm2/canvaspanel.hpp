@@ -1,12 +1,12 @@
 #pragma once
 
 #include "core.hpp"
-#include "faktum/canvaspanel.hpp"
+#include "faktum/ui/canvaspanel.hpp"
 
 
 class CM2Mode;
 
-class CM2_IMPORT CM2CanvasPanel : public FCanvasPanel { // TODO Members
+class CM2_API CM2CanvasPanel : public FCanvasPanel { // TODO Members
 
 public:
 

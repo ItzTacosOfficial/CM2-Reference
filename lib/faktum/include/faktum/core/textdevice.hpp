@@ -1,0 +1,124 @@
+#pragma once
+
+#include "faktum/api.hpp"
+#include "faktum/util/thread.hpp"
+
+#include <cstdio>
+
+
+class FAK_API FTextDevice { // TODO Critical section
+
+public:
+
+	enum FORMAT { // TODO Contents
+		FMT_CRITICAL = 1,
+		FMT_ERROR,
+		FMT_WARNING,
+		FMT_ABOVE_WARNING,
+		FMT_INIT,
+		FMT_EXIT,
+		FMT_ABOVE_EXIT,
+		FMT_DEV,
+	};
+
+
+	FTextDevice();
+	FTextDevice(const FTextDevice& other);
+
+	~FTextDevice();
+
+	FTextDevice& operator=(const FTextDevice& other);
+
+	unsigned int GetLevel() const;
+	void Log(const wchar_t* text);
+	void Log(FORMAT format, const wchar_t* text);
+	void Logf(const wchar_t* text, ...);
+	void Logf(FORMAT format, const wchar_t* text, ...);
+	void SetLevel(FORMAT format);
+
+
+	unsigned int level;
+	FMutex mutex;
+
+protected:
+
+	virtual void Serialize(FORMAT format, const wchar_t* text) = 0;
+
+};
+FAK_SIZE_GUARD(FTextDevice, 0x28);
+
+class FAK_API FTextDeviceNull : public FTextDevice {
+
+public:
+
+	FTextDeviceNull();
+	FTextDeviceNull(const FTextDeviceNull& other);
+
+	~FTextDeviceNull();
+
+	FTextDeviceNull& operator=(const FTextDeviceNull& other);
+
+protected:
+
+	void Serialize(FORMAT format, const wchar_t* text) override;
+
+};
+FAK_SIZE_GUARD(FTextDeviceNull, 0x28);
+
+class FAK_API FTextDeviceFile : public FTextDevice { // TODO Critical section
+
+public:
+
+	FTextDeviceFile(const FTextDeviceFile& other);
+	FTextDeviceFile(const wchar_t* path);
+
+	~FTextDeviceFile();
+
+	FTextDeviceFile& operator=(const FTextDeviceFile& other);
+
+
+	FILE* file;
+	FMutex fileMutex;
+
+protected:
+
+	void Serialize(FORMAT format, const wchar_t* text) override;
+
+};
+FAK_SIZE_GUARD(FTextDeviceFile, 0x4C);
+
+class FAK_API FTextDeviceWindow : public FTextDevice { // TODO Critical section
+
+public:
+
+	FTextDeviceWindow(const FTextDeviceWindow& other);
+	FTextDeviceWindow(const wchar_t* windowTitle, const wchar_t* path);
+
+	~FTextDeviceWindow();
+
+	FTextDeviceWindow& operator=(const FTextDeviceWindow& other);
+
+
+	wchar_t* windowTitle;
+	FThread thread;
+	FILE* file;
+	FMutex richEditMutex;
+	HWND windowHandle;
+	HWND richEditHandle;
+
+protected:
+
+	void Serialize(FORMAT format, const wchar_t* text) override;
+
+private:
+
+	static int StaticTrayMessage(HWND hwnd, unsigned long, unsigned int, HICON icon, wchar_t*);
+	static long __stdcall StaticWndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp);
+	static void* __stdcall StaticWndThread(FTextDeviceWindow* self);
+
+};
+FAK_SIZE_GUARD(FTextDeviceWindow, 0x68);
+
+
+FAK_API FTextDevice* FtGetTextDevice();
+FAK_API FTextDevice* FtGetTextDeviceNull();

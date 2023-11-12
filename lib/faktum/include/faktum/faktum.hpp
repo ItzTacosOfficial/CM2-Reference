@@ -14,6 +14,7 @@
 #include "class.hpp"
 #include "codec.hpp"
 #include "config.hpp"
+#include "cpuinfo.hpp"
 #include "cursor.hpp"
 #include "editor.hpp"
 #include "event.hpp"

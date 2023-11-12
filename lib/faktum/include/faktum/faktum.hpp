@@ -16,6 +16,7 @@
 #include "config.hpp"
 #include "cursor.hpp"
 #include "editor.hpp"
+#include "event.hpp"
 #include "export.hpp"
 #include "field.hpp"
 #include "filesystem.hpp"

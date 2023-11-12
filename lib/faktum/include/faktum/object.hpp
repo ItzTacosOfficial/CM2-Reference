@@ -19,9 +19,11 @@ public:
 
 	enum LANGUAGE {}; // TODO Contents
 
-	enum ROUTING {}; // TODO Contents
+	enum ROUTING { // TODO Contents
+		UNKROUTING = 2
+	};
 
-	using EventHandlerT = void (FObject::*)(FObject*, void*);
+	using EventHandlerT = void (FObject::*)(FObject* userObject, void* userData);
 
 
 	FObject();
@@ -58,12 +60,12 @@ public:
 	const char* GetObjectPath() const;
 	FObject* GetOuter() const;
 	FName GetStorage() const;
-	int HandleEvent(FEvent*, FObject*, void*);
+	BOOL HandleEvent(FEvent* event, FObject* userObject, void* userData);
 	BOOL IsInstanceOf(FClass* fclass);
 	BOOL IsKindOf(FClass* fclass);
 	void SetClass(FClass* fclass);
 	void SetDirtyStorage();
-	int SetEventHandler(int, FObject*, EventHandlerT);
+	BOOL SetEventHandler(int eventID, FObject* userObject, EventHandlerT handler);
 	void SetLanguage(LANGUAGE language);
 	void SetName(const FName& name);
 	void SetOuter(FObject* outer);
@@ -98,7 +100,7 @@ public:
 
 protected:
 
-	int RegisterEvent(FClass*, const FName&, unsigned int, ROUTING);
+	int RegisterEvent(FClass* fclass, const FName& name, unsigned int objectSize, ROUTING routing);
 
 private:
 
@@ -108,7 +110,7 @@ private:
 	static void StaticInitClassFObject();
 
 	static FObject* ms_apObjHash[4096];
-	//static FTArray<FObject*> ms_apObjects;
+	static FTArray<FObject*> ms_apObjects;
 	static LANGUAGE ms_eLanguage;
 	//static FTList<int> ms_lnObjIndices;
 	static FMutex ms_mMutex;

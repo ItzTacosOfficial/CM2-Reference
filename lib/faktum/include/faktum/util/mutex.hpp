@@ -7,7 +7,7 @@ class FAK_API FMutex { // TODO Critical section
 
 public:
 
-	FMutex(const char* name);
+	FMutex(const char* name = nullptr);
 
 	~FMutex();
 

@@ -4,6 +4,7 @@
 
 #include "application.hpp"
 #include "core.hpp"
+#include "ext.hpp"
 #include "math.hpp"
 #include "object.hpp"
 #include "render.hpp"

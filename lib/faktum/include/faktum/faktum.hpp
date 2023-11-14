@@ -16,7 +16,7 @@
 class FCpuInfo;
 class FTimer;
 
-float FtFRand();
-void FtQuickSort(void*, unsigned int, unsigned int, int (__cdecl*)(const void*, const void*, void*), void*);
+FAK_API float FtFRand();
+FAK_API void FtQuickSort(void*, unsigned int, unsigned int, int (__cdecl*)(const void*, const void*, void*), void*);
 
-long __stdcall _FtHandleException(PEXCEPTION_POINTERS info);
+FAK_API long __stdcall _FtHandleException(PEXCEPTION_POINTERS info);

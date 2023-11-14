@@ -7,7 +7,7 @@ struct HALF;
 class FVector3;
 class FQuaternion;
 
-class FAK_API FMatrix4 { // TODO HALF
+class FMatrix4 { // TODO HALF
 
 public:
 
@@ -66,7 +66,7 @@ public:
 	FMatrix4& Transpose();
 	FMatrix4& Zero();
 
-	static const FMatrix4 IDENTITY;
+	FAK_API static const FMatrix4 IDENTITY;
 
 
 	float m[4][4];

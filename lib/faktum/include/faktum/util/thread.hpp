@@ -3,7 +3,7 @@
 #include "faktum/api.hpp"
 
 
-class FAK_API FThread {
+class FThread {
 
 public:
 

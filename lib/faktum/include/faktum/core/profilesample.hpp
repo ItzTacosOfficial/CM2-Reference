@@ -6,7 +6,7 @@
 
 class FTime;
 
-class FAK_API FProfileSample { // TODO Members
+class FProfileSample { // TODO Members
 
 public:
 

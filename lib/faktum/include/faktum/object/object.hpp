@@ -13,7 +13,7 @@ class FTextDevice;
 class FEvent;
 class FMutex;
 
-class /*FAK_API*/ FObject : public FRefCount { // TODO Members, static members
+class FObject : public FRefCount { // TODO Members, static members
 
 public:
 
@@ -109,12 +109,12 @@ private:
 	static FClass* StaticConstructClassFObject();
 	static void StaticInitClassFObject();
 
-	static FObject* ms_apObjHash[4096];
-	static FTArray<FObject*> ms_apObjects;
-	static LANGUAGE ms_eLanguage;
-	//static FTList<int> ms_lnObjIndices;
-	static FMutex ms_mMutex;
-	static FClass* ms_pClass;
+	FAK_API static FObject* ms_apObjHash[4096];
+	FAK_API static FTArray<FObject*> ms_apObjects;
+	FAK_API static LANGUAGE ms_eLanguage;
+	//FAK_API static FTList<int> ms_lnObjIndices;
+	FAK_API static FMutex ms_mMutex;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FObject, 0x28);

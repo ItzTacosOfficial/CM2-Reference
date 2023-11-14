@@ -6,7 +6,7 @@
 struct HALF;
 class FMatrix4;
 
-class FAK_API FVector2 {
+class FVector2 {
 
 public:
 
@@ -52,7 +52,7 @@ public:
 };
 FAK_SIZE_GUARD(FVector2, 0x8);
 
-class FAK_API FVector3 {
+class FVector3 {
 
 public:
 
@@ -103,7 +103,7 @@ public:
 };
 FAK_SIZE_GUARD(FVector3, 0xC);
 
-class FAK_API FVector4 {
+class FVector4 {
 
 public:
 

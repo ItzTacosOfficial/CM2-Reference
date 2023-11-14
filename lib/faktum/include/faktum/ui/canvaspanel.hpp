@@ -4,7 +4,7 @@
 #include "panel.hpp"
 
 
-class FAK_API FCanvasPanel : public FPanel { // TODO Members
+class FCanvasPanel : public FPanel { // TODO Members
 
 public:
 
@@ -49,8 +49,8 @@ private:
 
 	static FClass* StaticConstructClassFCanvasPanel();
 	static void StaticInitClassFCanvasPanel();
-	
-	static FClass* ms_pClass;
+
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FCanvasPanel, 0x25C);

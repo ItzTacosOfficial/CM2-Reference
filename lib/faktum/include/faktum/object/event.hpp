@@ -4,7 +4,7 @@
 #include "field.hpp"
 
 
-class FAK_API FEvent : public FField {
+class FEvent : public FField {
 
 public:
 
@@ -39,7 +39,7 @@ private:
 	static FClass* StaticConstructClassFEvent();
 	static void StaticInitClassFEvent();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FEvent, 0x38);

@@ -4,7 +4,7 @@
 #include "vector.hpp"
 
 
-class FAK_API FCapsule { // TODO Functions, verify members
+class FCapsule { // TODO Functions, verify members
 
 public:
 
@@ -14,7 +14,7 @@ public:
 
 	FCapsule& operator=(const FCapsule& other);
 
-	unsigned int PushLines(FTArray<FVector3>& array, unsigned int) const;
+	unsigned int PushLines(FTArray<FVector3>& points, unsigned int) const;
 
 
 	FVector3 unk0;
@@ -24,13 +24,13 @@ public:
 };
 FAK_SIZE_GUARD(FCapsule, 0x14);
 
-class FAK_API FCapsuleNEW { // TODO Verify members
+class FCapsuleNEW { // TODO Verify members
 
 public:
 
 	FCapsuleNEW();
 	FCapsuleNEW(const FCapsuleNEW& other);
-	FCapsuleNEW(const FVector3&, const FVector3&, float);
+	FCapsuleNEW(const FVector3& unk0, const FVector3& unkC, float unk18);
 
 	FCapsuleNEW& operator=(const FCapsuleNEW& other);
 

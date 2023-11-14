@@ -7,7 +7,7 @@
 class FCanvas;
 class FViewportManager;
 
-class FAK_API FApplication : public FObject { // TODO Members
+class FApplication : public FObject { // TODO Members
 
 public:
 
@@ -43,7 +43,7 @@ public:
 	static void StaticUnregisterClass();
 
 
-	FLAG applicationFlags;
+	int applicationFlags;
 	FViewportManager* viewportManager;
 	int unk2C;
 	float maxFrameRate;
@@ -64,7 +64,7 @@ private:
 	static FClass* StaticConstructClassFApplication();
 	static void StaticInitClassFApplication();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FApplication, 0x50);

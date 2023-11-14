@@ -4,7 +4,7 @@
 #include "object.hpp"
 
 
-class FAK_API FBlob : public FObject {
+class FBlob : public FObject {
 
 public:
 
@@ -42,7 +42,7 @@ private:
 	static FClass* StaticConstructClassFBlob();
 	static void StaticInitClassFBlob();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FBlob, 0x30);

@@ -4,7 +4,7 @@
 #include "vector.hpp"
 
 
-class FAK_API FRect {
+class FRect {
 
 public:
 

@@ -3,7 +3,7 @@
 #include "faktum/api.hpp"
 
 
-class FAK_API FCanvas { // TODO Dummy
+class FCanvas { // TODO Dummy
 
 public:
 

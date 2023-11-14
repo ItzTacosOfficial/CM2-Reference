@@ -7,7 +7,7 @@
 class FMutator;
 class FProperty;
 
-class FAK_API FMutable : public FObject { // TODO Undocumented
+class FMutable : public FObject { // TODO Undocumented
 
 public:
 
@@ -47,7 +47,7 @@ private:
 	static FClass* StaticConstructClassFMutable();
 	static void StaticInitClassFMutable();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FMutable, 0x38);

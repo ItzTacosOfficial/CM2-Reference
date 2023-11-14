@@ -6,7 +6,7 @@
 
 class FTextDevice;
 
-class FAK_API FMemManager { // TODO Critical section
+class FMemManager { // TODO Critical section
 
 public:
 
@@ -40,7 +40,7 @@ public:
 };
 FAK_SIZE_GUARD(FMemManager, 0x24);
 
-class FAK_API FMemManagerWin32 : public FMemManager { // TODO Members
+class FMemManagerWin32 : public FMemManager { // TODO Members
 
 public:
 
@@ -81,7 +81,7 @@ protected:
 };
 FAK_SIZE_GUARD(FMemManagerWin32, 0x20688);
 
-class FAK_API FMemManagerDebug : public FMemManager { // TODO Members, size, functions
+class FMemManagerDebug : public FMemManager { // TODO Members, size, functions
 
 public:
 
@@ -123,7 +123,7 @@ private:
 };
 //FAK_SIZE_GUARD(FMemManagerDebug, );
 
-class FAK_API FMemManagerANSI : public FMemManager { // TODO Members, size
+class FMemManagerANSI : public FMemManager { // TODO Members, size
 
 public:
 

@@ -5,7 +5,7 @@
 #include "faktum/util/string.hpp"
 
 
-class FAK_API FText : public FObject, public FString {
+class FText : public FObject, public FString {
 
 public:
 
@@ -40,7 +40,7 @@ private:
 	static FClass* StaticConstructClassFText();
 	static void StaticInitClassFText();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FText, 0x30);

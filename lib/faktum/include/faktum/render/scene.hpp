@@ -10,7 +10,7 @@ class FMatrix4;
 class FCamera;
 class FEnvironment;
 
-class FAK_API FScene {
+class FScene {
 
 public:
 

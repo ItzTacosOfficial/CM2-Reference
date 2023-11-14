@@ -5,7 +5,7 @@
 
 enum ENCODING {}; // TODO Contents
 
-class FAK_API FString {
+class FString {
 
 public:
 

@@ -4,11 +4,11 @@
 #include "faktum/util/array.hpp"
 
 
-class FAK_API FCpuInfo {
+class FCpuInfo {
 
 public:
 
-	struct CPUInfo { // Internal
+	struct CPUInfo {
 
 		enum FAK_ASSUMED FLAG {
 			VME			= 0x1,
@@ -38,8 +38,8 @@ public:
 	FAK_SIZE_GUARD(CPUInfo, 0xA0);
 
 
-	FCpuInfo(const FCpuInfo& other);
 	FCpuInfo();
+	FCpuInfo(const FCpuInfo& other);
 
 	virtual ~FCpuInfo();
 

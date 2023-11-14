@@ -5,7 +5,7 @@
 
 class FVector2;
 
-class FAK_API FSize {
+class FSize {
 
 public:
 

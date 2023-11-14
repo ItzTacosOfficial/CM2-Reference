@@ -9,7 +9,7 @@ class FTArray;
 class FCapsule;
 class FSphere;
 
-class FAK_API FBox { // TODO Functions, verify members
+class FBox { // TODO Functions, verify members
 
 public:
 
@@ -20,7 +20,7 @@ public:
 	FBox& operator=(const FBox& other);
 
 	BOOL Overlap(const FBox& box) const;
-	unsigned int PushLines(FTArray<FVector3>& array) const;
+	unsigned int PushLines(FTArray<FVector3>& points) const;
 
 
 	FVector3 a;

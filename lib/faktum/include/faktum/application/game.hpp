@@ -10,7 +10,7 @@ class FEditor;
 class FViewport;
 class FRenderer;
 
-class FAK_API FGame : public FApplication { // TODO Members
+class FGame : public FApplication { // TODO Members
 
 public:
 
@@ -59,7 +59,7 @@ private:
 	static FClass* StaticConstructClassFGame();
 	static void StaticInitClassFGame();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FGame, 0x64);

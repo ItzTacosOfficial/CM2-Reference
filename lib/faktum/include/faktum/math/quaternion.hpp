@@ -7,7 +7,7 @@ struct HALF;
 class FVector3;
 class FMatrix4;
 
-class FAK_API FQuaternion {
+class FQuaternion {
 
 public:
 

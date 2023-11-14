@@ -4,7 +4,7 @@
 #include "vector.hpp"
 
 
-class FAK_API FSphere {
+class FSphere {
 
 public:
 
@@ -30,11 +30,11 @@ public:
 FAK_SIZE_GUARD(FSphere, 0x10);
 
 
-BOOL FtSphereCapsuleOverlap(const FSphere*, const FCapsule*, float);
-BOOL FtSphereCapsuleOverlap(const FSphere*, const FMatrix4*, const FCapsule*, const FMatrix4*, float);
-FSphere* __stdcall FtSphereFromPoints(FSphere*, const FVector3*, const FVector3*, const FVector3*, const FVector3*, int);
-FSphere* __stdcall FtSphereFromPoints(FSphere*, const FVector3*, const FVector3*, const FVector3*, int);
-FSphere* __stdcall FtSphereFromPoints(FSphere*, const FVector3*, const FVector3*, int);
-FSphere* __stdcall FtSphereMinimum(FSphere*, const FVector3*, int);
-BOOL FtSphereSphereOverlap(const FSphere*, const FSphere*, float);
-BOOL FtSphereSphereOverlap(const FSphere*, const FMatrix4*, const FSphere*, const FMatrix4*, float);
+FAK_API BOOL FtSphereCapsuleOverlap(const FSphere*, const FCapsule*, float);
+FAK_API BOOL FtSphereCapsuleOverlap(const FSphere*, const FMatrix4*, const FCapsule*, const FMatrix4*, float);
+FAK_API FSphere* __stdcall FtSphereFromPoints(FSphere*, const FVector3*, const FVector3*, const FVector3*, const FVector3*, int);
+FAK_API FSphere* __stdcall FtSphereFromPoints(FSphere*, const FVector3*, const FVector3*, const FVector3*, int);
+FAK_API FSphere* __stdcall FtSphereFromPoints(FSphere*, const FVector3*, const FVector3*, int);
+FAK_API FSphere* __stdcall FtSphereMinimum(FSphere*, const FVector3*, int);
+FAK_API BOOL FtSphereSphereOverlap(const FSphere*, const FSphere*, float);
+FAK_API BOOL FtSphereSphereOverlap(const FSphere*, const FMatrix4*, const FSphere*, const FMatrix4*, float);

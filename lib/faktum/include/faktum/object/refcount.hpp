@@ -3,7 +3,7 @@
 #include "faktum/api.hpp"
 
 
-class FAK_API FRefCount {
+class FRefCount {
 
 public:
 

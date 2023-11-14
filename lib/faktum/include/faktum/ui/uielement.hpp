@@ -15,7 +15,7 @@ class FMatrix4;
 class FVector2;
 class FCanvas;
 
-class FAK_API FUIElement : public FMutable { // TODO Members, functions
+class FUIElement : public FMutable { // TODO Members, functions
 
 public:
 
@@ -115,36 +115,36 @@ public:
 	static void StaticInitClass();
 	static void StaticUnregisterClass();
 
-	static int EventIDCapturedMouse;
-	static int EventIDContextMenuClosing;
-	static int EventIDContextMenuOpening;
-	static int EventIDControllerButtonDown;
-	static int EventIDControllerButtonUp;
-	static int EventIDControllerMove;
-	static int EventIDDragBegin;
-	static int EventIDDragEnter;
-	static int EventIDDragLeave;
-	static int EventIDDragOver;
-	static int EventIDDrop;
-	static int EventIDEndComposition;
-	static int EventIDGotFocus;
-	static int EventIDGotFocusPreview;
-	static int EventIDKeyDown;
-	static int EventIDKeyUp;
-	static int EventIDLayoutChanged;
-	static int EventIDLostFocus;
-	static int EventIDLostFocusPreview;
-	static int EventIDMouseButtonDown;
-	static int EventIDMouseButtonDownPreview;
-	static int EventIDMouseButtonUp;
-	static int EventIDMouseButtonUpPreview;
-	static int EventIDMouseEnter;
-	static int EventIDMouseLeave;
-	static int EventIDMouseMove;
-	static int EventIDMouseMovePreview;
-	static int EventIDMouseWheel;
-	static int EventIDReleasedMouse;
-	static int EventIDSetVisibility;
+	FAK_API static int EventIDCapturedMouse;
+	FAK_API static int EventIDContextMenuClosing;
+	FAK_API static int EventIDContextMenuOpening;
+	FAK_API static int EventIDControllerButtonDown;
+	FAK_API static int EventIDControllerButtonUp;
+	FAK_API static int EventIDControllerMove;
+	FAK_API static int EventIDDragBegin;
+	FAK_API static int EventIDDragEnter;
+	FAK_API static int EventIDDragLeave;
+	FAK_API static int EventIDDragOver;
+	FAK_API static int EventIDDrop;
+	FAK_API static int EventIDEndComposition;
+	FAK_API static int EventIDGotFocus;
+	FAK_API static int EventIDGotFocusPreview;
+	FAK_API static int EventIDKeyDown;
+	FAK_API static int EventIDKeyUp;
+	FAK_API static int EventIDLayoutChanged;
+	FAK_API static int EventIDLostFocus;
+	FAK_API static int EventIDLostFocusPreview;
+	FAK_API static int EventIDMouseButtonDown;
+	FAK_API static int EventIDMouseButtonDownPreview;
+	FAK_API static int EventIDMouseButtonUp;
+	FAK_API static int EventIDMouseButtonUpPreview;
+	FAK_API static int EventIDMouseEnter;
+	FAK_API static int EventIDMouseLeave;
+	FAK_API static int EventIDMouseMove;
+	FAK_API static int EventIDMouseMovePreview;
+	FAK_API static int EventIDMouseWheel;
+	FAK_API static int EventIDReleasedMouse;
+	FAK_API static int EventIDSetVisibility;
 
 
 	unsigned char unk38[0x1FC];
@@ -190,7 +190,7 @@ private:
 	static FClass* StaticConstructClassFUIElement();
 	static void StaticInitClassFUIElement();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FUIElement, 0x234);

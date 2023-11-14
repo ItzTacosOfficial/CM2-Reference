@@ -6,7 +6,7 @@
 
 class FRay;
 
-class FAK_API FLine {
+class FLine {
 
 public:
 
@@ -28,7 +28,7 @@ public:
 };
 FAK_SIZE_GUARD(FLine, 0x18);
 
-class FAK_API FLineSeg {
+class FLineSeg {
 
 	FLineSeg();
 	FLineSeg(const FLineSeg& other);

@@ -9,7 +9,7 @@ class FBox;
 class FMatrix4;
 class FLine;
 
-class FAK_API FPlane {
+class FPlane {
 
 public:
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "faktum/api.hpp"
-#include "object.hpp"
+#include "faktum/object/object.hpp"
 
 
 class FNewObjectDlg;
@@ -11,7 +11,7 @@ class FRay;
 class FCamera;
 class FVector3;
 
-class FAK_API FEditor : public FObject { // TODO Members, functions
+class FEditor : public FObject { // TODO Members, functions
 
 public:
 
@@ -97,7 +97,7 @@ private:
 	static FClass* StaticConstructClassFEditor();
 	static void StaticInitClassFEditor();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FEditor, 0x130);

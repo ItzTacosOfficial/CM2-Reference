@@ -7,7 +7,7 @@ class FName;
 class FObject;
 class FString;
 
-class FAK_API FArchive {
+class FArchive {
 
 public:
 

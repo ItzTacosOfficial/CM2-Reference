@@ -14,7 +14,7 @@ class FTextDevice;
 class FClass;
 class FMutex;
 
-class FAK_API FStorage : public FObject { // TODO Members, static members, functions
+class FStorage : public FObject { // TODO Members, static members, functions
 
 public:
 
@@ -216,16 +216,16 @@ protected:
 	static void StaticRemoveStorage(FStorage* storage);
 	static void StaticWriteName(FArchive* archive, const char* name);
 
-	static FMutex ms_Mutex;
-	static FTArray<FString> ms_aSearchPatterns;
-	//static FTMap<int, FStorage*> ms_mapStorageMap;
+	FAK_API static FMutex ms_Mutex;
+	FAK_API static FTArray<FString> ms_aSearchPatterns;
+	//FAK_API static FTMap<int, FStorage*> ms_mapStorageMap;
 
 private:
 
 	static FClass* StaticConstructClassFStorage();
 	static void StaticInitClassFStorage();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FStorage, 0x2A8);

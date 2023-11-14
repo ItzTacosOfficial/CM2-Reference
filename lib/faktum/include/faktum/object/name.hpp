@@ -9,7 +9,7 @@ class FString;
 class FObject;
 class FMutex;
 
-class FAK_API FName { // static members
+class FName { // static members
 
 public:
 
@@ -48,7 +48,7 @@ public:
 	static int StaticGetNameCount();
 	static void StaticInit();
 
-	static const FName NONE;
+	FAK_API static const FName NONE;
 
 
 	int index;
@@ -63,10 +63,10 @@ private:
 
 	FName(FObject* object);
 
-	static FMutex ms_Mutex;
-	static FTArray<Name*> ms_aNames;
-	static Name* ms_apNameHash[0xFFF];
-	//static FTList<int> ms_lnFreeNames;
+	FAK_API static FMutex ms_Mutex;
+	FAK_API static FTArray<Name*> ms_aNames;
+	FAK_API static Name* ms_apNameHash[0xFFF];
+	//FAK_API static FTList<int> ms_lnFreeNames;
 
 };
 FAK_SIZE_GUARD(FName, 0x4);

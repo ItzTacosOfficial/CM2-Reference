@@ -5,7 +5,7 @@
 
 class FString;
 
-class FAK_API FTime {
+class FTime {
 
 public:
 

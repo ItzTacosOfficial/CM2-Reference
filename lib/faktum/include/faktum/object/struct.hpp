@@ -4,7 +4,7 @@
 #include "field.hpp"
 
 
-class FAK_API FStruct : public FField { // TODO Members
+class FStruct : public FField { // TODO Members
 
 public:
 
@@ -42,7 +42,7 @@ private:
 	static FClass* StaticConstructClassFStruct();
 	static void StaticInitClassFStruct();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FStruct, 0x3C);

@@ -4,7 +4,7 @@
 #include "object.hpp"
 
 
-class FAK_API FField : public FObject { // TODO Members
+class FField : public FObject { // TODO Members
 
 public:
 
@@ -35,7 +35,7 @@ private:
 	static FClass* StaticConstructClassFField();
 	static void StaticInitClassFField();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FField, 0x2C);

@@ -3,7 +3,7 @@
 #include "faktum/api.hpp"
 
 
-class FAK_API FLibrary { // TODO Members
+class FLibrary { // TODO Members
 
 public:
 
@@ -33,5 +33,5 @@ public:
 FAK_SIZE_GUARD(FLibrary, 0x14);
 
 
-FAK_API void FtAttachLibrary(FLibrary*);
-FAK_API void FtDetachLibrary(FLibrary*);
+FAK_API void FtAttachLibrary(FLibrary* library);
+FAK_API void FtDetachLibrary(FLibrary* library);

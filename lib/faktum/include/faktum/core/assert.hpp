@@ -5,7 +5,7 @@
 
 FAK_API BOOL FtAssertBreak(BOOL condition, const wchar_t* location, const wchar_t* subText, BOOL* abort);
 
-FAK_ASSUMED inline void _FtAssert(BOOL condition, const wchar_t* location, const wchar_t* subText) {
+FAK_CUSTOM inline void _FtAssert(BOOL condition, const wchar_t* location, const wchar_t* subText) {
 
 	BOOL abort = FALSE;
 

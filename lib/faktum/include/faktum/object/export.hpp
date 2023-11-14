@@ -6,7 +6,7 @@
 
 class FTexture;
 
-class FAK_API FExport : public FObject {
+class FExport : public FObject {
 
 public:
 
@@ -34,12 +34,12 @@ private:
 	static FClass* StaticConstructClassFExport();
 	static void StaticInitClassFExport();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FExport, 0x28);
 
-class FAK_API FExportCode : public FExport {
+class FExportCode : public FExport {
 
 public:
 
@@ -68,12 +68,12 @@ private:
 	static FClass* StaticConstructClassFExportCode();
 	static void StaticInitClassFExportCode();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FExportCode, 0x28);
 
-class FAK_API FExportFontF3F : public FExport {
+class FExportFontF3F : public FExport {
 
 public:
 
@@ -102,7 +102,7 @@ private:
 	static FClass* StaticConstructClassFExportFontF3F();
 	static void StaticInitClassFExportFontF3F();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FExportFontF3F, 0x28);
@@ -111,9 +111,7 @@ class FExportTextureDDS : public FExport { // TODO Functions
 
 public:
 
-	struct DDSFILEHEADER { // TODO Contents
-
-	};
+	struct DDSFILEHEADER {};
 
 
 	FExportTextureDDS();
@@ -144,7 +142,7 @@ private:
 	static FClass* StaticConstructClassFExportTextureDDS();
 	static void StaticInitClassFExportTextureDDS();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FExportTextureDDS, 0x28);
@@ -178,7 +176,7 @@ private:
 	static FClass* StaticConstructClassFExportTextureTGA();
 	static void StaticInitClassFExportTextureTGA();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FExportTextureTGA, 0x28);

@@ -6,14 +6,14 @@
 
 class FProfileSample;
 
-class FAK_API FProfileDevice { // TODO Verify dummy
+class FProfileDevice { // TODO Verify dummy
 
 public:
 
 };
 FAK_SIZE_GUARD(FProfileDevice, 0x1);
 
-class FAK_API FProfileDeviceWindow : public FProfileDevice { // TODO Members, size
+class FProfileDeviceWindow : public FProfileDevice { // TODO Members, size
 
 public:
 

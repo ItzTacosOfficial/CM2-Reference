@@ -9,7 +9,7 @@
 template<class T>
 class FTArray;
 
-class FAK_API FFileSystem { // TODO Members, functions
+class FFileSystem { // TODO Members, functions
 
 public:
 
@@ -44,7 +44,7 @@ public:
 };
 FAK_SIZE_GUARD(FFileSystem, 0x4);
 
-class FAK_API FFileSystemANSI : public FFileSystem {
+class FFileSystemANSI : public FFileSystem {
 
 public:
 

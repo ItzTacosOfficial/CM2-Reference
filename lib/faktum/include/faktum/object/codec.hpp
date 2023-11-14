@@ -5,7 +5,7 @@
 #include "zlib.h"
 
 
-class FAK_API FCodec : public FObject {
+class FCodec : public FObject {
 
 public:
 
@@ -50,12 +50,12 @@ private:
 	static FClass* StaticConstructClassFCodec();
 	static void StaticInitClassFCodec();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FCodec, 0x38);
 
-class FAK_API FCodecRaw : public FCodec {
+class FCodecRaw : public FCodec {
 
 public:
 
@@ -81,12 +81,12 @@ private:
 	static FClass* StaticConstructClassFCodecRaw();
 	static void StaticInitClassFCodecRaw();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FCodecRaw, 0x38);
 
-class FAK_API FCodecZip : public FCodec {
+class FCodecZip : public FCodec {
 
 public:
 
@@ -118,7 +118,7 @@ private:
 	static FClass* StaticConstructClassFCodecZip();
 	static void StaticInitClassFCodecZip();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FCodecZip, 0x40);

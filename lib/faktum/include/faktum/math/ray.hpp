@@ -4,7 +4,7 @@
 #include "vector.hpp"
 
 
-class FAK_API FRay {
+class FRay {
 
 public:
 

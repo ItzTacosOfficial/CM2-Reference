@@ -6,7 +6,7 @@
 class FString;
 class FTextDevice;
 
-class FAK_API FConfig {
+class FConfig {
 
 public:
 
@@ -33,7 +33,7 @@ public:
 };
 FAK_SIZE_GUARD(FConfig, 0x4);
 
-class FAK_API FConfigINI : public FConfig { // TODO Members
+class FConfigINI : public FConfig { // TODO Members
 
 public:
 

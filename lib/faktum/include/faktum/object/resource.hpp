@@ -4,7 +4,7 @@
 #include "object.hpp"
 
 
-class FAK_API FResource : public FObject {
+class FResource : public FObject {
 
 public:
 
@@ -36,9 +36,9 @@ private:
 	static FClass* StaticConstructClassFResource();
 	static void StaticInitClassFResource();
 
-	static unsigned long long ms_nNextResID;
+	FAK_API static unsigned long long ms_nNextResID;
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FResource, 0x30);

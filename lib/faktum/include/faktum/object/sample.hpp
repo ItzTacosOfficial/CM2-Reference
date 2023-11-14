@@ -4,7 +4,7 @@
 #include "resource.hpp"
 
 
-class FAK_API FSample : public FResource {
+class FSample : public FResource {
 
 public:
 
@@ -56,7 +56,7 @@ private:
 	static FClass* StaticConstructClassFSample();
 	static void StaticInitClassFSample();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FSample, 0x50);

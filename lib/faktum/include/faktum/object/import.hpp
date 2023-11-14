@@ -4,7 +4,7 @@
 #include "object.hpp"
 
 
-class FAK_API FImport : public FObject {
+class FImport : public FObject {
 
 public:
 
@@ -33,7 +33,7 @@ private:
 	static FClass* StaticConstructClassFImport();
 	static void StaticInitClassFImport();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FImport, 0x28);

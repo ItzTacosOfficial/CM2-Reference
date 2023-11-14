@@ -6,7 +6,7 @@
 #include <cstdio>
 
 
-class FAK_API FTextDevice { // TODO Critical section
+class FTextDevice { // TODO Critical section
 
 public:
 
@@ -47,7 +47,7 @@ protected:
 };
 FAK_SIZE_GUARD(FTextDevice, 0x28);
 
-class FAK_API FTextDeviceNull : public FTextDevice {
+class FTextDeviceNull : public FTextDevice {
 
 public:
 
@@ -65,7 +65,7 @@ protected:
 };
 FAK_SIZE_GUARD(FTextDeviceNull, 0x28);
 
-class FAK_API FTextDeviceFile : public FTextDevice { // TODO Critical section
+class FTextDeviceFile : public FTextDevice { // TODO Critical section
 
 public:
 
@@ -87,7 +87,7 @@ protected:
 };
 FAK_SIZE_GUARD(FTextDeviceFile, 0x4C);
 
-class FAK_API FTextDeviceWindow : public FTextDevice { // TODO Critical section
+class FTextDeviceWindow : public FTextDevice { // TODO Critical section
 
 public:
 

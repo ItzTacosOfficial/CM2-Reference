@@ -4,7 +4,7 @@
 #include "struct.hpp"
 
 
-class FAK_API FClass : public FStruct { // TODO Members
+class FClass : public FStruct { // TODO Members
 
 public:
 
@@ -50,7 +50,7 @@ private:
 	static FClass* StaticConstructClassFClass();
 	static void StaticInitClassFClass();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FClass, 0x4C);

@@ -6,7 +6,7 @@
 
 class FBrush;
 
-class FAK_API FPanel : public FUIElement { // TODO Members
+class FPanel : public FUIElement { // TODO Members
 
 public:
 
@@ -42,7 +42,7 @@ private:
 	static FClass* StaticConstructClassFPanel();
 	static void StaticInitClassFPanel();
 
-	static FClass* ms_pClass;
+	FAK_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(FPanel, 0x23C);

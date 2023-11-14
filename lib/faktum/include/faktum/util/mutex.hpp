@@ -3,7 +3,7 @@
 #include "faktum/api.hpp"
 
 
-class FAK_API FMutex { // TODO Critical section
+class FMutex { // TODO Critical section
 
 public:
 

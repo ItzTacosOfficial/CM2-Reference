@@ -6,7 +6,7 @@
 
 // Forward declarations
 
-class FAK_API NAME {
+class NAME {
 
 public:
 

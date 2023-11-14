@@ -1,10 +1,10 @@
 #pragma once
 
-#include "core.hpp"
+#include "cm2/api.hpp"
 #include "canvaspanel.hpp"
 
 
-class CM2_API CM2MenuPanel : public CM2CanvasPanel { // TODO Members, functions
+class CM2MenuPanel : public CM2CanvasPanel { // TODO Members, functions
 
 public:
 
@@ -20,7 +20,7 @@ public:
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
 	void Tick(float) override;
-	void Render(FCanvas*) override;
+	void Render(FCanvas* canvas) override;
 	void Enter() override;
 	void Leave() override;
 	void ResolutionChanged(const FMatrix4&, int) override;
@@ -42,10 +42,10 @@ protected:
 
 	CM2MenuPanel();
 
-	virtual void OnMouseButtonDown(MouseButtonEventArgs*) override;
-	virtual void OnMouseButtonUp(MouseButtonEventArgs*) override;
-	virtual void OnMouseMove(MouseEventArgs*) override;
-	virtual void OnLeft() override;
+	void OnMouseButtonDown(MouseButtonEventArgs*) override;
+	void OnMouseButtonUp(MouseButtonEventArgs*) override;
+	void OnMouseMove(MouseEventArgs*) override;
+	void OnLeft() override;
 
 	void InitBarButtons(int count, char** names, EventHandlerT* handlers, char** tooltips);
 
@@ -58,7 +58,7 @@ private:
 	static FClass* StaticConstructClassCM2MenuPanel();
 	static void StaticInitClassCM2MenuPanel();
 
-	static FClass* ms_pClass;
+	CM2_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(CM2MenuPanel, 0x2B0);

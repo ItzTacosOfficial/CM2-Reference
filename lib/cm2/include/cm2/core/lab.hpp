@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core.hpp"
+#include "cm2/api.hpp"
 #include "faktum/object.hpp"
 
 
@@ -12,7 +12,7 @@ class FText;
 class FGuid;
 class FLevel;
 
-class CM2_API CM2Lab : public FObject { // TODO Members
+class CM2Lab : public FObject { // TODO Members
 
 public:
 
@@ -101,7 +101,7 @@ public:
 	static CM2Lab* StaticLoad(const wchar_t*);
 	static void StaticUnregisterClass();
 
-	static int EventIDWorkProgress;
+	CM2_API static int EventIDWorkProgress;
 
 
 	unsigned char unk28[0x80];
@@ -111,7 +111,7 @@ private:
 	static FClass* StaticConstructClassCM2Lab();
 	static void StaticInitClassCM2Lab();
 
-	static FClass* ms_pClass;
+	CM2_API static FClass* ms_pClass;
 
 };
 CM2_SIZE_GUARD(CM2Lab, 0xA8);

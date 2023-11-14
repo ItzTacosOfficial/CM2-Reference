@@ -1,19 +1,19 @@
 #pragma once
 
-#include "core.hpp"
+#include "cm2/api.hpp"
 #include "faktum/object.hpp"
 
 
 class CM2Game;
 
-class CM2_API CM2Automate : public FObject {
+class CM2Automate : public FObject {
 
 public:
 
 	enum CM2_ASSUMED FLAG {
-		ENABLED	= 0x1,
+		ENABLED		= 0x1,
 		BENCHMARK	= 0x2,
-		RUNGAME	= 0x4
+		RUNGAME		= 0x4
 	};
 
 
@@ -44,7 +44,7 @@ public:
 	static void StaticUnregisterClass();
 
 
-	FLAG automateFlags;
+	int flags;
 	CM2Game* game;
 
 private:

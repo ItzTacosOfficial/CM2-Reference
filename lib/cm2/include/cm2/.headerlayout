@@ -8,7 +8,7 @@
 // CM2 Forward declarations
 // Faktum Forward declarations
 
-class CM2_IMPORT NAME {
+class NAME {
 
 public:
 

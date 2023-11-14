@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core.hpp"
+#include "cm2/api.hpp"
 #include "faktum/object.hpp"
 
 
@@ -18,7 +18,7 @@ class FLevel;
 class FGraphicsProgram;
 class FMesh;
 
-class CM2_API CM2Mode : public FObject { // TODO Members, virtuals, functions
+class CM2Mode : public FObject { // TODO Members, virtuals, functions
 
 public:
 
@@ -45,19 +45,19 @@ public:
 	virtual void AwardReceived();
 	virtual void SetMusicVolume(float, int);
 	virtual void SetChannelVolume(int, float);
-	//?
+	// ?
 	virtual void PostRegister(unsigned long);
 	virtual void PostLogin(unsigned long);
-	//?
-	//?
-	//?
+	// ?
+	// ?
+	// ?
 	virtual void PostGetSolutionList(unsigned long);
-	//?
-	//?
+	// ?
+	// ?
 	virtual void PostSendSolutionUpload(unsigned long);
 	virtual void PostSendSolutionDownload(unsigned long);
 	virtual void PostSendUserUpdate(unsigned long);
-	//?
+	// ?
 	virtual void MsgBoxDisconnected();
 
 	virtual void PostGetLabList(unsigned long);
@@ -128,7 +128,7 @@ private:
 	static FClass* StaticConstructClassCM2Mode();
 	static void StaticInitClassCM2Mode();
 
-	static FClass* ms_pClass;
+	CM2_API static FClass* ms_pClass;
 
 };
 CM2_SIZE_GUARD(CM2Mode, 0xF8);

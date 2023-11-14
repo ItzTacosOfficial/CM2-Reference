@@ -1,12 +1,12 @@
 #pragma once
 
-#include "core.hpp"
+#include "cm2/api.hpp"
 #include "faktum/ui/canvaspanel.hpp"
 
 
 class CM2Mode;
 
-class CM2_API CM2CanvasPanel : public FCanvasPanel { // TODO Members
+class CM2CanvasPanel : public FCanvasPanel { // TODO Members
 
 public:
 
@@ -45,7 +45,7 @@ private:
 	static FClass* StaticConstructClassCM2CanvasPanel();
 	static void StaticInitClassCM2CanvasPanel();
 
-	static FClass* ms_pClass;
+	CM2_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(CM2CanvasPanel, 0x264);

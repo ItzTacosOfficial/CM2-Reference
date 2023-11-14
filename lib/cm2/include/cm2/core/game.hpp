@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core.hpp"
+#include "cm2/api.hpp"
 #include "lab.hpp"
 #include "faktum/application/game.hpp"
 #include "faktum/util/cursor.hpp"
@@ -22,7 +22,7 @@ class FFrustum;
 class FRect;
 class FWorkingThread;
 
-class CM2_API CM2Game : public FGame { // TODO Members, functions
+class CM2Game : public FGame { // TODO Members, functions
 
 public:
 
@@ -65,7 +65,7 @@ public:
 	int GetElementDescCount() const;
 	unsigned long GetEncodedGameVersionNumber();
 	//FFrustum GetFrustum(const FRect&, FGraphicsDevice::const Viewport&) const;
-	//FTArray<CM2Lab*>* GetGenuineLabsArray();
+	FTArray<CM2Lab*>* GetGenuineLabsArray();
 	int GetGenuineLabsCount();
 	CM2HTTPClient* GetHTTPClient() const;
 	CM2Lab* GetLab() const;
@@ -74,7 +74,7 @@ public:
 	int GetLastLabExperiment() const;
 	CM2Lab::TYPE GetLastLabType() const;
 	CM2Mode* GetMode() const;
-	//FTArray<CM2Lab*>* GetMyLabsArray();
+	FTArray<CM2Lab*>* GetMyLabsArray();
 	int GetMyLabsCount();
 	unsigned int GetOnlineState();
 	const PlugIn* GetPlugIn(int) const;
@@ -91,7 +91,7 @@ public:
 	CM2ThemeDesc* GetThemeDesc(int) const;
 	int GetThemeDescCount() const;
 	CM2UIHandler* GetUIHandler() const;
-	//FTArray<CM2Lab*>* GetUserLabsArray();
+	FTArray<CM2Lab*>* GetUserLabsArray();
 	int GetUserLabsCount();
 	FWorkingThread* GetWorkingThread();
 	int InstallPackage(const wchar_t*);
@@ -152,7 +152,7 @@ private:
 	void CheckCheats();
 	void InitCursor(CURSOR, const char*, FCursor::TYPE);
 	void InitCursors();
-	//void LoadAddOnLab(FTArray<FString> const&);
+	void LoadAddOnLab(const FTArray<FString>&);
 	void LoadForInstall();
 	void Screenshot();
 	void UnloadForInstall();
@@ -164,7 +164,7 @@ private:
 	static FClass* StaticConstructClassCM2Game();
 	static void StaticInitClassCM2Game();
 
-	static FClass* ms_pClass;
+	CM2_API static FClass* ms_pClass;
 
 };
 CM2_SIZE_GUARD(CM2Game, 0x200);

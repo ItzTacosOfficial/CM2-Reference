@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core.hpp"
+#include "cm2/api.hpp"
 
 
 class CM2Game;
@@ -9,7 +9,7 @@ class FRect;
 class FSample;
 class FName;
 
-class CM2_API CM2Character { // TODO Members
+class CM2Character { // TODO Members
 
 public:
 
@@ -17,7 +17,7 @@ public:
 
 
 	CM2Character(const CM2Character& other);
-	CM2Character(CM2Game*);
+	CM2Character(CM2Game* game);
 
 	virtual ~CM2Character();
 

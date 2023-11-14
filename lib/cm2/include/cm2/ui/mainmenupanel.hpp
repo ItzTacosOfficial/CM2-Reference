@@ -1,10 +1,10 @@
 #pragma once
 
-#include "core.hpp"
+#include "cm2/api.hpp"
 #include "menupanel.hpp"
 
 
-class CM2_API CM2MainMenuPanel : public CM2MenuPanel {
+class CM2MainMenuPanel : public CM2MenuPanel {
 
 public:
 
@@ -19,7 +19,7 @@ public:
 	using FObject::operator delete;
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
-	void Render(FCanvas*) override;
+	void Render(FCanvas* canvas) override;
 	void Enter() override;
 	void Leave() override;
 
@@ -42,7 +42,7 @@ private:
 	static FClass* StaticConstructClassCM2MainMenuPanel();
 	static void StaticInitClassCM2MainMenuPanel();
 
-	static FClass* ms_pClass;
+	CM2_API static FClass* ms_pClass;
 
 };
 FAK_SIZE_GUARD(CM2MainMenuPanel, 0x2B0);

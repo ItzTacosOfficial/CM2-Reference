@@ -7,6 +7,7 @@
 #include "object/export.hpp"
 #include "object/field.hpp"
 #include "object/import.hpp"
+#include "object/mesh.hpp"
 #include "object/mutable.hpp"
 #include "object/name.hpp"
 #include "object/object.hpp"

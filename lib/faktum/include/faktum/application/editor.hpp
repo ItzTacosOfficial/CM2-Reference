@@ -2,6 +2,7 @@
 
 #include "faktum/api.hpp"
 #include "faktum/object/object.hpp"
+#include "faktum/ui/uielement.hpp"
 
 
 class FNewObjectDlg;

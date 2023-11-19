@@ -78,11 +78,11 @@ public:
 	static void StaticExit();
 	static void StaticExitClass();
 	static int StaticExportObject(FObject*, const wchar_t*, FClass*, FObject*);
-	static FObject* StaticFindObject(FClass*, FObject*, const FName&, const FName&, int, unsigned int);
+	static FObject* StaticFindObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, BOOL, unsigned int flags);
 	static FClass* StaticGetClass();
 	static LANGUAGE StaticGetLanguage();
 	static FObject* StaticGetObject(int index);
-	static FObject* StaticImportObject(const wchar_t* path, FClass*, FObject*, const FName&, const FName&, FObject*, FObject*);
+	static FObject* StaticImportObject(const wchar_t* path, FClass* fclass, FObject* outer, const FName& object, const FName& storage, FObject*, FObject*);
 	static void StaticInit();
 	static void StaticInitClass();
 	static void StaticSetLanguage(LANGUAGE language);

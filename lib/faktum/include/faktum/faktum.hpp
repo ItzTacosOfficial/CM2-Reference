@@ -9,6 +9,7 @@
 #include "object.hpp"
 #include "render.hpp"
 #include "ui.hpp"
+#include "util.hpp"
 
 
 // TODO Order

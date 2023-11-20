@@ -24,18 +24,18 @@ public:
 	FAK_SIZE_GUARD(DateTime, 0x20);
 
 
-	FTime(const time_t& value);
+	FTime(const long long& ms);
 	FTime(int, int, int, int);
-	FTime(float);
+	FTime(float seconds);
 	FTime();
 
 	FTime& operator=(const FTime& other);
-	FTime& operator=(const time_t& value);
-	operator const time_t&() const;
+	FTime& operator=(const long long& value);
+	operator const unsigned long long&() const;
 	FTime operator-(const FTime& other) const;
-	FTime operator-(const time_t& value) const;
+	FTime operator-(const long long& value) const;
 	FTime operator+(const FTime& other) const;
-	FTime operator+(const time_t& value) const;
+	FTime operator+(const long long& value) const;
 
 	FString Format(const wchar_t* str) const;
 	FString FormatGMT(const wchar_t* str) const;

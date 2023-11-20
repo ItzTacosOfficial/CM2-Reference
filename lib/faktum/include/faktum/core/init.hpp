@@ -14,4 +14,3 @@ FAK_API void FtExit();
 
 FAK_API const wchar_t* FtGetCommandLine();
 FAK_API const wchar_t* FtGetOSInfoString();
-FAK_API FTimer* FtGetTimer(); // TODO FTimer

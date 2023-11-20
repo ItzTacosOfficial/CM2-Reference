@@ -9,7 +9,7 @@
 #include "core/profiledevice.hpp"
 #include "core/profilesample.hpp"
 #include "core/textdevice.hpp"
-#include "core/assert.hpp"
+#include "core/timer.hpp"
 
 
 // Include "core/*"

@@ -2,6 +2,9 @@
 
 #include "faktum/api.hpp"
 #include "faktum/util/mutex.hpp"
+#include "assert.hpp"
+
+#include <new>
 
 
 class FTextDevice;
@@ -19,13 +22,13 @@ public:
 
 	virtual void Init() = 0;
 	virtual void Exit() = 0;
-	virtual void* Alloc(unsigned int size, const wchar_t* tag) = 0;
-	virtual void* Realloc(void* ptr, unsigned int size, const wchar_t* tag) = 0;
+	virtual void* Alloc(size_t size, const wchar_t* tag) = 0;
+	virtual void* Realloc(void* ptr, size_t size, const wchar_t* tag) = 0;
 	virtual void Free(void* ptr) = 0;
-	virtual void Copy(void* dest, const void* src, unsigned int size) = 0;
-	virtual void Move(void* dest, const void* src, unsigned int size) = 0;
-	virtual void Fill(void* dest, unsigned char value, unsigned int size) = 0;
-	virtual BOOL Compare(const void* a, const void* b, unsigned int size) = 0;
+	virtual void Copy(void* dest, const void* src, size_t size) = 0;
+	virtual void Move(void* dest, const void* src, size_t size) = 0;
+	virtual void Fill(void* dest, unsigned char value, size_t size) = 0;
+	virtual BOOL Compare(const void* a, const void* b, size_t size) = 0;
 	virtual void Dump(FTextDevice* textDevice, BOOL dumpData) = 0;
 	virtual unsigned long long GetAvailableOverallMemory() = 0;
 	virtual unsigned long long GetAvailablePhysicalMemory() = 0;
@@ -56,13 +59,13 @@ public:
 
 	void Init() override;
 	void Exit() override;
-	void* Alloc(unsigned int size, const wchar_t* tag) override;
-	void* Realloc(void* ptr, unsigned int size, const wchar_t* tag) override;
+	void* Alloc(size_t size, const wchar_t* tag) override;
+	void* Realloc(void* ptr, size_t size, const wchar_t* tag) override;
 	void Free(void* ptr) override;
-	void Copy(void* dest, const void* src, unsigned int size) override;
-	void Move(void* dest, const void* src, unsigned int size) override;
-	void Fill(void* dest, unsigned char value, unsigned int size) override;
-	BOOL Compare(const void* a, const void* b, unsigned int size) override;
+	void Copy(void* dest, const void* src, size_t size) override;
+	void Move(void* dest, const void* src, size_t size) override;
+	void Fill(void* dest, unsigned char value, size_t size) override;
+	BOOL Compare(const void* a, const void* b, size_t size) override;
 	void Dump(FTextDevice* textDevice, BOOL dumpData) override;
 	unsigned long long GetAvailableOverallMemory() override;
 	unsigned long long GetAvailablePhysicalMemory() override;
@@ -97,13 +100,13 @@ public:
 
 	void Init() override;
 	void Exit() override;
-	void* Alloc(unsigned int size, const wchar_t* tag) override;
-	void* Realloc(void* ptr, unsigned int size, const wchar_t* tag) override;
+	void* Alloc(size_t size, const wchar_t* tag) override;
+	void* Realloc(void* ptr, size_t size, const wchar_t* tag) override;
 	void Free(void* ptr) override;
-	void Copy(void* dest, const void* src, unsigned int size) override;
-	void Move(void* dest, const void* src, unsigned int size) override;
-	void Fill(void* dest, unsigned char value, unsigned int size) override;
-	BOOL Compare(const void* a, const void* b, unsigned int size) override;
+	void Copy(void* dest, const void* src, size_t size) override;
+	void Move(void* dest, const void* src, size_t size) override;
+	void Fill(void* dest, unsigned char value, size_t size) override;
+	BOOL Compare(const void* a, const void* b, size_t size) override;
 	void Dump(FTextDevice* textDevice, BOOL dumpData) override;
 	unsigned long long GetAvailableOverallMemory() override;
 	unsigned long long GetAvailablePhysicalMemory() override;
@@ -136,13 +139,13 @@ public:
 
 	void Init() override;
 	void Exit() override;
-	void* Alloc(unsigned int size, const wchar_t* tag) override;
-	void* Realloc(void* ptr, unsigned int size, const wchar_t* tag) override;
+	void* Alloc(size_t size, const wchar_t* tag) override;
+	void* Realloc(void* ptr, size_t size, const wchar_t* tag) override;
 	void Free(void* ptr) override;
-	void Copy(void* dest, const void* src, unsigned int size) override;
-	void Move(void* dest, const void* src, unsigned int size) override;
-	void Fill(void* dest, unsigned char value, unsigned int size) override;
-	BOOL Compare(const void* a, const void* b, unsigned int size) override;
+	void Copy(void* dest, const void* src, size_t size) override;
+	void Move(void* dest, const void* src, size_t size) override;
+	void Fill(void* dest, unsigned char value, size_t size) override;
+	BOOL Compare(const void* a, const void* b, size_t size) override;
 	void Dump(FTextDevice* textDevice, BOOL dumpData) override;
 	unsigned long long GetAvailableOverallMemory() override;
 	unsigned long long GetAvailablePhysicalMemory() override;
@@ -156,3 +159,48 @@ public:
 
 
 FAK_API FMemManager* FtGetMemManager();
+
+
+FAK_ASSUMED void* operator new(size_t size) {
+
+	void* ptr = nullptr;
+
+	if (FtGetMemManager() != nullptr) {
+		ptr = FtGetMemManager()->Alloc(size, L"new");
+	} else FAK_EXTENSION {
+		ptr = std::malloc(size);
+	}
+
+	if (!ptr) FAK_EXTENSION {
+		throw std::bad_alloc();
+	}
+
+	return ptr;
+
+}
+
+FAK_ASSUMED void* operator new[](size_t size) {
+	return operator new(size);
+}
+
+FAK_ASSUMED void operator delete(void* ptr) noexcept {
+
+	if (FtGetMemManager() != nullptr) {
+		FtGetMemManager()->Free(ptr);
+	} else FAK_EXTENSION {
+		std::free(ptr);
+	}
+
+}
+
+FAK_ASSUMED void operator delete(void* ptr, size_t size) noexcept {
+	operator delete(ptr);
+}
+
+FAK_ASSUMED void operator delete[](void* ptr) noexcept {
+	operator delete(ptr);
+}
+
+FAK_ASSUMED void operator delete[](void* ptr, size_t size) noexcept {
+	operator delete(ptr);
+}

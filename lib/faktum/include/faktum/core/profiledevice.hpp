@@ -41,7 +41,7 @@ protected:
 private:
 
 	static int StaticTrayMessage(HWND hwnd, unsigned long, unsigned int, HICON icon, wchar_t*);
-	static long __stdcall StaticWndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp);
+	static long CALLBACK StaticWndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp);
 
 };
 FAK_SIZE_GUARD(FProfileDeviceWindow, 0x20);

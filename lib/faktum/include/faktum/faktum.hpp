@@ -7,6 +7,7 @@
 #include "ext.hpp"
 #include "math.hpp"
 #include "object.hpp"
+#include "properties.hpp"
 #include "render.hpp"
 #include "ui.hpp"
 #include "util.hpp"

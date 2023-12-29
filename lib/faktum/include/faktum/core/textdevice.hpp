@@ -31,10 +31,10 @@ public:
 
 	unsigned int GetLevel() const;
 	void Log(const wchar_t* text);
-	void Log(FORMAT format, const wchar_t* text);
+	void Log(FORMAT level, const wchar_t* text);
 	void Logf(const wchar_t* text, ...);
-	void Logf(FORMAT format, const wchar_t* text, ...);
-	void SetLevel(FORMAT format);
+	void Logf(FORMAT level, const wchar_t* text, ...);
+	void SetLevel(FORMAT level);
 
 
 	unsigned int level;

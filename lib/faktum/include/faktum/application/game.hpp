@@ -30,7 +30,7 @@ public:
 	FLevel* GetLevel() const;
 	FViewport* GetMainViewport() const;
 	FRenderer* GetRenderer() const;
-	int IsEditor() const;
+	BOOL IsEditor() const;
 	void PreCacheLevel(FLevel* level);
 	void SetLevel(FLevel* level);
 

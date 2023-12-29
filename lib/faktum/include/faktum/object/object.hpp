@@ -78,7 +78,7 @@ public:
 	static void StaticExit();
 	static void StaticExitClass();
 	static int StaticExportObject(FObject*, const wchar_t*, FClass*, FObject*);
-	static FObject* StaticFindObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, BOOL, unsigned int flags);
+	static FObject* StaticFindObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, BOOL exactClass, unsigned int flags);
 	static FClass* StaticGetClass();
 	static LANGUAGE StaticGetLanguage();
 	static FObject* StaticGetObject(int index);

@@ -11,11 +11,11 @@ class FArchive {
 
 public:
 
-	enum FAK_ASSUMED FLAG {
-		LOADING		= 0x1,
-		STORING		= 0x2,
-		PERSISTENT	= 0x4,
-		UNK8		= 0x8,
+	enum FLAG {
+		LOADING			= 0x1,
+		STORING			= 0x2,
+		PERSISTENT		= 0x4,
+		LITTLEENDIAN	= 0x8,
 	};
 
 

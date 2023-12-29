@@ -118,3 +118,64 @@ private:
 
 };
 FAK_SIZE_GUARD(FObject, 0x28);
+
+
+#define FAK_OBJ_DEFINE(class, super) FAK_ASSUMED	\
+													\
+public:												\
+													\
+using FObject::operator new;						\
+using FObject::operator delete;						\
+													\
+static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags) {	\
+	return FObject::StaticAllocateObject(StaticGetClass(), outer, object, storage, flags);	\
+}													\
+													\
+static void StaticConstructor(void* data) {			\
+	reinterpret_cast<class*>(data)->class::class();	\
+}													\
+													\
+static FClass* StaticGetClass() {					\
+													\
+	if (!ms_pClass) {								\
+		ms_pClass = StaticConstructClass##class();	\
+		StaticInitClass##class();					\
+	}												\
+													\
+	return ms_pClass;								\
+													\
+}													\
+													\
+static void StaticUnregisterClass() {				\
+													\
+	if (ms_pClass) {								\
+		delete ms_pClass;							\
+		ms_pClass = nullptr;						\
+	}												\
+													\
+}													\
+													\
+private:											\
+													\
+static FClass* StaticConstructClass##class() {		\
+	return new FClass(#class, sizeof(class), &StaticConstructor, &StaticInitClass);	\
+}													\
+													\
+static void StaticInitClass##class() {				\
+													\
+	FClass* self = StaticGetClass();				\
+													\
+	self->superStruct = super::StaticGetClass();	\
+	self->objectClass = FClass::StaticGetClass();	\
+													\
+	self->Register();								\
+													\
+}													\
+													\
+static inline FClass* ms_pClass /* User ; */
+
+#define FAK_OBJ_REGISTER_EVENT(eventid, name, routing) FAK_ASSUMED						\
+																						\
+if (eventid == -1) {																	\
+	eventid = RegisterEvent(StaticGetClass(), name, sizeof(decltype(*this)), routing);	\
+}

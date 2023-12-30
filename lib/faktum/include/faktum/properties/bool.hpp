@@ -21,9 +21,9 @@ public:
 
 	void CopyValue(void* dest, void* src) const override;
 	BOOL Equals(void* a, void* b) const override;
-	void ReadValue(FArchive& archive, void* value) const override;
-	BOOL SetValue(void* value, const wchar_t* name) const override;
-	void WriteValue(FArchive& archive, void* value) const override;
+	void ReadValue(FArchive& archive, void* data) const override;
+	BOOL SetValue(void* data, const wchar_t* value) const override;
+	void WriteValue(FArchive& archive, void* data) const override;
 
 	unsigned int GetBitMask() const;
 

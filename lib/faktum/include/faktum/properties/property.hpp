@@ -29,9 +29,9 @@ public:
 	virtual void CopyValue(void* dest, void* src) const = 0;
 	virtual void DestroyValue(void* value) const;
 	virtual BOOL Equals(void* a, void* b) const = 0;
-	virtual BOOL SetValue(void* value, const wchar_t* name) const = 0;
-	virtual void WriteValue(FArchive& archive, void* value) const = 0;
-	virtual void ReadValue(FArchive& archive, void* value) const = 0;
+	virtual BOOL SetValue(void* data, const wchar_t* value) const = 0;
+	virtual void WriteValue(FArchive& archive, void* data) const = 0;
+	virtual void ReadValue(FArchive& archive, void* data) const = 0;
 
 	FName GetGroup() const;
 	FProperty* GetNextProperty() const;

@@ -69,7 +69,7 @@ public:
 	void SetLanguage(LANGUAGE language);
 	void SetName(const FName& name);
 	void SetOuter(FObject* outer);
-	int SetProperty(const FName&, const wchar_t*);
+	BOOL SetProperty(const FName& name, const wchar_t* value);
 
 	static FObject* StaticAllocateObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 	static FObject* StaticConstructObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags);

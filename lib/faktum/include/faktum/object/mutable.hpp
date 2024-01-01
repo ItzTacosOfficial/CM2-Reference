@@ -11,6 +11,15 @@ class FMutable : public FObject { // TODO Undocumented
 
 public:
 
+	struct FAK_ASSUMED Mutation {
+
+		FMutator* mutator;
+		FProperty* property;
+
+	};
+	FAK_SIZE_GUARD(Mutation, 0x8);
+
+
 	FMutable();
 	FMutable(const FMutable& other);
 
@@ -20,16 +29,16 @@ public:
 
 	using FObject::operator new;
 	using FObject::operator delete;
-	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
 
-	FObject* Clone(const FName&, const FName&, FObject*, int) override;
+	FObject* Clone(const FName& object, const FName& storage, FObject*, int) override;
 	void Serialize(FArchive& archive) override;
 	virtual void Mutate(float);
 
 	int GetMutationCount() const;
 	FMutator* GetMutator(FProperty* property);
-	FMutator* GetMutator(int) const;
-	FProperty* GetProperty(int) const;
+	FMutator* GetMutator(int index) const;
+	FProperty* GetProperty(int index) const;
 	void RemoveAllMutators();
 	BOOL SetMutator(FProperty* property, FMutator* mutator);
 
@@ -38,7 +47,7 @@ public:
 	static void StaticUnregisterClass();
 
 
-	unsigned char unk28[0x10];
+	FTArray<Mutation> mutations;
 
 private:
 

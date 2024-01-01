@@ -24,7 +24,7 @@ public:
 
 	using FObject::operator new;
 	using FObject::operator delete;
-	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
 
 	virtual void CopyValue(void* dest, void* src) const = 0;
 	virtual void DestroyValue(void* value) const;

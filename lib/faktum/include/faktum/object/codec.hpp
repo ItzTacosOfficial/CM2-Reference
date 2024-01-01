@@ -24,7 +24,7 @@ public:
 
 	using FObject::operator new;
 	using FObject::operator delete;
-	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
 
 	virtual BOOL Begin(TYPE type, unsigned int bufferSize);
 	virtual void End();
@@ -68,7 +68,7 @@ public:
 
 	using FObject::operator new;
 	using FObject::operator delete;
-	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
 
 	unsigned int ProcessBuffer(void* data, unsigned int size) override;
 
@@ -99,7 +99,7 @@ public:
 
 	using FObject::operator new;
 	using FObject::operator delete;
-	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
 
 	BOOL Begin(TYPE type, unsigned int bufferSize) override;
 	void End() override;

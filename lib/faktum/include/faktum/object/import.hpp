@@ -15,7 +15,7 @@ public:
 
 	using FObject::operator new;
 	using FObject::operator delete;
-	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
 
 	FImport& operator=(const FImport& other);
 
@@ -23,7 +23,7 @@ public:
 	virtual FClass* GetOptionsClass();
 	virtual const wchar_t* GetExtension(unsigned int index) = 0;
 	virtual unsigned int GetExtensionCount() = 0;
-	virtual FObject* ImportObject(const wchar_t*, FObject*, const FName&, const FName&, FObject*, FObject*) = 0;
+	virtual FObject* ImportObject(const wchar_t* path, FObject* outer, const FName& object, const FName& storage, FObject*, FObject*) = 0;
 
 	static FClass* StaticGetClass();
 	static void StaticUnregisterClass();

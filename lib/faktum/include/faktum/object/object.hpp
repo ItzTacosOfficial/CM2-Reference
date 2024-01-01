@@ -13,11 +13,13 @@ class FTextDevice;
 class FEvent;
 class FMutex;
 
-class FObject : public FRefCount { // TODO Members, static members
+class FObject : public FRefCount { // TODO List
 
 public:
 
-	enum LANGUAGE {}; // TODO Contents
+	enum LANGUAGE { // TODO Contents
+		DEFAULT = -1
+	};
 
 	enum ROUTING { // TODO Contents
 		UNKROUTING = 2
@@ -37,11 +39,11 @@ public:
 		return FtGetMemManager()->Alloc(size, L"new");
 	}
 
-	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
 	static void operator delete(void* ptr);
 	static void operator delete(void* ptr, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
 
-	virtual FObject* Clone(const FName&, const FName&, FObject*, int);
+	virtual FObject* Clone(const FName& object, const FName& storage, FObject*, int);
 	virtual void Register();
 	virtual void Unregister();
 	virtual void Serialize(FArchive& archive);
@@ -52,7 +54,7 @@ public:
 
 	FProperty* FindProperty(const FName& name) const;
 	FClass* GetClass() const;
-	BOOL GetEventHandler(int, FObject**, EventHandlerT*);
+	BOOL GetEventHandler(int eventID, FObject** userObject, EventHandlerT* handler);
 	int GetIndex() const;
 	LANGUAGE GetLanguage() const;
 	FName GetName() const;
@@ -71,18 +73,18 @@ public:
 	void SetOuter(FObject* outer);
 	BOOL SetProperty(const FName& name, const wchar_t* value);
 
-	static FObject* StaticAllocateObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
-	static FObject* StaticConstructObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static FObject* StaticAllocateObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
+	static FObject* StaticConstructObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
 	static void StaticConstructor(void* data);
 	static void StaticDumpObjects(FTextDevice* textDevice);
 	static void StaticExit();
 	static void StaticExitClass();
-	static int StaticExportObject(FObject*, const wchar_t*, FClass*, FObject*);
-	static FObject* StaticFindObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, BOOL exactClass, unsigned int flags);
+	static int StaticExportObject(FObject* object, const wchar_t* path, FClass* exportClass, FObject* param = nullptr);
+	static FObject* StaticFindObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, BOOL exactClass, unsigned int language = DEFAULT);
 	static FClass* StaticGetClass();
 	static LANGUAGE StaticGetLanguage();
 	static FObject* StaticGetObject(int index);
-	static FObject* StaticImportObject(const wchar_t* path, FClass* fclass, FObject* outer, const FName& object, const FName& storage, FObject*, FObject*);
+	static FObject* StaticImportObject(const wchar_t* path, FClass* fclass, FObject* outer, const FName& object, const FName& storage, FObject* = nullptr, FObject* = nullptr);
 	static void StaticInit();
 	static void StaticInitClass();
 	static void StaticSetLanguage(LANGUAGE language);
@@ -127,7 +129,7 @@ public:												\
 using FObject::operator new;						\
 using FObject::operator delete;						\
 													\
-static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags) {	\
+static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0) {	\
 	return FObject::StaticAllocateObject(StaticGetClass(), outer, object, storage, flags);	\
 }													\
 													\

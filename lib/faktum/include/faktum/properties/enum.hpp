@@ -26,7 +26,7 @@ public:
 
 	using FObject::operator new;
 	using FObject::operator delete;
-	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags);
+	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
 
 	void CopyValue(void* dest, void* src) const override;
 	BOOL Equals(void* a, void* b) const override;

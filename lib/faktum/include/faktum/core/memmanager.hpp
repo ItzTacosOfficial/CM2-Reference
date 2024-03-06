@@ -161,7 +161,7 @@ public:
 FAK_API FMemManager* FtGetMemManager();
 
 
-FAK_ASSUMED void* operator new(size_t size) {
+/*FAK_ASSUMED void* operator new(size_t size) {
 
 	void* ptr = nullptr;
 
@@ -203,4 +203,4 @@ FAK_ASSUMED void operator delete[](void* ptr) noexcept {
 
 FAK_ASSUMED void operator delete[](void* ptr, size_t size) noexcept {
 	operator delete(ptr);
-}
+}*/

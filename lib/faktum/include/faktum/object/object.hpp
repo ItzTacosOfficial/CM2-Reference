@@ -114,7 +114,7 @@ private:
 	FAK_API static FObject* ms_apObjHash[4096];
 	FAK_API static FTArray<FObject*> ms_apObjects;
 	FAK_API static LANGUAGE ms_eLanguage;
-	//FAK_API static FTList<int> ms_lnObjIndices;
+	FAK_API static FTList<int> ms_lnObjIndices;
 	FAK_API static FMutex ms_mMutex;
 	FAK_API static FClass* ms_pClass;
 

@@ -5,11 +5,13 @@
 
 template<class T>
 class FTArray;
+template<class T>
+class FTList;
 class FString;
 class FObject;
 class FMutex;
 
-class FName { // static members
+class FName {
 
 public:
 
@@ -66,7 +68,7 @@ private:
 	FAK_API static FMutex ms_Mutex;
 	FAK_API static FTArray<Name*> ms_aNames;
 	FAK_API static Name* ms_apNameHash[0xFFF];
-	//FAK_API static FTList<int> ms_lnFreeNames;
+	FAK_API static FTList<int> ms_lnFreeNames;
 
 };
 FAK_SIZE_GUARD(FName, 0x4);

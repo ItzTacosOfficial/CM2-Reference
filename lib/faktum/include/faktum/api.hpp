@@ -10,7 +10,7 @@
 
 #define _FAK_ANNOTATE(x) /* Annotation */
 
-#define FAK_EXTENSION	_FAK_ANNOTATE(EXTENSION)	// Extension to the library
-#define FAK_NEWNAME		_FAK_ANNOTATE(NEWNAME)		// Custom name (e.g. pure virtuals)
-#define FAK_CUSTOM		_FAK_ANNOTATE(CUSTOM)		// Custom implementation (e.g. templated classes)
-#define FAK_ASSUMED		_FAK_ANNOTATE(ASSUMED)		// Not present in symbols, assumed from decompilations
+#define FAK_EXTENSION	_FAK_ANNOTATE(extension)	// Extension to the library
+#define FAK_NEWNAME		_FAK_ANNOTATE(newname)		// Custom name (e.g. pure virtuals)
+#define FAK_CUSTOM		_FAK_ANNOTATE(custom)		// Custom implementation (e.g. templated classes)
+#define FAK_ASSUMED		_FAK_ANNOTATE(assumed)		// Not present in symbols, assumed from decompilations

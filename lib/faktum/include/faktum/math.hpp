@@ -11,6 +11,3 @@
 #include "math/size.hpp"
 #include "math/sphere.hpp"
 #include "math/vector.hpp"
-
-
-// Include "math/*"

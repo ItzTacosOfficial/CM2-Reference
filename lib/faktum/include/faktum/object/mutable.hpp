@@ -2,6 +2,7 @@
 
 #include "faktum/api.hpp"
 #include "object.hpp"
+#include "faktum/util/array.hpp"
 
 
 class FMutator;

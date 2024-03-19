@@ -9,7 +9,7 @@ public:
 
 	using FunctionT = void* (__stdcall*)(void*);
 
-	struct FAK_ASSUMED Work { // Internal
+	struct FAK_ASSUMED Handle { // Internal
 
 		FThread* self;
 		int flags;
@@ -24,7 +24,7 @@ public:
 		BELOW_NORMAL	= THREAD_PRIORITY_BELOW_NORMAL,
 		NORMAL			= THREAD_PRIORITY_NORMAL,
 		ABOVE_NORMAL	= THREAD_PRIORITY_ABOVE_NORMAL,
-		HIGHEST		= THREAD_PRIORITY_HIGHEST,
+		HIGHEST			= THREAD_PRIORITY_HIGHEST,
 		TIME_CRITICAL	= THREAD_PRIORITY_TIME_CRITICAL
 	};
 

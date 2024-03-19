@@ -10,6 +10,3 @@
 #include "core/profilesample.hpp"
 #include "core/textdevice.hpp"
 #include "core/timer.hpp"
-
-
-// Include "core/*"

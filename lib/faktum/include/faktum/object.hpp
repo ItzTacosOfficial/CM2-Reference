@@ -17,6 +17,3 @@
 #include "object/storage.hpp"
 #include "object/struct.hpp"
 #include "object/text.hpp"
-
-
-// Include "object/*"

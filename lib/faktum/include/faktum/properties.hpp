@@ -13,6 +13,3 @@
 #include "properties/string.hpp"
 #include "properties/struct.hpp"
 #include "properties/time.hpp"
-
-
-// Include "properties/*"

@@ -8,6 +8,7 @@
 
 - `cm2.dll` 1.05.0385[^1]
 - `faktum.dll` 1.3.0296[^1]
+- [openssl 0.9.8e](https://ftp.openssl.org/source/old/0.9.x/) headers
 - [zlib 1.2.3](https://github.com/madler/zlib/tree/v1.2.3) headers
 - MSVC (latest, amd64_x86 target)
 
@@ -15,7 +16,7 @@
 
 ### Preparation
 
-Copy the zlib headers into `lib/zlib/include` (this path is to be consistent with the other libraries).
+Copy both the zlib and openssl include folders into `lib/<LIBRARY>/include` (this path is to be consistent with the other libraries).
 
 Copy both the game's DLLs from the game's root into the corresponding folder at `lib/<LIBRARY>/x86`.
 

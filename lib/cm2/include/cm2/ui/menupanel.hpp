@@ -2,6 +2,7 @@
 
 #include "cm2/api.hpp"
 #include "canvaspanel.hpp"
+#include "cm2/core/httpclient.hpp"
 
 
 class CM2MenuPanel : public CM2CanvasPanel { // TODO Members, functions
@@ -25,8 +26,8 @@ public:
 	void Leave() override;
 	void ResolutionChanged(const FMatrix4&, int) override;
 
-	void SetCM2LogoAlpha(unsigned const char&);
-	//void SetNewsTickerText(FTArray<struct CM2HTTPClient::MsgFeed> const&);
+	void SetCM2LogoAlpha(unsigned const char& alpha);
+	void SetNewsTickerText(FTArray<CM2HTTPClient::MsgFeed> const& array);
 	void UpdateNewsTicker();
 
 	static void StaticConstructor(void* data);
@@ -42,17 +43,17 @@ protected:
 
 	CM2MenuPanel();
 
-	void OnMouseButtonDown(MouseButtonEventArgs*) override;
-	void OnMouseButtonUp(MouseButtonEventArgs*) override;
-	void OnMouseMove(MouseEventArgs*) override;
+	void OnMouseButtonDown(MouseButtonEventArgs* args) override;
+	void OnMouseButtonUp(MouseButtonEventArgs* args) override;
+	void OnMouseMove(MouseEventArgs* args) override;
 	void OnLeft() override;
 
 	void InitBarButtons(int count, char** names, EventHandlerT* handlers, char** tooltips);
 
 private:
 
-	void HelpButtonClick(FObject*, EventArgs*);
-	//void MessageBoxLabDownload(FObject*, CM2Dialog::ClickEventArgs*);
+	void HelpButtonClick(FObject* object, EventArgs* args);
+	void MessageBoxLabDownload(FObject* object, CM2Dialog::ClickEventArgs* args);
 	//void TickerClick(FObject*, FTicker::TickerClickEventArgs*);
 
 	static FClass* StaticConstructClassCM2MenuPanel();
@@ -61,4 +62,4 @@ private:
 	CM2_API static FClass* ms_pClass;
 
 };
-FAK_SIZE_GUARD(CM2MenuPanel, 0x2B0);
+CM2_SIZE_GUARD(CM2MenuPanel, 0x2B0);

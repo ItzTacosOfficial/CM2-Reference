@@ -45,4 +45,4 @@ private:
 	CM2_API static FClass* ms_pClass;
 
 };
-FAK_SIZE_GUARD(CM2MainMenuPanel, 0x2B0);
+CM2_SIZE_GUARD(CM2MainMenuPanel, 0x2B0);

@@ -2,6 +2,7 @@
 
 #include "faktum/api.hpp"
 #include "faktum/object/mutable.hpp"
+#include "faktum/util/list.hpp"
 
 
 class FUIContext;
@@ -56,7 +57,7 @@ public:
 	static void* operator new(size_t size, FObject* outer, const FName& object, const FName& storage, unsigned int flags = 0);
 
 	void Serialize(FArchive& archive) override;
-	//virtual FTList<FUIElement*>::Iterator BeginChildren();
+	virtual FTList<FUIElement*>::Iterator BeginChildren();
 	virtual FRect GetClipRect() const;
 	virtual void Tick(float);
 	virtual void Render(FCanvas* canvas);

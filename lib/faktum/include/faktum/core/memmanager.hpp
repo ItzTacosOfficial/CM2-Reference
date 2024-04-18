@@ -161,6 +161,15 @@ public:
 FAK_API FMemManager* FtGetMemManager();
 
 
+#define FtAlloc(size, tag)			FAK_EXTENSION FtGetMemManager()->Alloc(size, tag)
+#define FtRealloc(ptr, size, tag)	FAK_EXTENSION FtGetMemManager()->Realloc(ptr, size, tag)
+#define FtFree(ptr)					FAK_EXTENSION FtGetMemManager()->Free(ptr)
+#define FtCopy(dest, src, size)		FAK_EXTENSION FtGetMemManager()->Copy(dest, src, size)
+#define FtMove(dest, src, size)		FAK_EXTENSION FtGetMemManager()->Move(dest, src, size)
+#define FtFill(dest, value, size)	FAK_EXTENSION FtGetMemManager()->Fill(dest, value, size)
+#define FtZero(dest, size)			FAK_EXTENSION FtFill(dest, 0, size)
+
+
 /*FAK_ASSUMED void* operator new(size_t size) {
 
 	void* ptr = nullptr;

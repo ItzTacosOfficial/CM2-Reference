@@ -2,6 +2,7 @@
 
 #include "faktum/api.hpp"
 #include "refcount.hpp"
+#include "faktum/util/array.hpp"
 #include "faktum/core/memmanager.hpp"
 #include "name.hpp"
 
@@ -17,12 +18,20 @@ class FObject : public FRefCount { // TODO List
 
 public:
 
+	struct FAK_ASSUMED FindData {
+
+		int index;
+		FClass* fclass;
+
+	};
+	FAK_SIZE_GUARD(FindData, 0x8);
+
 	enum LANGUAGE { // TODO Contents
-		DEFAULT = -1
+		LANG_DEFAULT = -1
 	};
 
 	enum ROUTING { // TODO Contents
-		UNKROUTING = 2
+		ROUTING_UNK = 2
 	};
 
 	using EventHandlerT = void (FObject::*)(FObject* userObject, void* userData);
@@ -79,8 +88,8 @@ public:
 	static void StaticDumpObjects(FTextDevice* textDevice);
 	static void StaticExit();
 	static void StaticExitClass();
-	static int StaticExportObject(FObject* object, const wchar_t* path, FClass* exportClass, FObject* param = nullptr);
-	static FObject* StaticFindObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, BOOL exactClass, unsigned int language = DEFAULT);
+	static BOOL StaticExportObject(FObject* object, const wchar_t* path, FClass* exportClass = nullptr, FObject* param = nullptr);
+	static FObject* StaticFindObject(FClass* fclass, FObject* outer, const FName& object, const FName& storage, BOOL exactClass, unsigned int language = LANG_DEFAULT);
 	static FClass* StaticGetClass();
 	static LANGUAGE StaticGetLanguage();
 	static FObject* StaticGetObject(int index);
@@ -89,6 +98,49 @@ public:
 	static void StaticInitClass();
 	static void StaticSetLanguage(LANGUAGE language);
 	static void StaticUnregisterClass();
+
+	FAK_INLINED static inline BOOL StaticIsIndexValid(const int& index) {
+
+		ms_mMutex.Enter();
+
+		const BOOL valid = index < ms_apObjects.GetLength();
+
+		ms_mMutex.Leave();
+
+		return valid;
+
+	}
+
+	FAK_INLINED static inline void StaticFindObjectIndex(FindData& data) {
+
+		ms_mMutex.Enter();
+
+		BOOL found = FALSE;
+
+		do {
+
+			FObject* object;
+
+			do {
+
+				data.index++;
+
+				if (data.index >= ms_apObjects.GetLength()) {
+					ms_mMutex.Leave();
+					return;
+				}
+
+				object = ms_apObjects[data.index];
+
+			} while (!object);
+
+			found = object->IsKindOf(data.fclass);
+
+		} while (!found);
+
+		ms_mMutex.Leave();
+
+	}
 
 
 	FClass* objectClass;
@@ -176,8 +228,9 @@ static void StaticInitClass##class() {				\
 													\
 static inline FClass* ms_pClass /* User ; */
 
-#define FAK_OBJ_REGISTER_EVENT(eventid, name, routing) FAK_ASSUMED						\
-																						\
-if (eventid == -1) {																	\
+#define FAK_OBJ_REGISTER_EVENT(eventid, name, routing) FAK_ASSUMED	\
+																	\
+if (eventid == -1) {												\
 	eventid = RegisterEvent(StaticGetClass(), name, sizeof(decltype(*this)), routing);	\
-}
+}																	\
+do {} while (false) /* User ; */

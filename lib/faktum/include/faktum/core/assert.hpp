@@ -9,10 +9,14 @@ FAK_CUSTOM inline void _FtAssert(BOOL condition, const wchar_t* location, const 
 
 	BOOL abort = FALSE;
 
-	BOOL debug = FtAssertBreak(condition, location, subText, &abort);
+	BOOL fail = FtAssertBreak(condition, location, subText, &abort);
+
+	if (!fail) {
+		return;
+	}
 
 	// Also abort if 'Retry' but debugger not present
-	abort |= (debug && !IsDebuggerPresent());
+	abort |= !IsDebuggerPresent();
 
 	if (abort) {
 		ExitProcess(-1);

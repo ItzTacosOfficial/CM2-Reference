@@ -122,3 +122,7 @@ FAK_SIZE_GUARD(FTextDeviceWindow, 0x68);
 
 FAK_API FTextDevice* FtGetTextDevice();
 FAK_API FTextDevice* FtGetTextDeviceNull();
+
+
+#define FtLog(...)	FAK_EXTENSION FtGetTextDevice()->Log(__VA_ARGS__);
+#define FtLogf(...)	FAK_EXTENSION FtGetTextDevice()->Logf(__VA_ARGS__);

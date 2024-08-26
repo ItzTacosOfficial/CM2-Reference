@@ -72,8 +72,8 @@ public:
 
 	struct Face {
 
-		FVector3 normal;
-		int unkC;
+		unsigned int indices[3];
+		int* unkC;
 		int unk10;
 
 	};
@@ -109,12 +109,16 @@ public:
 	struct MorphTarget {};
 
 	enum FAK_ASSUMED FLAG {
-		CALCULATE_BOUNDING_BOX		= 0x40000,
-		CALCULATE_BOUNDING_SPHERE	= 0x80000
+		FLAG_RENDER_DATA		= 0x20000,
+		FLAG_BOUNDING_BOX		= 0x40000,
+		FLAG_BOUNDING_SPHERE	= 0x80000
 	};
 
 	enum CHANNEL {
-		NORMAL	= 0x10000
+		CHANNEL_UV			= 0x1,
+		CHANNEL_NORMAL		= 0x10000,
+		CHANNEL_TANGENT 	= 0x20000,
+		CHANNEL_BINORMAL	= 0x40000
 	};
 
 

@@ -3,26 +3,26 @@
 /.vscode/
 /.idea/
 
-# Dummy Project
-/bin/
+# Test
 /build/
 /CMakeLists.txt
-main.cpp
+/main.cpp
 
 # Libraries
-/lib/zlib/*
-/lib/vorbis/*
-/lib/openssl/*
-/lib/cm2/x86/*
-/lib/faktum/x86/*
-!/lib/cm2/x86/cm2.dll.sha256
-!/lib/faktum/x86/faktum.dll.sha256
+/lib/
 
-# Misc
-/assets/
-*.bak
+# Binaries
+/bin/*
+!/bin/faktum
+!/bin/cm2
+/bin/faktum/*
+/bin/cm2/*
+!/bin/faktum/faktum.dll.sha256
+!/bin/cm2/cm2.dll.sha256
 
 # Tools
-*.py
-*.exe
-*.cmd
+/tools/*
+!/tools/libgen.cmd
+
+# Misc
+*.bak

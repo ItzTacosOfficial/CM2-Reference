@@ -1,41 +1,65 @@
-# CM2-Reference
+# CM2 Reference
 
 ### Reverse engineered headers of the Faktum and CM2 libraries from the 2007 PC game Crazy Machines 2
 
-## Building
+> [!IMPORTANT]
+> This is a hobby project and will not be maintained forever/full time.
+> The project is far from finished, but due to the nature of the game this still opens some possibilities.
+> Actual documentation of the libraries is most likely not happening any time soon.
+
+## Usage
 
 ### Requirements
 
-- `cm2.dll` 1.05.0385[^1]
-- `faktum.dll` 1.3.0296[^1]
-- [openssl 0.9.8e](https://ftp.openssl.org/source/old/0.9.x/) headers
-- [zlib 1.2.3](https://github.com/madler/zlib/tree/v1.2.3) headers
-- MSVC (latest, amd64_x86 target)
+- MSVC VS 2022 (latest)
+- CMake
+- `cm2.dll`[^1]
+- `faktum.dll`[^1]
 
-[^1]: The version of both libraries can be checked through the `cm2.log` file written upon game launch
+[^1]: The DLLs are located in the root of the game files
+
+> [!NOTE]
+> This project is meant to work **exclusively** with the Steam build of Crazy Machines 2.
+> That is to provide support for the only non-physical up-to-date version of the game.
 
 ### Preparation
 
-Copy both the zlib and openssl include folders into `lib/<LIBRARY>/include` (this path is to be consistent with the other libraries).
+Copy both the game's DLLs from the game's root into `bin/<Library>/`.
 
-Copy both the game's DLLs from the game's root into the corresponding folder at `lib/<LIBRARY>/x86`.
+Verify compatibility by checking the hashes of your DLLs against the `.sha256` files located in the same directories.
 
-Verify the hashes of your DLLs with the `.sha256` files located in the same folders to make sure they are compatible with the headers.
+### Building
 
-Convert the DLLs into `.lib` files by following the [guide on stackoverflow](https://stackoverflow.com/a/16127548).
+In your project's `CMakeLists.txt`, add the `cmake` folder of the repository as a subdirectory:
 
-### Compiling
+```cmake
+add_subdirectory("<Repository>/cmake")
+```
 
-Add all the libraries' include folders (`lib/<LIBRARY>/include`) to the include path, link against both libraries (now located at `lib/cm2/x86/cm2.lib` and `lib/faktum/x86/faktum.lib`) and compile with the MSVC compiler on amd64_x86 target.
+> [!TIP]
+> Cloning the repository in a separate directory then assigning its directory to an enviroment variable is recommended.
+> This allows for multiple separate projects to add the reference via `"$ENV{Variable}/cmake"`
 
-Make sure to compile with the standard set to C++20 to avoid any issues, a CMake project is recommended.
+Now that the reference has been added, you can link application against the `faktum` and `cm2` targets:
 
-## But why
+```cmake
+target_link_libraries(<Application> faktum cm2)
+```
 
-- Building [Anfora](https://github.com/ItzTacosOfficial/Anfora) mods (and the modloader itself as well)
+Upon building, the library files required for linking are going to get generated automatically.
+
+To exclusively generate the files, the two targets `faktum.lib` and `cm2.lib` are provided.
+
+Make sure to compile your project with the C++ standard set to 20 or above.[^2]
+
+[^2]: A modern C++ standard is required due to possible library extensions.
+
+## But why?
+
+- Building [Anfora](https://github.com/ItzTacosOfficial/Anfora) and its mods
 - Replacing the game's main executable `cm2.exe` (which is how Anfora works)
 - Hopefully writing useful modding tools (for the `.fst` format)
 
 ## Contributing
 
-Commit messages should follow the formatting `<FAK/CM2>: <MESSAGE>`
+Commit messages should follow the formatting `<FAK/CM2>: <MESSAGE>` (e.g. `FAK: Updated FObject`)
